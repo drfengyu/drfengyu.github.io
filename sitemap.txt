@@ -1,2 +1,2 @@
-https://github.com/Drfengling/Drfengling.github.io.git/2022/04/12/hello-world/
-https://github.com/Drfengling/Drfengling.github.io.git
+https://github.com/Drfengling/Drfengling.github.io.git/project/2022/04/12/hello-world/
+https://github.com/Drfengling/Drfengling.github.io.git/project
