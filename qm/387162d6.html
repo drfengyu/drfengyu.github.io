@@ -18,7 +18,7 @@
   <meta name="description" content="一.初识Hexo;快速、简洁且高效的博客框架，官网：https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。 但是要知道它是个博客框架，有很多好看的主题https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建个人博客(一)">
-<meta property="og:url" content="https://drfengling.github.io/lxb/387162d6.html">
+<meta property="og:url" content="https://drfengling.github.io/qm/387162d6.html">
 <meta property="og:site_name" content="浅梦博客">
 <meta property="og:description" content="一.初识Hexo;快速、简洁且高效的博客框架，官网：https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。 但是要知道它是个博客框架，有很多好看的主题https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。">
 <meta property="og:locale" content="zh_CN">
@@ -53,8 +53,7 @@
   <link rel="stylesheet" id="nprogress-css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" media="all">
   
   
-  
-    <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
+
   
   
     <link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
@@ -226,13 +225,13 @@
 <p>source<br>资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
 <p>themes<br>主题 文件夹。Hexo 会根据主题来生成静态页面。<br>4.启动Hexo $ hexo s</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo s</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-<p>5.浏览器输入：<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>，可查看到默认生成了一篇博文：<br><img src="/lxb/387162d6/HexoIndex.jpg"></p>
+<p>5.浏览器输入：<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>，可查看到默认生成了一篇博文：<br><img src="/qm/387162d6/HexoIndex.jpg"></p>
 <p>6.新建一篇博文<br>ctrl+c断开刚刚的链接，新建一篇博文：hexo n “发布第二篇个人博客”</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo n <span class="string">&quot;发布第二篇个人博客&quot;</span></span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Created: J:\WEIXIN\Blog\博客1\<span class="built_in">source</span>\_posts\发布第二篇个人博客.md</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt;</span><br></pre></td></tr></table></figure>
-<p>5、接下来就是更改博文内容，可以选择用命令行，也可用开发工具，我直接使用记事本打开该文件了，找到相应的位置，做修改即可<br><img src="/lxb/387162d6/HexobowenCreate.jpg"><br>6、同样在博客日记文件下： 清理：hexo clean 生成：hexo g 启动：hexo s</p>
+<p>5、接下来就是更改博文内容，可以选择用命令行，也可用开发工具，我直接使用记事本打开该文件了，找到相应的位置，做修改即可<br><img src="/qm/387162d6/HexobowenCreate.jpg"><br>6、同样在博客日记文件下： 清理：hexo clean 生成：hexo g 启动：hexo s</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo cl</span><br><span class="line">..</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo g</span><br><span class="line">..</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo s</span><br></pre></td></tr></table></figure>
-<p><img src="/lxb/387162d6/hexobowen2.jpg"><br>完成!</p>
-<h3 id="五-部署到Github上"><a href="#五-部署到Github上" class="headerlink" title="五.部署到Github上;"></a>五.部署到Github上;</h3><p>1、登录github：<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a>，没账号的新建一个，新创建一个仓库New repository，仓库名必须为：昵称.github.io:，输入描述，创建：<br><img src="/lxb/387162d6/1.jpg"><br><img src="/lxb/387162d6/2.jpg"><br>2、命令行下，ctrl+c，退出命令，仍然在博客日记目录下，安装git部署插件：npm install hexo-deployer-git –save</p>
+<p><img src="/qm/387162d6/hexobowen2.jpg"><br>完成!</p>
+<h3 id="五-部署到Github上"><a href="#五-部署到Github上" class="headerlink" title="五.部署到Github上;"></a>五.部署到Github上;</h3><p>1、登录github：<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a>，没账号的新建一个，新创建一个仓库New repository，仓库名必须为：昵称.github.io:，输入描述，创建：<br><img src="/qm/387162d6/1.jpg"><br><img src="/qm/387162d6/2.jpg"><br>2、命令行下，ctrl+c，退出命令，仍然在博客日记目录下，安装git部署插件：npm install hexo-deployer-git –save</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>3、更改博客日记文件夹下，_config.yml的配置，我直接用记事本了，用命令行修改也可以：</p>
 <p>repo为第一步创建的git仓库</p>
@@ -306,7 +305,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://drfengling.github.io/lxb/387162d6.html",
+                text: "https://drfengling.github.io/qm/387162d6.html",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -318,7 +317,7 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://drfengling.github.io/lxb/387162d6.html";
+            const hostUrl       = "https://drfengling.github.io/qm/387162d6.html";
             const title         = "「搭建个人博客(一)」";
             const excerpt       = `一.初识Hexo;快速、简洁且高效的博客框架，官网：https://hexo.io/zh-cn/是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。
 但是要知道它是个博客框架，有很多好看的主题https://hexo.io/themes/可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。`;
@@ -352,12 +351,12 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Hello World" href="/lxb/4a17b156.html">&lt; 上一篇</a>
+                <a title=" Hello World" href="/qm/4a17b156.html">&lt; 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" 搭建个人博客(二)" href="/lxb/4b6f21d9.html">下一篇 &gt;</a>
+                <a title=" 搭建个人博客(二)" href="/qm/4b6f21d9.html">下一篇 &gt;</a>
             </div>
             
         </nav>
@@ -394,7 +393,7 @@
                 文章
             </span>
             <span class="count">
-                7
+                8
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -410,7 +409,7 @@
                 标签
             </span>
             <span class="count">
-                6
+                7
             </span>
         </a>
     </div>
@@ -421,7 +420,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">7</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">8</span></li></ul>
   </aside>
 
 
@@ -430,7 +429,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/GitHub/" style="font-size: 0.8em;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 0.8em;">Hexo</a> <a href="/tags/Nodejs/" style="font-size: 0.8em;">Nodejs</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.7em;">音乐</a>
+        <a href="/tags/Aplayer/" style="font-size: 0.6em;">Aplayer</a> <a href="/tags/GitHub/" style="font-size: 0.8em;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 0.8em;">Hexo</a> <a href="/tags/Nodejs/" style="font-size: 0.8em;">Nodejs</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.7em;">音乐</a>
       </div>
   </aside>
 
@@ -444,34 +443,36 @@
         
           
           
-            <a class="list-group-item" href="/lxb/a8d0420a.html"><i class="fa  fa-book"></i> 搭建个人博客(五)</a>
+            <a class="list-group-item" href="/qm/31df0a78.html"><i class="fa  fa-book"></i> 搭建个人博客(六)</a>
             
           
         
           
           
-            <a class="list-group-item" href="/lxb/ae7b1577.html"><i class="fa  fa-book"></i> 搭建个人博客(四)</a>
+            <a class="list-group-item" href="/qm/a8d0420a.html"><i class="fa  fa-book"></i> 搭建个人博客(五)</a>
             
           
         
           
           
-            <a class="list-group-item" href="/lxb/5438fa78.html"><i class="fa  fa-book"></i> 搭建个人博客(三)</a>
+            <a class="list-group-item" href="/qm/ae7b1577.html"><i class="fa  fa-book"></i> 搭建个人博客(四)</a>
             
           
         
           
           
-            <a class="list-group-item" href="/lxb/4b6f21d9.html"><i class="fa  fa-book"></i> 搭建个人博客(二)</a>
+            <a class="list-group-item" href="/qm/5438fa78.html"><i class="fa  fa-book"></i> 搭建个人博客(三)</a>
             
           
         
           
           
-            <a class="list-group-item" href="/lxb/387162d6.html"><i class="fa  fa-book"></i> 搭建个人博客(一)</a>
+            <a class="list-group-item" href="/qm/4b6f21d9.html"><i class="fa  fa-book"></i> 搭建个人博客(二)</a>
             
           
         
+          
+            
           
             
           
@@ -488,7 +489,7 @@
     </div>
 </div>
 <footer>
-    <div id="footer"  class="ap-lrc"  >
+    <div id="footer"  >
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 footer-list text-center">
@@ -566,20 +567,6 @@
 
 
     <script async src="/js/candy.min.js"></script>
-
-
-
-    <script defer src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
-    
-    <script defer src="https://unpkg.com/meting@2/dist/Meting.min.js"></script>
-    <meting-js
-        server="netease"
-        type="playlist"
-        id="3204190542"
-        order="random"
-        fixed="true"
-    >
-    </meting-js>
 
 
 

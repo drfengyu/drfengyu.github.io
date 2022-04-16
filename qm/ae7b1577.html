@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>搭建个人博客(二) | 浅梦博客</title>
+  <title>搭建个人博客(四) | 浅梦博客</title>
   <meta name="author" content="浅梦风凌" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,22 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="GitHub, Hexo, Nodejs" />
+    <meta name="keywords" content="音乐" />
   
-  <meta name="description" content="新建文章与页面12hexo new &quot;title&quot;  # 生成新文章: \source\_posts\title.mdhexo new page &quot;title&quot;  # 生成新的页面, 后面可在主题配置文件中配置页面 生成文章或页面的模板放在博客文件夹根目录下的 scaffolds&#x2F; 文件夹里面, 文章对应的是 post.md , 页面对应的是page.md,">
+  <meta name="description" content="插入音乐需要使用 iframe 标签 在实际运用中，可以使用网易云音乐，搜索想要的歌曲，点击歌曲名字进入播放器页面，点击生成外链播放器。 1&lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;100% height&#x3D;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建个人博客(二)">
-<meta property="og:url" content="https://drfengling.github.io/lxb/4b6f21d9.html">
+<meta property="og:title" content="搭建个人博客(四)">
+<meta property="og:url" content="https://drfengling.github.io/qm/ae7b1577.html">
 <meta property="og:site_name" content="浅梦博客">
-<meta property="og:description" content="新建文章与页面12hexo new &quot;title&quot;  # 生成新文章: \source\_posts\title.mdhexo new page &quot;title&quot;  # 生成新的页面, 后面可在主题配置文件中配置页面 生成文章或页面的模板放在博客文件夹根目录下的 scaffolds&#x2F; 文件夹里面, 文章对应的是 post.md , 页面对应的是page.md,">
+<meta property="og:description" content="插入音乐需要使用 iframe 标签 在实际运用中，可以使用网易云音乐，搜索想要的歌曲，点击歌曲名字进入播放器页面，点击生成外链播放器。 1&lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;100% height&#x3D;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://drfengling.github.io/null">
-<meta property="article:published_time" content="2022-04-15T01:18:10.000Z">
-<meta property="article:modified_time" content="2022-04-15T07:40:13.962Z">
+<meta property="article:published_time" content="2022-04-15T07:39:32.000Z">
+<meta property="article:modified_time" content="2022-04-15T07:45:43.370Z">
 <meta property="article:author" content="浅梦风凌">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="Nodejs">
+<meta property="article:tag" content="音乐">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://drfengling.github.io/null">
 <meta name="twitter:site" content="@null">
@@ -53,8 +51,7 @@
   <link rel="stylesheet" id="nprogress-css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" media="all">
   
   
-  
-    <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
+
   
   
     <link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
@@ -174,7 +171,7 @@
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center">搭建个人博客(二)</h1>
+                <h1 class="kratos-entry-title text-center">搭建个人博客(四)</h1>
             
             
             <ul class="kratos-post-meta text-center">
@@ -184,7 +181,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        1465
+                        323
                     
                     字
                 </li>
@@ -194,41 +191,15 @@
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1650008413962"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1650008743370"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             <hr />
-            <h2 id="新建文章与页面"><a href="#新建文章与页面" class="headerlink" title="新建文章与页面"></a>新建文章与页面</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;title&quot;</span>  <span class="comment"># 生成新文章: \source\_posts\title.md</span></span><br><span class="line">hexo new page <span class="string">&quot;title&quot;</span>  <span class="comment"># 生成新的页面, 后面可在主题配置文件中配置页面</span></span><br></pre></td></tr></table></figure>
-<p>生成文章或页面的模板放在博客文件夹根目录下的 scaffolds/ 文件夹里面, 文章对应的是 post.md , 页面对应的是page.md, 草稿的是draft.md</p>
+            <h2 id="插入音乐"><a href="#插入音乐" class="headerlink" title="插入音乐"></a>插入音乐</h2><p>需要使用 iframe 标签</p>
+<p>在实际运用中，可以使用网易云音乐，搜索想要的歌曲，点击歌曲名字进入播放器页面，点击生成外链播放器。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe frameborder=<span class="string">&quot;no&quot;</span> border=<span class="string">&quot;0&quot;</span> marginwidth=<span class="string">&quot;0&quot;</span> marginheight=<span class="string">&quot;0&quot;</span> width=100% height=86 src=<span class="string">&quot;//music.163.com/outchain/player?type=3&amp;id=2501767770&amp;auto=1&amp;height=66&quot;</span>&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<h2 id="编辑文章"><a href="#编辑文章" class="headerlink" title="编辑文章"></a>编辑文章</h2><p>打开新建的文章\source_posts\postName.md, 其中postName是hexo new “title”中的title</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 搭建个人博客(二)  <span class="comment"># 文章页面上的显示名称, 可以任意修改, 不会出现在URL中</span></span><br><span class="line">categories: <span class="comment"># 文章分类目录, 多个分类使用[a,b,c]这种格式</span></span><br><span class="line">  - 博客日记</span><br><span class="line">tags:  <span class="comment"># 文章标签</span></span><br><span class="line">  - Hexo</span><br><span class="line">  - GitHub</span><br><span class="line">  - Nodejs</span><br><span class="line">abbrlink: 4b6f21d9 <span class="comment">#短链接</span></span><br><span class="line"><span class="built_in">date</span>: 2022-04-15 09:18:10 <span class="comment"># 文章生成时间, 一般不改</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment">#这里开始使用markdown格式输入你的正文. </span></span><br><span class="line"></span><br><span class="line">&lt;!--more--&gt; </span><br><span class="line"><span class="comment">#more标签以下的内容要点击“继续阅读”才能看见</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><h3 id="插入图片有三种方式"><a href="#插入图片有三种方式" class="headerlink" title="插入图片有三种方式"></a>插入图片有三种方式</h3><h4 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h4><p>在博客根目录的 source 文件夹下新建一个 img 文件夹专门存放图片, 在博文中引用的图片路径为 /img/图片名.后缀</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](图片路径)</span><br></pre></td></tr></table></figure>
-
-<h4 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h4><h5 id="图片插件"><a href="#图片插件" class="headerlink" title="图片插件"></a>图片插件</h5><p>在hexo中使用文章资源文件夹需要在config.yaml文件中更改一下配置：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>当该配置被应用后，使用hexo new命令创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹。</p>
-<p>插件hexo-renderer-marked解决了这个问题。可以只用npm install hexo-renderer-marked命令直接安装，之后在config.yaml中更改配置如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br><span class="line">marked:</span><br><span class="line">  prependRoot: <span class="literal">true</span></span><br><span class="line">  postAsset: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>图片放入文章资源夹 之后就可以在使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](image.jpg)</span><br></pre></td></tr></table></figure>
-<p><img src="/lxb/4b6f21d9/image.jpg">的方式愉快的插入图片了。</p>
-<h4 id="方式三"><a href="#方式三" class="headerlink" title="方式三"></a>方式三</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](使用网络图片:http://www.dmoe.cc/random.php)</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://www.dmoe.cc/random.php"></p>
-<h2 id="简单的命令"><a href="#简单的命令" class="headerlink" title="简单的命令"></a>简单的命令</h2><h4 id="总结一下简单的使用命令"><a href="#总结一下简单的使用命令" class="headerlink" title="总结一下简单的使用命令"></a>总结一下简单的使用命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo init [folder] <span class="comment"># 初始化一个网站. 如果没有设置 folder , Hexo 默认在目前的文件夹建立网站</span></span><br><span class="line">hexo new [layout] &lt;title&gt; <span class="comment"># 新建一篇文章. 如果没有设置 layout 的话, 默认使用 _config.yml 中的 default_layout 参数代替. 如果标题包含空格的话, 请使用引号括起来</span></span><br><span class="line">hexo version <span class="comment"># 查看版本</span></span><br><span class="line">hexo clean <span class="comment"># 清除缓存文件 (db.json) 和已生成的静态文件 (public)</span></span><br><span class="line">hexo g <span class="comment"># 等于hexo generate # 生成静态文件</span></span><br><span class="line">hexo s <span class="comment"># 等于hexo server # 本地预览</span></span><br><span class="line">hexo d <span class="comment"># 等于hexo deploy # 部署, 可与hexo g合并为 hexo d -g</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=3&id=2501767770&auto=1&height=66"></iframe>
 
 
         </div>
@@ -283,7 +254,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://drfengling.github.io/lxb/4b6f21d9.html",
+                text: "https://drfengling.github.io/qm/ae7b1577.html",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -295,10 +266,11 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://drfengling.github.io/lxb/4b6f21d9.html";
-            const title         = "「搭建个人博客(二)」";
-            const excerpt       = `新建文章与页面12hexo new &quot;title&quot;  # 生成新文章: \source\_posts\title.mdhexo new page &quot;title&quot;  # 生成新的页面, 后面可在主题配置文件中配置页面
-生成文章或页面的模板放在博客文件夹根目录下的 scaffolds/ 文件夹里面, 文章对应的是 post.md , 页面对应的是page.md, 草稿的是draft.md`;
+            const hostUrl       = "https://drfengling.github.io/qm/ae7b1577.html";
+            const title         = "「搭建个人博客(四)」";
+            const excerpt       = `插入音乐需要使用 iframe 标签
+在实际运用中，可以使用网易云音乐，搜索想要的歌曲，点击歌曲名字进入播放器页面，点击生成外链播放器。
+1&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=100% height=86 src=&quot;//music.163.com/outchain/player?type=3&amp;id=2501767770&amp;auto=1&amp;height=66&quot;&gt;&lt;/iframe&gt;`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -317,7 +289,7 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/GitHub/" rel="tag">GitHub</a>, <a class="tag-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>, <a class="tag-none-link" href="/tags/Nodejs/" rel="tag">Nodejs</a>
+                    <a class="tag-none-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a>
                 </div>
                 <div class="pull-date">
                 <span>最后编辑：2022-04-15</span>
@@ -329,12 +301,12 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" 搭建个人博客(一)" href="/lxb/387162d6.html">&lt; 上一篇</a>
+                <a title=" 搭建个人博客(三)" href="/qm/5438fa78.html">&lt; 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" 搭建个人博客(三)" href="/lxb/5438fa78.html">下一篇 &gt;</a>
+                <a title=" 搭建个人博客(五)" href="/qm/a8d0420a.html">下一篇 &gt;</a>
             </div>
             
         </nav>
@@ -371,7 +343,7 @@
                 文章
             </span>
             <span class="count">
-                7
+                8
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -387,7 +359,7 @@
                 标签
             </span>
             <span class="count">
-                6
+                7
             </span>
         </a>
     </div>
@@ -398,7 +370,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">7</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">8</span></li></ul>
   </aside>
 
 
@@ -407,7 +379,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/GitHub/" style="font-size: 0.8em;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 0.8em;">Hexo</a> <a href="/tags/Nodejs/" style="font-size: 0.8em;">Nodejs</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.7em;">音乐</a>
+        <a href="/tags/Aplayer/" style="font-size: 0.6em;">Aplayer</a> <a href="/tags/GitHub/" style="font-size: 0.8em;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 0.8em;">Hexo</a> <a href="/tags/Nodejs/" style="font-size: 0.8em;">Nodejs</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.7em;">音乐</a>
       </div>
   </aside>
 
@@ -421,34 +393,36 @@
         
           
           
-            <a class="list-group-item" href="/lxb/a8d0420a.html"><i class="fa  fa-book"></i> 搭建个人博客(五)</a>
+            <a class="list-group-item" href="/qm/31df0a78.html"><i class="fa  fa-book"></i> 搭建个人博客(六)</a>
             
           
         
           
           
-            <a class="list-group-item" href="/lxb/ae7b1577.html"><i class="fa  fa-book"></i> 搭建个人博客(四)</a>
+            <a class="list-group-item" href="/qm/a8d0420a.html"><i class="fa  fa-book"></i> 搭建个人博客(五)</a>
             
           
         
           
           
-            <a class="list-group-item" href="/lxb/5438fa78.html"><i class="fa  fa-book"></i> 搭建个人博客(三)</a>
+            <a class="list-group-item" href="/qm/ae7b1577.html"><i class="fa  fa-book"></i> 搭建个人博客(四)</a>
             
           
         
           
           
-            <a class="list-group-item" href="/lxb/4b6f21d9.html"><i class="fa  fa-book"></i> 搭建个人博客(二)</a>
+            <a class="list-group-item" href="/qm/5438fa78.html"><i class="fa  fa-book"></i> 搭建个人博客(三)</a>
             
           
         
           
           
-            <a class="list-group-item" href="/lxb/387162d6.html"><i class="fa  fa-book"></i> 搭建个人博客(一)</a>
+            <a class="list-group-item" href="/qm/4b6f21d9.html"><i class="fa  fa-book"></i> 搭建个人博客(二)</a>
             
           
         
+          
+            
           
             
           
@@ -465,7 +439,7 @@
     </div>
 </div>
 <footer>
-    <div id="footer"  class="ap-lrc"  >
+    <div id="footer"  >
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 footer-list text-center">
@@ -543,20 +517,6 @@
 
 
     <script async src="/js/candy.min.js"></script>
-
-
-
-    <script defer src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
-    
-    <script defer src="https://unpkg.com/meting@2/dist/Meting.min.js"></script>
-    <meting-js
-        server="netease"
-        type="playlist"
-        id="3204190542"
-        order="random"
-        fixed="true"
-    >
-    </meting-js>
 
 
 

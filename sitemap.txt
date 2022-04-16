@@ -1,12 +1,13 @@
-https://drfengling.github.io/lxb/5438fa78.html
+https://drfengling.github.io/qm/31df0a78.html
 https://drfengling.github.io/playlist/index.html
-https://drfengling.github.io/lxb/d2b740ea.html
-https://drfengling.github.io/lxb/a8d0420a.html
-https://drfengling.github.io/lxb/ae7b1577.html
-https://drfengling.github.io/lxb/4b6f21d9.html
+https://drfengling.github.io/qm/5438fa78.html
+https://drfengling.github.io/qm/d2b740ea.html
+https://drfengling.github.io/qm/a8d0420a.html
+https://drfengling.github.io/qm/ae7b1577.html
+https://drfengling.github.io/qm/4b6f21d9.html
 https://drfengling.github.io/First-Page/index.html
-https://drfengling.github.io/lxb/387162d6.html
-https://drfengling.github.io/lxb/4a17b156.html
+https://drfengling.github.io/qm/387162d6.html
+https://drfengling.github.io/qm/4a17b156.html
 https://drfengling.github.io/tags/index.html
 https://drfengling.github.io/categories/index.html
 https://drfengling.github.io/
@@ -16,4 +17,5 @@ https://drfengling.github.io/tags/Nodejs/
 https://drfengling.github.io/tags/%E6%97%A5%E8%AE%B0/
 https://drfengling.github.io/tags/%E9%9F%B3%E4%B9%90/
 https://drfengling.github.io/tags/%E8%A7%86%E9%A2%91/
+https://drfengling.github.io/tags/Aplayer/
 https://drfengling.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/
