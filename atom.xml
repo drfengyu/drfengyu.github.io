@@ -6,7 +6,7 @@
   <link href="https://drfengling.github.io/atom.xml" rel="self"/>
   
   <link href="https://drfengling.github.io/"/>
-  <updated>2022-04-22T02:22:27.837Z</updated>
+  <updated>2022-04-22T03:27:30.933Z</updated>
   <id>https://drfengling.github.io/</id>
   
   <author>
@@ -17,33 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>测试</title>
-    <link href="https://drfengling.github.io/qm/9daba997.html"/>
-    <id>https://drfengling.github.io/qm/9daba997.html</id>
-    <published>2022-04-22T02:22:27.000Z</published>
-    <updated>2022-04-22T02:22:27.837Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    <category term="博客日记" scheme="https://drfengling.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Valine评论系统</title>
+    <title>livere评论系统</title>
     <link href="https://drfengling.github.io/qm/d318877c.html"/>
     <id>https://drfengling.github.io/qm/d318877c.html</id>
     <published>2022-04-19T07:11:11.000Z</published>
-    <updated>2022-04-19T07:11:38.266Z</updated>
+    <updated>2022-04-22T03:27:30.933Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
     
@@ -57,6 +35,8 @@
     
     <category term="博客日记" scheme="https://drfengling.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/"/>
     
+    
+    <category term="线上评论" scheme="https://drfengling.github.io/tags/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/"/>
     
   </entry>
   
@@ -92,7 +72,7 @@
     <published>2022-04-16T01:40:04.000Z</published>
     <updated>2022-04-19T06:39:00.329Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Aplayer音乐播放器"><a href="#Aplayer音乐播放器" class="headerlink" title="Aplayer音乐播放器"></a>Aplayer音乐播放器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% meting <span class="string">&quot;19723756&quot;</span> <span class="string">&quot;netease&quot;</span> <span class="string">&quot;playlist&quot;</span> %&#125;</span><br></pre></td></tr></table></figure><span id="more"></span><p>如果没有显示歌单,请刷新一下.</p>    <div id="aplayer-gjRxxOtg" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="19723756" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Aplayer音乐播放器"><a href="#Aplayer音乐播放器" class="headerlink" title="Aplayer音乐播放器"></a>Aplayer音乐播放器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% meting <span class="string">&quot;19723756&quot;</span> <span class="string">&quot;netease&quot;</span> <span class="string">&quot;playlist&quot;</span> %&#125;</span><br></pre></td></tr></table></figure><span id="more"></span><p>如果没有显示歌单,请刷新一下.</p>    <div id="aplayer-lcMXQjxZ" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="19723756" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div>]]></content>
     
     
     <summary type="html">&lt;h2 id=&quot;Aplayer音乐播放器&quot;&gt;&lt;a href=&quot;#Aplayer音乐播放器&quot; class=&quot;headerlink&quot; title=&quot;Aplayer音乐播放器&quot;&gt;&lt;/a&gt;Aplayer音乐播放器&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;% meting &lt;span class=&quot;string&quot;&gt;&amp;quot;19723756&amp;quot;&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;netease&amp;quot;&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;playlist&amp;quot;&lt;/span&gt; %&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
