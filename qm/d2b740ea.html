@@ -356,21 +356,20 @@
         </nav>
     
     
-        <link rel="stylesheet" href="https://unpkg.com/gitalk@1/dist/gitalk.css">
-<div id="gitalk-container" class="post-comments lazy-load" style="padding-left:2rem; padding-right:2rem;"></div>
+        <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<div id="gitment-container" class="post-comments lazy-load"></div>
 <script>
     var load_comm = () => {
         const init = () => {
-            console.log('Gitalk loading...');
-            const gitalk = new Gitalk(Object.assign({
-                id: '/qm/d2b740ea.html',
-                path: '/qm/d2b740ea.html'
-            }, JSON.parse('{"clientID":"67075d9ed7922a3c9791","clientSecret":"50ce067bd2bb3d9e9e48d56804da1a6d25e7bf16","repo":"dryunment","owner":"Drfengling","admin":["Drfengling"],"distractionFreeMode":false}')));
+            console.log('Gitment loading...');
+            const gitment = new Gitment(Object.assign({
+                id: '/qm/d2b740ea.html'
+            }, JSON.parse('{"owner":"Drfengling","repo":"dryunment","oauth":{"client_id":"67075d9ed7922a3c9791","client_secret":"50ce067bd2bb3d9e9e48d56804da1a6d25e7bf16"}}')));
 
-            gitalk.render('gitalk-container');
+            gitment.render('gitment-container');
         }
-        if (typeof Gitalk === 'undefined') {
-            const src = 'https://unpkg.com/gitalk@1/dist/gitalk.min.js';
+        if (typeof Gitment === 'undefined') {
+            const src = 'https://jjeejj.github.io/js/gitment.js';
             $.getScript(src, init);
         } else {
             init();
@@ -378,7 +377,7 @@
     };
 load_comm();
 </script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">comments powered by Gitalk.</a></noscript>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/imsun/gitment">comments powered by Gitment.</a></noscript>
     
 </article>
 
