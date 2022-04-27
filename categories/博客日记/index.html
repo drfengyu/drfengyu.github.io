@@ -194,66 +194,6 @@
         <article>
             <div class="kratos-hentry kratos-post-inner clearfix index-post">
                 <div class="kratos-entry-thumb-new">
-                    <a href="/qm/d318877c.html">
-                        
-                    </a>
-                </div>
-                <header class="kratos-entry-header">
-                    <h1 class="text-center"><a class="kratos-entry-title" href="/qm/d318877c.html">livere评论系统</a></h1>
-                    
-                    <ul class="kratos-post-meta text-center">
-                        <li>
-                            <i class="fa fa-calendar"></i>
-                            2022-04-27
-                        </li>
-                        
-                            <li>
-                                <i class="fa fa-folder"></i>
-                                分类于
-                                <a class="label-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a>
-                            </li>
-                        
-                        
-                            <li>
-                                <i class="fa fa-tags"></i>
-                                <a class="tag-none-link" href="/tags/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/" rel="tag">线上评论</a>
-                            </li>
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </ul>
-                </header>
-                <hr />
-                <div class="kratos-post-content">
-                    <h3 id="Hexo博客添加LiveRe评论系统"><a href="#Hexo博客添加LiveRe评论系统" class="headerlink" title="Hexo博客添加LiveRe评论系统"></a>Hexo博客添加LiveRe评论系统</h3><p>好久不见,又是长长的探索实践之旅了,最近在新加评论系统出现了各种问题,也有所得.<br>评论系统可以说五花八门啦，用得多的比如：Gitment、Gitalk、LiveRe、Disqus、disqusjs，twikoo, waline、Valine 等</p>
-<h5 id="这里以LiveRe为例"><a href="#这里以LiveRe为例" class="headerlink" title="这里以LiveRe为例:"></a>这里以LiveRe为例:</h5><p>1.进入来必力官网 <a target="_blank" rel="noopener" href="https://www.livere.com/">https://www.livere.com/</a><br>2.右上角个人头像点进去 有账号可以直接登录<br>3.没有就注册一个<a target="_blank" rel="noopener" href="https://was.livere.me/register?lang=zh-cn">https://was.livere.me/register?lang=zh-cn</a>,填写自己的邮箱,我这里用了网易163邮箱,可以根据自己情况填写,填写密码完成注册.<br>4.注册以后登录进去，点击导航栏安装,选择City版进行安装，City版是免费的，对我们这种个人博客而言完全足够了<br><img src="/qm/d318877c/1.jpg"><br>5.接下来需要填写一些关于你想将LiveRe用于的博客的一些信息<br>6.填完之后，申请获取代码，此时其将会给你一段代码，该段代码等下需要加到你的个人博客的页面中，我们可以先将其复制并保存起来。</p>
-<h3 id="LiveRe评论配置集成"><a href="#LiveRe评论配置集成" class="headerlink" title="LiveRe评论配置集成"></a>LiveRe评论配置集成</h3><p>1.回到我们的博客根目录打开themes主题文件夹 我用的是kratos-rebirth主题,以kratos-rebirth为例:<br><img src="/qm/d318877c/2.jpg"><br>打开_config.yml文件更改配置<br><img src="/qm/d318877c/3.jpg"><br>我们更改Post Page 文章页配置posts下属性comments的属性取值<br>这里用到的评论系统是livere 对应更改provider: livere<br>enableBGImage用来配置背景图片<br>2.找到\kratos-rebirth\layout_comments文件夹 更改 livere.ejs文件配置 没有可以创建一个<br>3.打开livere文件,新增来必力评论代码如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="built_in">id</span>=<span class="string">&quot;lv-container&quot;</span> class=<span class="string">&quot;post-comments lazy-load &lt;% if (theme.posts.comments?.enableBGImage) &#123; %&gt; bg-image&lt;% &#125; %&gt;&quot;</span> data-id=<span class="string">&quot;&lt;%- theme.livere.id || &#x27;city&#x27; %&gt;&quot;</span> data-uid=<span class="string">&quot;&lt;%- theme.livere.uid %&gt;&quot;</span>&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">   (<span class="keyword">function</span>(d, s) &#123;</span><br><span class="line">       var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (typeof LivereTower === <span class="string">&#x27;function&#x27;</span>) &#123; <span class="built_in">return</span>; &#125;</span><br><span class="line"></span><br><span class="line">       j = d.createElement(s);</span><br><span class="line">       j.src = <span class="string">&#x27;https://cdn-city.livere.com/js/embed.dist.js&#x27;</span>;</span><br><span class="line">       j.async = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">       e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, <span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;noscript&gt;为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure>
-<p>老样子,先来三杯小鸟伏特加 powershell或命令行打开博客根目录<br>键入命令:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>本地部署完成后可以打开博客文章访问就可以看到文章下方加载除评论区了,选择账号登录就可以进行评论了.<br>确认无误hexo d部署到服务器上<br><a href="https://drfengling.github.io/">https://drfengling.github.io</a><br>由于研究了多种博客评论系统 所以你看到的评论系统不一定是livere.有问题评论区欢迎评论交流.<br>到此,livere评论系统就完成啦，快来动手试试吧.</p>
-
-                </div>
-                <footer class="kratos-entry-footer clearfix">
-                    <div class="post-like-donate text-center clearfix">
-                        <a class="read-more" href="/qm/d318877c.html#more" title="livere评论系统">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
-                    </div>
-                </footer>
-            </div>
-        </article>
-    
-
-    
-    
-        <article>
-            <div class="kratos-hentry kratos-post-inner clearfix index-post">
-                <div class="kratos-entry-thumb-new">
                     <a href="/qm/5f88ef60.html">
                         
                     </a>
@@ -467,6 +407,59 @@
         </article>
     
 
+    
+    
+        <article>
+            <div class="kratos-hentry kratos-post-inner clearfix index-post">
+                <div class="kratos-entry-thumb-new">
+                    <a href="/qm/5438fa78.html">
+                        
+                    </a>
+                </div>
+                <header class="kratos-entry-header">
+                    <h1 class="text-center"><a class="kratos-entry-title" href="/qm/5438fa78.html">搭建个人博客(三)</a></h1>
+                    
+                    <ul class="kratos-post-meta text-center">
+                        <li>
+                            <i class="fa fa-calendar"></i>
+                            2022-04-15
+                        </li>
+                        
+                            <li>
+                                <i class="fa fa-folder"></i>
+                                分类于
+                                <a class="label-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a>
+                            </li>
+                        
+                        
+                            <li>
+                                <i class="fa fa-tags"></i>
+                                <a class="tag-none-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a>
+                            </li>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </ul>
+                </header>
+                <hr />
+                <div class="kratos-post-content">
+                    <h2 id="创建歌单页面"><a href="#创建歌单页面" class="headerlink" title="创建歌单页面"></a>创建歌单页面</h2><p>由于我想在单独的页面加入歌单，所以额外创了个页面，也可以直接在文章中插入，原理都是一样的。</p>
+                </div>
+                <footer class="kratos-entry-footer clearfix">
+                    <div class="post-like-donate text-center clearfix">
+                        <a class="read-more" href="/qm/5438fa78.html#more" title="搭建个人博客(三)">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </footer>
+            </div>
+        </article>
+    
+
 
 
     <div class='text-center pagination'>
@@ -512,7 +505,7 @@
                 文章
             </span>
             <span class="count">
-                10
+                11
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -520,7 +513,7 @@
                 分类
             </span>
             <span class="count">
-                1
+                2
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -528,7 +521,7 @@
                 标签
             </span>
             <span class="count">
-                9
+                10
             </span>
         </a>
     </div>
@@ -537,7 +530,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/">线上评论</a><span class="category-list-count">2</span></li></ul>
   </aside>
 
 
@@ -546,7 +539,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Aplayer/" style="font-size: 0.6em;">Aplayer</a> <a href="/tags/GitHub/" style="font-size: 0.8em;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 0.8em;">Hexo</a> <a href="/tags/Nodejs/" style="font-size: 0.8em;">Nodejs</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 0.6em;">博客美化</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/" style="font-size: 0.6em;">线上评论</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.7em;">音乐</a>
+        <a href="/tags/Aplayer/" style="font-size: 0.6em;">Aplayer</a> <a href="/tags/GitHub/" style="font-size: 0.8em;">GitHub</a> <a href="/tags/Gitalk/" style="font-size: 0.6em;">Gitalk</a> <a href="/tags/Hexo/" style="font-size: 0.8em;">Hexo</a> <a href="/tags/Nodejs/" style="font-size: 0.8em;">Nodejs</a> <a href="/tags/livere/" style="font-size: 0.6em;">livere</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 0.6em;">博客美化</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.7em;">音乐</a>
       </div>
   </aside>
 
@@ -557,6 +550,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/qm/212a5789.html"><i class="fa  fa-book"></i> Hexo博客添加Gitalk评论</a>
+            
+          
         
           
           
@@ -583,11 +582,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/qm/ae7b1577.html"><i class="fa  fa-book"></i> 搭建个人博客(四)</a>
             
-          
-        
           
             
           
