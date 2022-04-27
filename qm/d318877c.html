@@ -15,14 +15,16 @@
   
     <meta name="keywords" content="线上评论" />
   
-  <meta property="og:type" content="article">
+  <meta name="description" content="Hexo博客添加LiveRe评论系统好久不见,又是长长的探索实践之旅了,最近在新加评论系统出现了各种问题,也有所得.评论系统可以说五花八门啦，用得多的比如：Gitment、Gitalk、LiveRe、Disqus、disqusjs，twikoo, waline、Valine 等 这里以LiveRe为例:1.进入来必力官网 https:&#x2F;&#x2F;www.livere.com&#x2F;2.右上角个人头像点进去 有账">
+<meta property="og:type" content="article">
 <meta property="og:title" content="livere评论系统">
 <meta property="og:url" content="https://drfengling.github.io/qm/d318877c.html">
 <meta property="og:site_name" content="浅梦博客">
+<meta property="og:description" content="Hexo博客添加LiveRe评论系统好久不见,又是长长的探索实践之旅了,最近在新加评论系统出现了各种问题,也有所得.评论系统可以说五花八门啦，用得多的比如：Gitment、Gitalk、LiveRe、Disqus、disqusjs，twikoo, waline、Valine 等 这里以LiveRe为例:1.进入来必力官网 https:&#x2F;&#x2F;www.livere.com&#x2F;2.右上角个人头像点进去 有账">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://drfengling.github.io/images/favicon.ico">
-<meta property="article:published_time" content="2022-04-19T07:11:11.000Z">
-<meta property="article:modified_time" content="2022-04-22T03:27:30.933Z">
+<meta property="article:published_time" content="2022-04-27T01:21:11.000Z">
+<meta property="article:modified_time" content="2022-04-27T02:18:10.289Z">
 <meta property="article:author" content="浅梦风凌">
 <meta property="article:tag" content="线上评论">
 <meta name="twitter:card" content="summary">
@@ -172,13 +174,13 @@
             
             
             <ul class="kratos-post-meta text-center">
-                <li><i class="fa fa-calendar"></i> 2022-04-19</li>
+                <li><i class="fa fa-calendar"></i> 2022-04-27</li>
                 <li><i class="fa fa-user"></i> 作者 浅梦风凌</li>
                 <li>
                     <i class="fa fa-edit"></i> 
                     
                     
-                        0
+                        ~1.79K
                     
                     字
                 </li>
@@ -188,11 +190,22 @@
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1650598050933"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1651025890289"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
-            <hr />
+                <div class="kratos-post-inner-toc">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0LiveRe%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">Hexo博客添加LiveRe评论系统</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%99%E9%87%8C%E4%BB%A5LiveRe%E4%B8%BA%E4%BE%8B"><span class="toc-number">1.0.1.</span> <span class="toc-text">这里以LiveRe为例:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveRe%E8%AF%84%E8%AE%BA%E9%85%8D%E7%BD%AE%E9%9B%86%E6%88%90"><span class="toc-number">2.</span> <span class="toc-text">LiveRe评论配置集成</span></a></li></ol>
+                </div>
             
+            <hr />
+            <h3 id="Hexo博客添加LiveRe评论系统"><a href="#Hexo博客添加LiveRe评论系统" class="headerlink" title="Hexo博客添加LiveRe评论系统"></a>Hexo博客添加LiveRe评论系统</h3><p>好久不见,又是长长的探索实践之旅了,最近在新加评论系统出现了各种问题,也有所得.<br>评论系统可以说五花八门啦，用得多的比如：Gitment、Gitalk、LiveRe、Disqus、disqusjs，twikoo, waline、Valine 等</p>
+<h5 id="这里以LiveRe为例"><a href="#这里以LiveRe为例" class="headerlink" title="这里以LiveRe为例:"></a>这里以LiveRe为例:</h5><p>1.进入来必力官网 <a target="_blank" rel="noopener" href="https://www.livere.com/">https://www.livere.com/</a><br>2.右上角个人头像点进去 有账号可以直接登录<br>3.没有就注册一个<a target="_blank" rel="noopener" href="https://was.livere.me/register?lang=zh-cn">https://was.livere.me/register?lang=zh-cn</a>,填写自己的邮箱,我这里用了网易163邮箱,可以根据自己情况填写,填写密码完成注册.<br>4.注册以后登录进去，点击导航栏安装,选择City版进行安装，City版是免费的，对我们这种个人博客而言完全足够了<br><img src="/qm/d318877c/1.jpg"><br>5.接下来需要填写一些关于你想将LiveRe用于的博客的一些信息<br>6.填完之后，申请获取代码，此时其将会给你一段代码，该段代码等下需要加到你的个人博客的页面中，我们可以先将其复制并保存起来。</p>
+<h3 id="LiveRe评论配置集成"><a href="#LiveRe评论配置集成" class="headerlink" title="LiveRe评论配置集成"></a>LiveRe评论配置集成</h3><p>1.回到我们的博客根目录打开themes主题文件夹 我用的是kratos-rebirth主题,以kratos-rebirth为例:<br><img src="/qm/d318877c/2.jpg"><br>打开_config.yml文件更改配置<br><img src="/qm/d318877c/3.jpg"><br>我们更改Post Page 文章页配置posts下属性comments的属性取值<br>这里用到的评论系统是livere 对应更改provider: livere<br>enableBGImage用来配置背景图片<br>2.找到\kratos-rebirth\layout_comments文件夹 更改 livere.ejs文件配置 没有可以创建一个<br>3.打开livere文件,新增来必力评论代码如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="built_in">id</span>=<span class="string">&quot;lv-container&quot;</span> class=<span class="string">&quot;post-comments lazy-load &lt;% if (theme.posts.comments?.enableBGImage) &#123; %&gt; bg-image&lt;% &#125; %&gt;&quot;</span> data-id=<span class="string">&quot;&lt;%- theme.livere.id || &#x27;city&#x27; %&gt;&quot;</span> data-uid=<span class="string">&quot;&lt;%- theme.livere.uid %&gt;&quot;</span>&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">   (<span class="keyword">function</span>(d, s) &#123;</span><br><span class="line">       var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (typeof LivereTower === <span class="string">&#x27;function&#x27;</span>) &#123; <span class="built_in">return</span>; &#125;</span><br><span class="line"></span><br><span class="line">       j = d.createElement(s);</span><br><span class="line">       j.src = <span class="string">&#x27;https://cdn-city.livere.com/js/embed.dist.js&#x27;</span>;</span><br><span class="line">       j.async = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">       e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, <span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;noscript&gt;为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure>
+<p>老样子,先来三杯小鸟伏特加 powershell或命令行打开博客根目录<br>键入命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>本地部署完成后可以打开博客文章访问就可以看到文章下方加载除评论区了,选择账号登录就可以进行评论了.<br>确认无误hexo d部署到服务器上<br><a href="https://drfengling.github.io/">https://drfengling.github.io</a><br>由于研究了多种博客评论系统 所以你看到的评论系统不一定是livere.有问题评论区欢迎评论交流.<br>到此,livere评论系统就完成啦，快来动手试试吧.</p>
+
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -259,7 +272,7 @@
             const twitterBase   = "https://twitter.com/intent/tweet?";
             const hostUrl       = "https://drfengling.github.io/qm/d318877c.html";
             const title         = "「livere评论系统」";
-            const excerpt       = ``;
+            const excerpt       = `Hexo博客添加LiveRe评论系统好久不见,又是长长的探索实践之旅了,最近在新加评论系统出现了各种问题,也有所得.评论系统可以说五花八门啦，用得多的比如：Gitment、Gitalk、LiveRe、Disqus、disqusjs，t...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -281,7 +294,7 @@
                     <a class="tag-none-link" href="/tags/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/" rel="tag">线上评论</a>
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2022-04-22</span>
+                <span>最后编辑：2022-04-27</span>
                 </div>
             </div>
         </footer>
@@ -374,6 +387,18 @@ load_comm();
 </aside>
             
                     <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0LiveRe%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><span class="toc-text">Hexo博客添加LiveRe评论系统</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%99%E9%87%8C%E4%BB%A5LiveRe%E4%B8%BA%E4%BE%8B"><span class="toc-text">这里以LiveRe为例:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveRe%E8%AF%84%E8%AE%BA%E9%85%8D%E7%BD%AE%E9%9B%86%E6%88%90"><span class="toc-text">LiveRe评论配置集成</span></a></li></ol>
+    </div>
+</aside>
                 
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
