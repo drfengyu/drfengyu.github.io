@@ -33,6 +33,7 @@
     
   
   <!-- 样式表文件 -->
+
   <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
   
     <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
@@ -46,7 +47,12 @@
   <link rel="stylesheet" id="nprogress-css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" media="all">
   
   
-  
+    <div style="display: none;">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+</div>
+
   
     <link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   
@@ -118,7 +124,18 @@
                                     
                                 
                                     
-                                        <li><a href="/playlist/"><i class="fa fa-music" aria-hidden="true"></i>歌单</a></li>
+                                        <li>
+                                            <a><i class="fa fa-music" aria-hidden="true"></i>歌单</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/playlist/">飙升榜</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
                                     
                                 
                             </ul>
@@ -177,10 +194,10 @@
 <div id="result-posts">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <div class="kratos-post-content">
-            <p>搜索多个关键词时请用空格分割，例如「Gitalk Hexo GitHub」这样；</p>
+            <p>搜索多个关键词时请用空格分割，例如「Hexo GitHub Nodejs」这样；</p>
             <p>您也可以使用这些标签碰碰运气哦~</p>
             <p class="search-demo-tags">
-                <a href="/tags/Gitalk/" style="font-size: 18px; color: #b2b7be">Gitalk</a> <a href="/tags/Hexo/" style="font-size: 24px; color: #6c7588">Hexo</a> <a href="/tags/GitHub/" style="font-size: 24px; color: #6c7588">GitHub</a> <a href="/tags/Nodejs/" style="font-size: 24px; color: #6c7588">Nodejs</a> <a href="/tags/livere/" style="font-size: 18px; color: #b2b7be">livere</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 18px; color: #b2b7be">日记</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 18px; color: #b2b7be">博客美化</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 21px; color: #8f96a3">音乐</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 18px; color: #b2b7be">视频</a> <a href="/tags/Aplayer/" style="font-size: 18px; color: #b2b7be">Aplayer</a>
+                <a href="/tags/Hexo/" style="font-size: 24px; color: #6c7588">Hexo</a> <a href="/tags/GitHub/" style="font-size: 24px; color: #6c7588">GitHub</a> <a href="/tags/Nodejs/" style="font-size: 24px; color: #6c7588">Nodejs</a> <a href="/tags/Gitalk/" style="font-size: 18px; color: #b2b7be">Gitalk</a> <a href="/tags/livere/" style="font-size: 18px; color: #b2b7be">livere</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 18px; color: #b2b7be">日记</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 18px; color: #b2b7be">博客美化</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 21px; color: #8f96a3">音乐</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 18px; color: #b2b7be">视频</a> <a href="/tags/Aplayer/" style="font-size: 18px; color: #b2b7be">Aplayer</a>
             </p>
         </div>
     </div>
@@ -319,7 +336,7 @@
     </div>
 </div>
 <footer>
-    <div id="footer"  >
+    <div id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 footer-list text-center">
@@ -392,7 +409,6 @@
 
 
     <script async src="/js/candy.min.js"></script>
-
 
 
     <script defer src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>

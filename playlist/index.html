@@ -37,6 +37,7 @@
     
   
   <!-- 样式表文件 -->
+
   <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
   
     <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
@@ -50,7 +51,12 @@
   <link rel="stylesheet" id="nprogress-css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" media="all">
   
   
-  
+    <div style="display: none;">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+</div>
+
   
     <link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   
@@ -125,7 +131,18 @@
                                     
                                 
                                     
-                                        <li><a href="/playlist/"><i class="fa fa-music" aria-hidden="true"></i>歌单</a></li>
+                                        <li>
+                                            <a><i class="fa fa-music" aria-hidden="true"></i>歌单</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/playlist/">飙升榜</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
                                     
                                 
                             </ul>
@@ -173,7 +190,7 @@
             <h2 class="title-h2 text-center">飙升榜</h2>
             <p>如果没有显示歌单,请刷新一下.</p>
 
-    <div id="aplayer-IrAoQBCR" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-fGuhWdBw" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="19723756" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 
@@ -344,7 +361,7 @@ load_comm();
     </div>
 </div>
 <footer>
-    <div id="footer"  >
+    <div id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 footer-list text-center">
@@ -417,7 +434,6 @@ load_comm();
 
 
     <script async src="/js/candy.min.js"></script>
-
 
 
     <script defer src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
