@@ -37,7 +37,6 @@
     
   
   <!-- 样式表文件 -->
-
   <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
   
     <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
@@ -51,22 +50,13 @@
   <link rel="stylesheet" id="nprogress-css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" media="all">
   
   
-  
-    <link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
-    <script defer src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script>
-  $('[data-fancybox="images"]').fancybox({//可选
-    thumbs : {
-      autoStart : true //缩略图
-    }
-  });
-  $('[data-fancybox]').fancybox({//启用函数，必须
-    //protect: true //图片右键不能下载，可选
-  });
-</script>
-  
   <!-- 不得不预先加载的一些JS文件 -->
   <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
   
     <script src="https://unpkg.com/qrcode_js@1.0.0/qrcode.min.js"></script>
   
@@ -201,7 +191,7 @@
             <h2 class="title-h2 text-center">飙升榜</h2>
             <p>如果没有显示歌单,请刷新一下.</p>
 
-    <div id="aplayer-CxWsUPUH" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-IqXdkqaC" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="19723756" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 
@@ -401,7 +391,7 @@ load_comm();
                             <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
                         </div>
                         <div>
-                            
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">豫ICP备2022011311号</a></li>
                             
                         </div>
                     </ul>
@@ -442,6 +432,11 @@ load_comm();
     window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
     window.kr.siteRoot = "/";
 </script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
 
 
     <script async src="/js/candy.min.js"></script>
