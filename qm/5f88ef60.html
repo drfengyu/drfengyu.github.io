@@ -24,7 +24,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://drfengling.github.io/images/favicon.ico">
 <meta property="article:published_time" content="2022-04-16T06:03:16.000Z">
-<meta property="article:modified_time" content="2022-04-19T03:31:20.132Z">
+<meta property="article:modified_time" content="2022-04-30T07:39:08.230Z">
 <meta property="article:author" content="浅梦风凌">
 <meta property="article:tag" content="博客美化">
 <meta name="twitter:card" content="summary">
@@ -198,7 +198,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~11.20K
+                        ~11.19K
                     
                     字
                 </li>
@@ -208,7 +208,7 @@
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1650339080132"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1651304348230"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             <hr />
@@ -222,8 +222,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;use strict&quot;</span>;<span class="keyword">function</span> updateCoords(e)&#123;pointerX=(e.clientX||e.touches[0].clientX)-canvasEl.getBoundingClientRect().left,pointerY=e.clientY||e.touches[0].clientY-canvasEl.getBoundingClientRect().top&#125;<span class="keyword">function</span> setParticuleDirection(e)&#123;var t=anime.random(0,360)*Math.PI/180,a=anime.random(50,180),n=[-1,1][anime.random(0,1)]*a;<span class="built_in">return</span>&#123;x:e.x+n*Math.cos(t),y:e.y+n*Math.sin(t)&#125;&#125;<span class="keyword">function</span> createParticule(e,t)&#123;var a=&#123;&#125;;<span class="built_in">return</span> a.x=e,a.y=t,a.color=colors[anime.random(0,colors.length-1)],a.radius=anime.random(16,32),a.endPos=setParticuleDirection(a),a.draw=<span class="function"><span class="title">function</span></span>()&#123;ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.fillStyle=a.color,ctx.fill()&#125;,a&#125;<span class="keyword">function</span> createCircle(e,t)&#123;var a=&#123;&#125;;<span class="built_in">return</span> a.x=e,a.y=t,a.color=<span class="string">&quot;#F00&quot;</span>,a.radius=0.1,a.alpha=0.5,a.lineWidth=6,a.draw=<span class="function"><span class="title">function</span></span>()&#123;ctx.globalAlpha=a.alpha,ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.lineWidth=a.lineWidth,ctx.strokeStyle=a.color,ctx.stroke(),ctx.globalAlpha=1&#125;,a&#125;<span class="keyword">function</span> renderParticule(e)&#123;<span class="keyword">for</span>(var t=0;t&lt;e.animatables.length;t++)&#123;e.animatables[t].target.draw()&#125;&#125;<span class="keyword">function</span> animateParticules(e,t)&#123;<span class="keyword">for</span>(var a=createCircle(e,t),n=[],i=0;i&lt;numberOfParticules;i++)&#123;n.push(createParticule(e,t))&#125;anime.timeline().add(&#123;targets:n,x:<span class="keyword">function</span>(e)&#123;<span class="built_in">return</span> e.endPos.x&#125;,y:<span class="keyword">function</span>(e)&#123;<span class="built_in">return</span> e.endPos.y&#125;,radius:0.1,duration:anime.random(1200,1800),easing:<span class="string">&quot;easeOutExpo&quot;</span>,update:renderParticule&#125;).add(&#123;targets:a,radius:anime.random(80,160),lineWidth:0,alpha:&#123;value:0,easing:<span class="string">&quot;linear&quot;</span>,duration:anime.random(600,800)&#125;,duration:anime.random(1200,1800),easing:<span class="string">&quot;easeOutExpo&quot;</span>,update:renderParticule,offset:0&#125;)&#125;<span class="keyword">function</span> debounce(e,t)&#123;var a;<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;var n=this,i=arguments;clearTimeout(a),a=setTimeout(<span class="function"><span class="title">function</span></span>()&#123;e.apply(n,i)&#125;,t)&#125;&#125;var canvasEl=document.querySelector(<span class="string">&quot;.fireworks&quot;</span>);<span class="keyword">if</span>(canvasEl)&#123;var ctx=canvasEl.getContext(<span class="string">&quot;2d&quot;</span>),numberOfParticules=30,pointerX=0,pointerY=0,tap=<span class="string">&quot;mousedown&quot;</span>,colors=[<span class="string">&quot;#FF1461&quot;</span>,<span class="string">&quot;#18FF92&quot;</span>,<span class="string">&quot;#5A87FF&quot;</span>,<span class="string">&quot;#FBF38C&quot;</span>],setCanvasSize=debounce(<span class="function"><span class="title">function</span></span>()&#123;canvasEl.width=2*window.innerWidth,canvasEl.height=2*window.innerHeight,canvasEl.style.width=window.innerWidth+<span class="string">&quot;px&quot;</span>,canvasEl.style.height=window.innerHeight+<span class="string">&quot;px&quot;</span>,canvasEl.getContext(<span class="string">&quot;2d&quot;</span>).scale(2,2)&#125;,500),render=anime(&#123;duration:1/0,update:<span class="function"><span class="title">function</span></span>()&#123;ctx.clearRect(0,0,canvasEl.width,canvasEl.height)&#125;&#125;);document.addEventListener(tap,<span class="keyword">function</span>(e)&#123;<span class="string">&quot;sidebar&quot;</span>!==e.target.id&amp;&amp;<span class="string">&quot;toggle-sidebar&quot;</span>!==e.target.id&amp;&amp;<span class="string">&quot;A&quot;</span>!==e.target.nodeName&amp;&amp;<span class="string">&quot;IMG&quot;</span>!==e.target.nodeName&amp;&amp;(render.play(),updateCoords(e),animateParticules(pointerX,pointerY))&#125;,!1),setCanvasSize(),window.addEventListener(<span class="string">&quot;resize&quot;</span>,setCanvasSize,!1)&#125;<span class="string">&quot;use strict&quot;</span>;<span class="keyword">function</span> updateCoords(e)&#123;pointerX=(e.clientX||e.touches[0].clientX)-canvasEl.getBoundingClientRect().left,pointerY=e.clientY||e.touches[0].clientY-canvasEl.getBoundingClientRect().top&#125;<span class="keyword">function</span> setParticuleDirection(e)&#123;var t=anime.random(0,360)*Math.PI/180,a=anime.random(50,180),n=[-1,1][anime.random(0,1)]*a;<span class="built_in">return</span>&#123;x:e.x+n*Math.cos(t),y:e.y+n*Math.sin(t)&#125;&#125;<span class="keyword">function</span> createParticule(e,t)&#123;var a=&#123;&#125;;<span class="built_in">return</span> a.x=e,a.y=t,a.color=colors[anime.random(0,colors.length-1)],a.radius=anime.random(16,32),a.endPos=setParticuleDirection(a),a.draw=<span class="function"><span class="title">function</span></span>()&#123;ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.fillStyle=a.color,ctx.fill()&#125;,a&#125;<span class="keyword">function</span> createCircle(e,t)&#123;var a=&#123;&#125;;<span class="built_in">return</span> a.x=e,a.y=t,a.color=<span class="string">&quot;#F00&quot;</span>,a.radius=0.1,a.alpha=0.5,a.lineWidth=6,a.draw=<span class="function"><span class="title">function</span></span>()&#123;ctx.globalAlpha=a.alpha,ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.lineWidth=a.lineWidth,ctx.strokeStyle=a.color,ctx.stroke(),ctx.globalAlpha=1&#125;,a&#125;<span class="keyword">function</span> renderParticule(e)&#123;<span class="keyword">for</span>(var t=0;t&lt;e.animatables.length;t++)&#123;e.animatables[t].target.draw()&#125;&#125;<span class="keyword">function</span> animateParticules(e,t)&#123;<span class="keyword">for</span>(var a=createCircle(e,t),n=[],i=0;i&lt;numberOfParticules;i++)&#123;n.push(createParticule(e,t))&#125;anime.timeline().add(&#123;targets:n,x:<span class="keyword">function</span>(e)&#123;<span class="built_in">return</span> e.endPos.x&#125;,y:<span class="keyword">function</span>(e)&#123;<span class="built_in">return</span> e.endPos.y&#125;,radius:0.1,duration:anime.random(1200,1800),easing:<span class="string">&quot;easeOutExpo&quot;</span>,update:renderParticule&#125;).add(&#123;targets:a,radius:anime.random(80,160),lineWidth:0,alpha:&#123;value:0,easing:<span class="string">&quot;linear&quot;</span>,duration:anime.random(600,800)&#125;,duration:anime.random(1200,1800),easing:<span class="string">&quot;easeOutExpo&quot;</span>,update:renderParticule,offset:0&#125;)&#125;<span class="keyword">function</span> debounce(e,t)&#123;var a;<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;var n=this,i=arguments;clearTimeout(a),a=setTimeout(<span class="function"><span class="title">function</span></span>()&#123;e.apply(n,i)&#125;,t)&#125;&#125;var canvasEl=document.querySelector(<span class="string">&quot;.fireworks&quot;</span>);<span class="keyword">if</span>(canvasEl)&#123;var ctx=canvasEl.getContext(<span class="string">&quot;2d&quot;</span>),numberOfParticules=30,pointerX=0,pointerY=0,tap=<span class="string">&quot;mousedown&quot;</span>,colors=[<span class="string">&quot;#FF1461&quot;</span>,<span class="string">&quot;#18FF92&quot;</span>,<span class="string">&quot;#5A87FF&quot;</span>,<span class="string">&quot;#FBF38C&quot;</span>],setCanvasSize=debounce(<span class="function"><span class="title">function</span></span>()&#123;canvasEl.width=2*window.innerWidth,canvasEl.height=2*window.innerHeight,canvasEl.style.width=window.innerWidth+<span class="string">&quot;px&quot;</span>,canvasEl.style.height=window.innerHeight+<span class="string">&quot;px&quot;</span>,canvasEl.getContext(<span class="string">&quot;2d&quot;</span>).scale(2,2)&#125;,500),render=anime(&#123;duration:1/0,update:<span class="function"><span class="title">function</span></span>()&#123;ctx.clearRect(0,0,canvasEl.width,canvasEl.height)&#125;&#125;);document.addEventListener(tap,<span class="keyword">function</span>(e)&#123;<span class="string">&quot;sidebar&quot;</span>!==e.target.id&amp;&amp;<span class="string">&quot;toggle-sidebar&quot;</span>!==e.target.id&amp;&amp;<span class="string">&quot;A&quot;</span>!==e.target.nodeName&amp;&amp;<span class="string">&quot;IMG&quot;</span>!==e.target.nodeName&amp;&amp;(render.play(),updateCoords(e),animateParticules(pointerX,pointerY))&#125;,!1),setCanvasSize(),window.addEventListener(<span class="string">&quot;resize&quot;</span>,setCanvasSize,!1)&#125;;</span><br></pre></td></tr></table></figure>
 <p>在\themes\kratos-rebirth\layout\layout.ejs文章末尾加入:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面点击烟花爆竹效果 --&gt;</span><br><span class="line">&lt;canvas class=<span class="string">&quot;fireworks&quot;</span> style=<span class="string">&quot;position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;&quot;</span> &gt;&lt;/canvas&gt; </span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;//cdn.bootcss.com/animejs/2.2.0/anime.min.js&quot;</span>&gt;&lt;/script&gt; </span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;/js/fireworks.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>完成!鼠标点击就可以看到烟花爆竹了</p>
-<p><img src="/qm/5f88ef60/2.jpg"></p>
+<p>完成!鼠标点击就可以看到烟花爆竹了<br><img src="/qm/5f88ef60/2.jpg"></p>
 <h5 id="3-浏览器网页标题恶搞"><a href="#3-浏览器网页标题恶搞" class="headerlink" title="3.浏览器网页标题恶搞"></a>3.浏览器网页标题恶搞</h5><p>当用户访问你的博客时点击到了其他网页，我们可以恶搞一下网页标题，呼唤用户回来，首先在目录 \themes\kratos-rebirth\source\js 下新建一个 FunnyTitle.js 文件，在里面填写如下代码：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 浏览器搞笑标题</span><br><span class="line">var OriginTitle = document.title;</span><br><span class="line">var titleTime;</span><br><span class="line">document.addEventListener(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    <span class="keyword">if</span> (document.hidden) &#123;</span><br><span class="line">        $(<span class="string">&#x27;[rel=&quot;icon&quot;]&#x27;</span>).attr(<span class="string">&#x27;href&#x27;</span>, <span class="string">&quot;/images/favicon.ico&quot;</span>);</span><br><span class="line">        document.title = <span class="string">&#x27;╭(°A°`)╮ 页面崩溃啦 ~&#x27;</span>;</span><br><span class="line">        clearTimeout(titleTime);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        $(<span class="string">&#x27;[rel=&quot;icon&quot;]&#x27;</span>).attr(<span class="string">&#x27;href&#x27;</span>, <span class="string">&quot;/images/favicon.ico&quot;</span>);</span><br><span class="line">        document.title = <span class="string">&#x27;(ฅ&gt;ω&lt;*ฅ) 噫又好啦 ~&#x27;</span> + OriginTitle;</span><br><span class="line">        titleTime = setTimeout(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            document.title = OriginTitle;</span><br><span class="line">        &#125;, 2000);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>其中 funny.ico 是用户切换到其他标签后你网站的图标，favicon.ico 是正常图标，然后在 \themes\kratos-rebirth\layout\layout.ejs 文件中添加如下代码：</p>
@@ -332,7 +331,7 @@
                     <a class="tag-none-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" rel="tag">博客美化</a>
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2022-04-19</span>
+                <span>最后编辑：2022-04-30</span>
                 </div>
             </div>
         </footer>
@@ -406,7 +405,7 @@ load_comm();
                 文章
             </span>
             <span class="count">
-                11
+                12
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -422,7 +421,7 @@ load_comm();
                 标签
             </span>
             <span class="count">
-                10
+                11
             </span>
         </a>
     </div>
@@ -433,7 +432,7 @@ load_comm();
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/">线上评论</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/">线上评论</a><span class="category-list-count">2</span></li></ul>
   </aside>
 
 
@@ -442,7 +441,7 @@ load_comm();
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Aplayer/" style="font-size: 0.6em;">Aplayer</a> <a href="/tags/GitHub/" style="font-size: 0.8em;">GitHub</a> <a href="/tags/Gitalk/" style="font-size: 0.6em;">Gitalk</a> <a href="/tags/Hexo/" style="font-size: 0.8em;">Hexo</a> <a href="/tags/Nodejs/" style="font-size: 0.8em;">Nodejs</a> <a href="/tags/livere/" style="font-size: 0.6em;">livere</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 0.6em;">博客美化</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.7em;">音乐</a>
+        <a href="/tags/Aplayer/" style="font-size: 0.6em;">Aplayer</a> <a href="/tags/GitHub/" style="font-size: 0.8em;">GitHub</a> <a href="/tags/Gitalk/" style="font-size: 0.6em;">Gitalk</a> <a href="/tags/Hexo/" style="font-size: 0.8em;">Hexo</a> <a href="/tags/Nodejs/" style="font-size: 0.8em;">Nodejs</a> <a href="/tags/WCF/" style="font-size: 0.6em;">WCF</a> <a href="/tags/livere/" style="font-size: 0.6em;">livere</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 0.6em;">博客美化</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.7em;">音乐</a>
       </div>
   </aside>
 
@@ -453,6 +452,12 @@ load_comm();
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/qm/e08ab1e4.html"><i class="fa  fa-book"></i> C#WCF方向(一)</a>
+            
+          
         
           
           
@@ -479,11 +484,7 @@ load_comm();
           
         
           
-          
-            <a class="list-group-item" href="/qm/a8d0420a.html"><i class="fa  fa-book"></i> 搭建个人博客(五)</a>
             
-          
-        
           
             
           
@@ -584,8 +585,11 @@ load_comm();
 
 
 
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.min.js"></script>
+    </div>
 
-    <script async src="/js/candy.min.js"></script>
 
 
 <script defer src="https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js"></script>
@@ -598,8 +602,5 @@ load_comm();
 
 
     </body>
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-<script type="text/javascript" src="/js/fireworks.js"></script>
-<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+
 </html>
