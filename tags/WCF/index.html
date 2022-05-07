@@ -207,6 +207,84 @@
         <article>
             <div class="kratos-hentry kratos-post-inner clearfix index-post">
                 <div class="kratos-entry-thumb-new">
+                    <a href="/qm/31480aad.html">
+                        
+                    </a>
+                </div>
+                <header class="kratos-entry-header">
+                    <h1 class="text-center"><a class="kratos-entry-title" href="/qm/31480aad.html">C#WCF方向(三)</a></h1>
+                    
+                    <ul class="kratos-post-meta text-center">
+                        <li>
+                            <i class="fa fa-calendar"></i>
+                            2022-05-06
+                        </li>
+                        
+                            <li>
+                                <i class="fa fa-folder"></i>
+                                分类于
+                                <a class="label-link" href="/categories/C/">C#</a>
+                            </li>
+                        
+                        
+                            <li>
+                                <i class="fa fa-tags"></i>
+                                <a class="tag-none-link" href="/tags/WCF/" rel="tag">WCF</a>
+                            </li>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </ul>
+                </header>
+                <hr />
+                <div class="kratos-post-content">
+                    <h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><ul>
+<li>序列化机制</li>
+<li>数据契约</li>
+<li>消息契约</li>
+<li>Demo</li>
+</ul>
+<h3 id="序列化-Serialization"><a href="#序列化-Serialization" class="headerlink" title="序列化 Serialization"></a>序列化 Serialization</h3><p>A格式 转换 B格式</p>
+<h3 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h3><h4 id="序列化器"><a href="#序列化器" class="headerlink" title="序列化器"></a>序列化器</h4><p>1.BinaryFormatter 二进制平台<br>2.SoapFormatter SOAP<br>3.XmlSerializer Xml强大的控制 类型有限<br>4.DataContractSerializer WCF优化<br>5.NetDataContractSerializer WCF二进制<br>6.DataContractJsonSerializer JSON</p>
+<h4 id="WCF序列化过程"><a href="#WCF序列化过程" class="headerlink" title="WCF序列化过程"></a>WCF序列化过程</h4><p>参数对象 序列化 传输 反序列化 执行操作 返回结果 序列化 传输</p>
+<h3 id="数据契约"><a href="#数据契约" class="headerlink" title="数据契约"></a>数据契约</h3><h3 id="消息契约"><a href="#消息契约" class="headerlink" title="消息契约"></a>消息契约</h3><ul>
+<li>允许完全控制消息体</li>
+<li>SOAP消息头 Header</li>
+<li>SOAP消息体 Body<h4 id="消息契约示例"><a href="#消息契约示例" class="headerlink" title="消息契约示例"></a>消息契约示例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class MyMessage&#123;</span><br><span class="line">	[MessageHeader]</span><br><span class="line">	public string Operation;</span><br><span class="line">	[MessageHeader]</span><br><span class="line">	public string Name;</span><br><span class="line">	[MessageBodyMember]</span><br><span class="line">	public int Age;</span><br><span class="line">	[MessageBodyMember]</span><br><span class="line">	public string Home;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="WCF序列化器-支持的数据类型"><a href="#WCF序列化器-支持的数据类型" class="headerlink" title="WCF序列化器 支持的数据类型"></a>WCF序列化器 支持的数据类型</h4></li>
+<li>无参构造函数的Pulbic类</li>
+<li>数据契约类</li>
+<li>集合类:Ienumerable,IDictionary,CollectionDataContract</li>
+<li>枚举类</li>
+<li>.NET基元类: Byte,Sbyte,Int16,Int32等</li>
+<li>SerializableAttribute 属性标记的类型</li>
+<li>原始XML类型和ADO.NET关系数据的类型</li>
+</ul>
+<h4 id="WCF使用XmlSerializer"><a href="#WCF使用XmlSerializer" class="headerlink" title="WCF使用XmlSerializer"></a>WCF使用XmlSerializer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[ServiceContract]</span><br><span class="line">[XmlSerializerFormat]</span><br><span class="line">public interface MyService&#123;</span><br><span class="line">	[OperationContract]</span><br><span class="line">	[XmlSerializerFormat]</span><br><span class="line">	void MyMethod();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="C-使用XmlSerializer"><a href="#C-使用XmlSerializer" class="headerlink" title="C#使用XmlSerializer"></a>C#使用XmlSerializer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">XmlSerializer serializer=new XmlSerializer(typeof(Order));</span><br><span class="line">TextWriter writer=new StreamWriter(filename);</span><br><span class="line">Order order=new Order();</span><br><span class="line">serializer.Serialize(writer,po);</span><br><span class="line">writer.Close();</span><br></pre></td></tr></table></figure>
+<h4 id="C-中使用DataContractSerializer"><a href="#C-中使用DataContractSerializer" class="headerlink" title="C#中使用DataContractSerializer"></a>C#中使用DataContractSerializer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FileStream writer=new FileStream(filename,FileMode.Create);</span><br><span class="line">DataContractSerializer ser=new DataContractSerializer(typeof(Person));</span><br><span class="line">ser.WriteObject(writer,pl);</span><br><span class="line">writer.Close();</span><br></pre></td></tr></table></figure>
+
+                </div>
+                <footer class="kratos-entry-footer clearfix">
+                    <div class="post-like-donate text-center clearfix">
+                        <a class="read-more" href="/qm/31480aad.html#more" title="C#WCF方向(三)">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </footer>
+            </div>
+        </article>
+    
+
+    
+    
+        <article>
+            <div class="kratos-hentry kratos-post-inner clearfix index-post">
+                <div class="kratos-entry-thumb-new">
                     <a href="/qm/4fbb2a86.html">
                         
                     </a>
@@ -245,81 +323,6 @@
                 <hr />
                 <div class="kratos-post-content">
                     <h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>1.终结点 Endpoint<br>2.契约 Contract<br>3.宿主 Host<br>4.绑定 Binding<br>5.Demo:定义契约,终结点,配置绑定</p>
-<h3 id="必备知识"><a href="#必备知识" class="headerlink" title="必备知识"></a>必备知识</h3><p>1.了解.Net Framework<br>2.了解Asp.net应用程序开发<br>3.熟悉Visual Studio</p>
-<h3 id="可选知识"><a href="#可选知识" class="headerlink" title="可选知识"></a>可选知识</h3><p>1.Enterprise Services(COM+)<br>2..Net Remoting<br>3.Asp.Net web Service(ASMX)</p>
-<h3 id="终结点-EndPoint"><a href="#终结点-EndPoint" class="headerlink" title="终结点 EndPoint"></a>终结点 EndPoint</h3><p>1.2种类型 终结点</p>
-<ul>
-<li>元数据终结点 </li>
-<li>普通终结点</li>
-</ul>
-<h3 id="地址-Address"><a href="#地址-Address" class="headerlink" title="地址 Address"></a>地址 Address</h3><ul>
-<li>相对地址</li>
-<li>绝对地址</li>
-<li>基地址 BaseAddress 基础地址 (下面<a href="http://localhost:6054就是基地址">http://localhost:6054就是基地址</a>)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endpoint address=<span class="string">&quot;http://localhost:6054/ServiceDemo.svc&quot;</span></span><br><span class="line"> binding=<span class="string">&quot;basicHttpBinding&quot;</span> bindingConfiguration=<span class="string">&quot;BasicHttpBinding_IServiceDemo&quot;</span></span><br><span class="line"> contract=<span class="string">&quot;ServiceReferenceDemo.IServiceDemo&quot;</span> name=<span class="string">&quot;BasicHttpBinding_IServiceDemo&quot;</span>/&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="绑定-Binding"><a href="#绑定-Binding" class="headerlink" title="绑定 Binding"></a>绑定 Binding</h3><ul>
-<li>绑定是特殊配置元素(称作“绑定元素”)的集合,服务运行库在每次构造客户端或服务终结点时都对这些元素进行评估</li>
-<li>WCF里的传输协议,安全,事务,消息编码,超时等等都是由绑定来控制</li>
-<li>控制WCF的一个接口<h4 id="绑定列表"><a href="#绑定列表" class="headerlink" title="绑定列表"></a>绑定列表</h4><img src="/qm/4fbb2a86/1.jpg"></li>
-</ul>
-<h4 id="Windows-Azure-AppFabric绑定"><a href="#Windows-Azure-AppFabric绑定" class="headerlink" title="Windows Azure AppFabric绑定"></a>Windows Azure AppFabric绑定</h4><ul>
-<li>NetTcpRelayBinding 消息中途转发机制</li>
-<li>NetOneWayRelayBinding 消息单向转发</li>
-<li>NetEventRelayBinding 基于事件的</li>
-<li>webHttpRelayBinding </li>
-<li>WS2007HttpRelayBinding</li>
-</ul>
-<h4 id="WCF绑定和通道堆栈"><a href="#WCF绑定和通道堆栈" class="headerlink" title="WCF绑定和通道堆栈"></a>WCF绑定和通道堆栈</h4><p><img src="/qm/4fbb2a86/5.png"></p>
-<h4 id="绑定的结构"><a href="#绑定的结构" class="headerlink" title="绑定的结构"></a>绑定的结构</h4><p><img src="/qm/4fbb2a86/6.png"></p>
-<h4 id="绑定结构例子"><a href="#绑定结构例子" class="headerlink" title="绑定结构例子"></a>绑定结构例子</h4><p><img src="/qm/4fbb2a86/7.png"></p>
-<h3 id="契约-Contract"><a href="#契约-Contract" class="headerlink" title="契约 Contract"></a>契约 Contract</h3><p>契约是通信参与方之间的约定</p>
-<ul>
-<li>数据契约 DataContract 实体类</li>
-<li>操作契约 Operation Contract 服务方法</li>
-<li>服务契约 Service Contract 服务</li>
-<li>消息契约 Message Contract 对消息体的完整控制</li>
-<li>错误契约 Fault Contract 把错误信息包装起来返回给客户端</li>
-</ul>
-<h4 id="数据契约"><a href="#数据契约" class="headerlink" title="数据契约"></a>数据契约</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[DataContract]//数据契约属性声明</span><br><span class="line">    public class UserData</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        [DataMember]//数据成员标记</span><br><span class="line">        public string Name&#123;<span class="built_in">set</span>;get;&#125;;</span><br><span class="line"></span><br><span class="line">        [DataMember(Name=<span class="string">&quot;UserEmail&quot;</span>)]//支持别名定义</span><br><span class="line">        public string Email&#123;<span class="built_in">set</span>;get;&#125;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h4><p>1.XmlSerialzer<br>2.DataContractSerializer<br>3.NetDataContractSerializer NetTcp使用的<br>4.DataContractJsonSerializer json数据序列化</p>
-<h4 id="服务契约"><a href="#服务契约" class="headerlink" title="服务契约"></a>服务契约</h4><p>ServiceContract<br>定义约定的服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[ServiceContract]//服务契约</span><br><span class="line">    public interface IServiceDemo</span><br><span class="line">    &#123;</span><br><span class="line">        [OperationContract]//操作契约</span><br><span class="line">        string GetData(int value);</span><br><span class="line"></span><br><span class="line">        [OperationContract]</span><br><span class="line">        UserData GetDataUsingDataContract(UserData user);</span><br><span class="line"></span><br><span class="line">        // TODO: Add your service operations here</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="操作契约"><a href="#操作契约" class="headerlink" title="操作契约"></a>操作契约</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[OperationContract]//操作契约</span><br><span class="line">        string GetData(int value);</span><br></pre></td></tr></table></figure>
-<h4 id="消息契约-MessageContract"><a href="#消息契约-MessageContract" class="headerlink" title="消息契约 MessageContract"></a>消息契约 MessageContract</h4><p>1.允许完全控制消息体<br>2.SOAP消息头 header<br>3.SOAP 消息体 Body</p>
-<h4 id="错误契约-FaultContract"><a href="#错误契约-FaultContract" class="headerlink" title="错误契约 FaultContract"></a>错误契约 FaultContract</h4><p>1.为了在客户端和服务端共享错误信息<br>2.错误处理</p>
-<h3 id="宿主Host"><a href="#宿主Host" class="headerlink" title="宿主Host"></a>宿主Host</h3><p>IIS.EXE.WinForm.Wpf.WindowService.NT Service.COM+</p>
-<h4 id="托管进程"><a href="#托管进程" class="headerlink" title="托管进程"></a>托管进程</h4><p><img src="/qm/4fbb2a86/2.png"></p>
-<h4 id="怎么托管WCF服务"><a href="#怎么托管WCF服务" class="headerlink" title="怎么托管WCF服务"></a>怎么托管WCF服务</h4><p><img src="/qm/4fbb2a86/3.png"></p>
-<h4 id="Window-Server-AppFabric"><a href="#Window-Server-AppFabric" class="headerlink" title="Window Server AppFabric"></a>Window Server AppFabric</h4><p><img src="/qm/4fbb2a86/4.png"></p>
-<h3 id="WCF绑定学习资源"><a href="#WCF绑定学习资源" class="headerlink" title="WCF绑定学习资源"></a>WCF绑定学习资源</h3><ul>
-<li>书籍<ul>
-<li>Inside WCF,(Justin Smith) 《WCF技术内幕》</li>
-<li>第8章 绑定</li>
-</ul>
-</li>
-<li>文章<ul>
-<li>Aaron Skonnard 深入学习WCF绑定</li>
-</ul>
-</li>
-</ul>
-<h3 id="WCF服务配置管理工具"><a href="#WCF服务配置管理工具" class="headerlink" title="WCF服务配置管理工具"></a>WCF服务配置管理工具</h3><p>点击Visual Studio导航栏 工具 WCF配置编辑器<br>打开配置文件app.config<br><img src="/qm/4fbb2a86/9.png"></p>
-<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><ul>
-<li>定义契约</li>
-<li>配置终结点</li>
-<li>使用绑定<h4 id="定义契约"><a href="#定义契约" class="headerlink" title="定义契约"></a>定义契约</h4></li>
-</ul>
-<p>1.打开Visual Studio,创建新项目,我们搜索wcf,选择wcf服务库,<br><img src="/qm/4fbb2a86/10.png"><br>2.自定义项目名称路径创建即可(后面不再图文赘述)<br><img src="/qm/4fbb2a86/11.png"><br>3.这里做简单更改</p>
-<ul>
-<li>IService1<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 注意: 使用“重构”菜单上的“重命名”命令，可以同时更改代码和配置文件中的接口名“IService1”。</span><br><span class="line">   [ServiceContract]</span><br><span class="line">   public interface IService1</span><br><span class="line">   &#123;</span><br><span class="line">       [OperationContract]</span><br><span class="line">       string SayHello(string Name);</span><br><span class="line">       [OperationContract]</span><br><span class="line">       string SayHellotoUser(User user);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   // 使用下面示例中说明的数据约定将复合类型添加到服务操作。</span><br><span class="line">   // 可以将 XSD 文件添加到项目中。在生成项目后，可以通过命名空间“WcfService.ContractType”直接使用其中定义的数据类型。</span><br><span class="line">   [DataContract]</span><br><span class="line">   public class User</span><br><span class="line">   &#123;</span><br><span class="line">       [DataMember]</span><br><span class="line">       public string FirstName &#123; get; <span class="built_in">set</span>; &#125;</span><br><span class="line">       [DataMember]</span><br><span class="line">       public string SecondName &#123; <span class="built_in">set</span>; get; &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
-<li>Service1<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Service1 : IService1</span><br><span class="line">    &#123;</span><br><span class="line">        public string SayHello(string Name)</span><br><span class="line">        &#123;</span><br><span class="line">            string result = $<span class="string">&quot;Hello,&#123;Name&#125;&quot;</span>;</span><br><span class="line">            Console.WriteLine(result);</span><br><span class="line">            <span class="built_in">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public string SayHellotoUser(User user)</span><br><span class="line">        &#123;</span><br><span class="line">            string result = $<span class="string">&quot;Hello,&#123;user.FirstName&#125;&#123;user.SecondName&#125;&quot;</span>;</span><br><span class="line">            Console.WriteLine(result);</span><br><span class="line">            <span class="built_in">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="配置终结点"><a href="#配置终结点" class="headerlink" title="配置终结点"></a>配置终结点</h4></li>
-</ul>
-<p>1.右键解决方案添加<br>2.新建项目 搜索控制台 选择控制台应用程序创建<br><img src="/qm/4fbb2a86/13.png"><br>3.添加对定义契约的Wcf服务类库的引用,我们打开Program.cs文件创建打开服务.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">using (ServiceHost host=new ServiceHost(typeof(WcfService.Service1)))</span><br><span class="line">            &#123;</span><br><span class="line">                host.Open();</span><br><span class="line">                Console.WriteLine($<span class="string">&quot;Host is Running,and State is &#123;host.State&#125;&quot;</span>);</span><br><span class="line">                Console.ReadLine();</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
-<p>4.打开app.config 配置终结点 这里配置了4个终结点</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;system.serviceModel&gt;</span><br><span class="line">    &lt;services&gt;</span><br><span class="line">      &lt;service behaviorConfiguration=<span class="string">&quot;WCFService.WCFServiceBehavior&quot;</span></span><br><span class="line">        name=<span class="string">&quot;WCFService.WCFService&quot;</span>&gt;</span><br><span class="line">		  &lt;endpoint address=<span class="string">&quot;http://localhost:8001/WCFService&quot;</span> binding=<span class="string">&quot;wsHttpBinding&quot;</span> name=<span class="string">&quot;httpEndpoint&quot;</span> contract=<span class="string">&quot;WCFService.IWCFService&quot;</span>&gt;</span><br><span class="line">		  &lt;/endpoint&gt;</span><br><span class="line">        &lt;endpoint address=<span class="string">&quot;net.tcp://localhost:8002/WCFService&quot;</span> binding=<span class="string">&quot;netTcpBinding&quot;</span> name=<span class="string">&quot;tcpEndpoint&quot;</span> contract=<span class="string">&quot;WCFService.IWCFService&quot;</span>&gt;</span><br><span class="line">        &lt;/endpoint&gt;</span><br><span class="line">        &lt;endpoint address=<span class="string">&quot;mex&quot;</span> binding=<span class="string">&quot;mexHttpBinding&quot;</span> contract=<span class="string">&quot;IMetadataExchange&quot;</span> name=<span class="string">&quot;httpMex&quot;</span>/&gt;</span><br><span class="line">		  &lt;endpoint address=<span class="string">&quot;mex&quot;</span> binding=<span class="string">&quot;mexTcpBinding&quot;</span> contract=<span class="string">&quot;IMetadataExchange&quot;</span> name=<span class="string">&quot;tcpMex&quot;</span>/&gt;</span><br><span class="line">        &lt;host&gt;</span><br><span class="line">          &lt;baseAddresses&gt;</span><br><span class="line">            &lt;add baseAddress=<span class="string">&quot;http://localhost:8001&quot;</span>/&gt;</span><br><span class="line">			  &lt;add baseAddress=<span class="string">&quot;net.tcp://localhost:8002&quot;</span>/&gt;</span><br><span class="line">            &lt;!--&lt;add baseAddress=<span class="string">&quot;http://localhost:8731/Design_Time_Addresses/WCFServiceLibraryFrankXuLei/Service1/&quot;</span> /&gt;--&gt;</span><br><span class="line">          &lt;/baseAddresses&gt;</span><br><span class="line">        &lt;/host&gt;</span><br><span class="line">      &lt;/service&gt;</span><br><span class="line">    &lt;/services&gt;</span><br><span class="line">    &lt;behaviors&gt;</span><br><span class="line">      &lt;serviceBehaviors&gt;</span><br><span class="line">        &lt;behavior name=<span class="string">&quot;WCFService.WCFServiceBehavior&quot;</span>&gt;</span><br><span class="line">          &lt;serviceMetadata httpGetEnabled=<span class="string">&quot;true&quot;</span> /&gt;</span><br><span class="line">          &lt;serviceDebug includeExceptionDetailInFaults=<span class="string">&quot;false&quot;</span> /&gt;</span><br><span class="line">        &lt;/behavior&gt;</span><br><span class="line">      &lt;/serviceBehaviors&gt;</span><br><span class="line">    &lt;/behaviors&gt;</span><br><span class="line">  &lt;/system.serviceModel&gt;</span><br></pre></td></tr></table></figure>
-<p>5.点击导航栏生成重新生成解决方案,设置WcfHost为启动项目<br>启动项目<br><img src="/qm/4fbb2a86/14.png"><br>6.我们关闭Visual Studio,找到Visual Studio右键以管理员权限运行,重新打开项目并启动.完成!</p>
-
                 </div>
                 <footer class="kratos-entry-footer clearfix">
                     <div class="post-like-donate text-center clearfix">
@@ -425,7 +428,7 @@
                 文章
             </span>
             <span class="count">
-                13
+                14
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -450,7 +453,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/">线上评论</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/">线上评论</a><span class="category-list-count">2</span></li></ul>
   </aside>
 
 
@@ -459,7 +462,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Aplayer/" style="font-size: 0.6em;">Aplayer</a> <a href="/tags/GitHub/" style="font-size: 0.8em;">GitHub</a> <a href="/tags/Gitalk/" style="font-size: 0.6em;">Gitalk</a> <a href="/tags/Hexo/" style="font-size: 0.8em;">Hexo</a> <a href="/tags/Nodejs/" style="font-size: 0.8em;">Nodejs</a> <a href="/tags/WCF/" style="font-size: 0.7em;">WCF</a> <a href="/tags/livere/" style="font-size: 0.6em;">livere</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 0.6em;">博客美化</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.7em;">音乐</a>
+        <a href="/tags/Aplayer/" style="font-size: 0.6em;">Aplayer</a> <a href="/tags/GitHub/" style="font-size: 0.8em;">GitHub</a> <a href="/tags/Gitalk/" style="font-size: 0.6em;">Gitalk</a> <a href="/tags/Hexo/" style="font-size: 0.8em;">Hexo</a> <a href="/tags/Nodejs/" style="font-size: 0.8em;">Nodejs</a> <a href="/tags/WCF/" style="font-size: 0.8em;">WCF</a> <a href="/tags/livere/" style="font-size: 0.6em;">livere</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 0.6em;">博客美化</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.7em;">音乐</a>
       </div>
   </aside>
 
@@ -470,6 +473,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/qm/31480aad.html"><i class="fa  fa-book"></i> C#WCF方向(三)</a>
+            
+          
         
           
           
@@ -496,11 +505,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/qm/5f88ef60.html"><i class="fa  fa-book"></i> 博客美化(一)</a>
             
-          
-        
           
             
           

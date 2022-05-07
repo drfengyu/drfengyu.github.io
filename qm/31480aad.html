@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="/images/favicon.ico">
-  <title>Hello World | 浅梦博客</title>
+  <title>C#WCF方向(三) | 浅梦博客</title>
   <meta name="author" content="浅梦风凌" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,22 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="GitHub, Hexo, Nodejs" />
+    <meta name="keywords" content="WCF" />
   
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="主题 序列化机制 数据契约 消息契约 Demo  序列化 SerializationA格式 转换 B格式 Transformer序列化器1.BinaryFormatter 二进制平台2.SoapFormatter SOAP3.XmlSerializer Xml强大的控制 类型有限4.DataContractSerializer WCF优化5.NetDataContractSerializer WC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://drfengling.github.io/qm/4a17b156.html">
+<meta property="og:title" content="C#WCF方向(三)">
+<meta property="og:url" content="https://drfengling.github.io/qm/31480aad.html">
 <meta property="og:site_name" content="浅梦博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="主题 序列化机制 数据契约 消息契约 Demo  序列化 SerializationA格式 转换 B格式 Transformer序列化器1.BinaryFormatter 二进制平台2.SoapFormatter SOAP3.XmlSerializer Xml强大的控制 类型有限4.DataContractSerializer WCF优化5.NetDataContractSerializer WC">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://drfengling.github.io/images/favicon.ico">
-<meta property="article:published_time" content="2022-04-12T03:04:16.405Z">
-<meta property="article:modified_time" content="2022-04-14T09:07:21.479Z">
+<meta property="article:published_time" content="2022-05-06T06:27:39.000Z">
+<meta property="article:modified_time" content="2022-05-06T07:46:45.315Z">
 <meta property="article:author" content="浅梦风凌">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="Nodejs">
+<meta property="article:tag" content="WCF">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://drfengling.github.io/images/favicon.ico">
 <meta name="twitter:site" content="@null">
@@ -190,17 +188,17 @@
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center">Hello World</h1>
+                <h1 class="kratos-entry-title text-center">C#WCF方向(三)</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><i class="fa fa-calendar"></i> 2022-04-12</li>
+                <li><i class="fa fa-calendar"></i> 2022-05-06</li>
                 <li><i class="fa fa-user"></i> 作者 浅梦风凌</li>
                 <li>
                     <i class="fa fa-edit"></i> 
                     
                     
-                        445
+                        1271
                     
                     字
                 </li>
@@ -210,24 +208,39 @@
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1649927241479"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1651823205315"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
+                <div class="kratos-post-inner-toc">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96-Serialization"><span class="toc-number">2.</span> <span class="toc-text">序列化 Serialization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transformer"><span class="toc-number">3.</span> <span class="toc-text">Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8"><span class="toc-number">3.1.</span> <span class="toc-text">序列化器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WCF%E5%BA%8F%E5%88%97%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">WCF序列化过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A5%91%E7%BA%A6"><span class="toc-number">4.</span> <span class="toc-text">数据契约</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E5%A5%91%E7%BA%A6"><span class="toc-number">5.</span> <span class="toc-text">消息契约</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E5%A5%91%E7%BA%A6%E7%A4%BA%E4%BE%8B"><span class="toc-number">5.1.</span> <span class="toc-text">消息契约示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WCF%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8-%E6%94%AF%E6%8C%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.2.</span> <span class="toc-text">WCF序列化器 支持的数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WCF%E4%BD%BF%E7%94%A8XmlSerializer"><span class="toc-number">5.3.</span> <span class="toc-text">WCF使用XmlSerializer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E4%BD%BF%E7%94%A8XmlSerializer"><span class="toc-number">5.4.</span> <span class="toc-text">C#使用XmlSerializer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E4%B8%AD%E4%BD%BF%E7%94%A8DataContractSerializer"><span class="toc-number">5.5.</span> <span class="toc-text">C#中使用DataContractSerializer</span></a></li></ol></li></ol>
+                </div>
+            
             <hr />
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+            <h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><ul>
+<li>序列化机制</li>
+<li>数据契约</li>
+<li>消息契约</li>
+<li>Demo</li>
+</ul>
+<h3 id="序列化-Serialization"><a href="#序列化-Serialization" class="headerlink" title="序列化 Serialization"></a>序列化 Serialization</h3><p>A格式 转换 B格式</p>
+<h3 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h3><h4 id="序列化器"><a href="#序列化器" class="headerlink" title="序列化器"></a>序列化器</h4><p>1.BinaryFormatter 二进制平台<br>2.SoapFormatter SOAP<br>3.XmlSerializer Xml强大的控制 类型有限<br>4.DataContractSerializer WCF优化<br>5.NetDataContractSerializer WCF二进制<br>6.DataContractJsonSerializer JSON</p>
+<h4 id="WCF序列化过程"><a href="#WCF序列化过程" class="headerlink" title="WCF序列化过程"></a>WCF序列化过程</h4><p>参数对象 序列化 传输 反序列化 执行操作 返回结果 序列化 传输</p>
+<h3 id="数据契约"><a href="#数据契约" class="headerlink" title="数据契约"></a>数据契约</h3><h3 id="消息契约"><a href="#消息契约" class="headerlink" title="消息契约"></a>消息契约</h3><ul>
+<li>允许完全控制消息体</li>
+<li>SOAP消息头 Header</li>
+<li>SOAP消息体 Body<h4 id="消息契约示例"><a href="#消息契约示例" class="headerlink" title="消息契约示例"></a>消息契约示例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class MyMessage&#123;</span><br><span class="line">	[MessageHeader]</span><br><span class="line">	public string Operation;</span><br><span class="line">	[MessageHeader]</span><br><span class="line">	public string Name;</span><br><span class="line">	[MessageBodyMember]</span><br><span class="line">	public int Age;</span><br><span class="line">	[MessageBodyMember]</span><br><span class="line">	public string Home;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="WCF序列化器-支持的数据类型"><a href="#WCF序列化器-支持的数据类型" class="headerlink" title="WCF序列化器 支持的数据类型"></a>WCF序列化器 支持的数据类型</h4></li>
+<li>无参构造函数的Pulbic类</li>
+<li>数据契约类</li>
+<li>集合类:Ienumerable,IDictionary,CollectionDataContract</li>
+<li>枚举类</li>
+<li>.NET基元类: Byte,Sbyte,Int16,Int32等</li>
+<li>SerializableAttribute 属性标记的类型</li>
+<li>原始XML类型和ADO.NET关系数据的类型</li>
+</ul>
+<h4 id="WCF使用XmlSerializer"><a href="#WCF使用XmlSerializer" class="headerlink" title="WCF使用XmlSerializer"></a>WCF使用XmlSerializer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[ServiceContract]</span><br><span class="line">[XmlSerializerFormat]</span><br><span class="line">public interface MyService&#123;</span><br><span class="line">	[OperationContract]</span><br><span class="line">	[XmlSerializerFormat]</span><br><span class="line">	void MyMethod();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="C-使用XmlSerializer"><a href="#C-使用XmlSerializer" class="headerlink" title="C#使用XmlSerializer"></a>C#使用XmlSerializer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">XmlSerializer serializer=new XmlSerializer(typeof(Order));</span><br><span class="line">TextWriter writer=new StreamWriter(filename);</span><br><span class="line">Order order=new Order();</span><br><span class="line">serializer.Serialize(writer,po);</span><br><span class="line">writer.Close();</span><br></pre></td></tr></table></figure>
+<h4 id="C-中使用DataContractSerializer"><a href="#C-中使用DataContractSerializer" class="headerlink" title="C#中使用DataContractSerializer"></a>C#中使用DataContractSerializer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FileStream writer=new FileStream(filename,FileMode.Create);</span><br><span class="line">DataContractSerializer ser=new DataContractSerializer(typeof(Person));</span><br><span class="line">ser.WriteObject(writer,pl);</span><br><span class="line">writer.Close();</span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -281,7 +294,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://drfengling.github.io/qm/4a17b156.html",
+                text: "https://drfengling.github.io/qm/31480aad.html",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -293,9 +306,16 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://drfengling.github.io/qm/4a17b156.html";
-            const title         = "「Hello World」";
-            const excerpt       = `Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.`;
+            const hostUrl       = "https://drfengling.github.io/qm/31480aad.html";
+            const title         = "「C#WCF方向(三)」";
+            const excerpt       = `主题
+序列化机制
+数据契约
+消息契约
+Demo
+
+序列化 SerializationA格式 转换 B格式
+Transformer序列化器1.BinaryFormatter 二进制平台2.SoapFormatter SOAP3.XmlS...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -314,10 +334,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/GitHub/" rel="tag">GitHub</a>, <a class="tag-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>, <a class="tag-none-link" href="/tags/Nodejs/" rel="tag">Nodejs</a>
+                    <a class="tag-none-link" href="/tags/WCF/" rel="tag">WCF</a>
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2022-04-14</span>
+                <span>最后编辑：2022-05-06</span>
                 </div>
             </div>
         </footer>
@@ -326,13 +346,9 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" 为什么要写博客?" href="/qm/d2b740ea.html">&lt; 上一篇</a>
+                <a title=" C#WCF方向(二)" href="/qm/4fbb2a86.html">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" 搭建个人博客(一)" href="/qm/387162d6.html">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
@@ -344,8 +360,8 @@
         const init = () => {
             console.log('Gitalk loading...');
             const gitalk = new Gitalk(Object.assign({
-                id: '/qm/4a17b156.html',
-                path: '/qm/4a17b156.html'
+                id: '/qm/31480aad.html',
+                path: '/qm/31480aad.html'
             }, JSON.parse('{"clientID":"67075d9ed7922a3c9791","clientSecret":"50ce067bd2bb3d9e9e48d56804da1a6d25e7bf16","repo":"dryunment","owner":"Drfengling","admin":["Drfengling"],"distractionFreeMode":false}')));
 
             gitalk.render('gitalk-container');
@@ -414,6 +430,18 @@ load_comm();
 </aside>
             
                     <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98"><span class="toc-text">主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96-Serialization"><span class="toc-text">序列化 Serialization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transformer"><span class="toc-text">Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8"><span class="toc-text">序列化器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WCF%E5%BA%8F%E5%88%97%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">WCF序列化过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A5%91%E7%BA%A6"><span class="toc-text">数据契约</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E5%A5%91%E7%BA%A6"><span class="toc-text">消息契约</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E5%A5%91%E7%BA%A6%E7%A4%BA%E4%BE%8B"><span class="toc-text">消息契约示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WCF%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8-%E6%94%AF%E6%8C%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">WCF序列化器 支持的数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WCF%E4%BD%BF%E7%94%A8XmlSerializer"><span class="toc-text">WCF使用XmlSerializer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E4%BD%BF%E7%94%A8XmlSerializer"><span class="toc-text">C#使用XmlSerializer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E4%B8%AD%E4%BD%BF%E7%94%A8DataContractSerializer"><span class="toc-text">C#中使用DataContractSerializer</span></a></li></ol></li></ol>
+    </div>
+</aside>
                 
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
