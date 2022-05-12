@@ -1,239 +1,633 @@
-
 <!DOCTYPE html>
-<html lang="zh-CN" class="loading">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>标签: WCF - 浅梦博客</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="Fechin,"> 
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="/images/favicon.ico">
+  <title>浅梦博客</title>
+  <meta name="author" content="浅梦风凌" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta property="og:type" content="website">
+<meta property="og:title" content="浅梦博客">
+<meta property="og:url" content="https://drfengling.github.io/tags/WCF/index.html">
+<meta property="og:site_name" content="浅梦博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://drfengling.github.io/images/favicon.ico">
+<meta property="article:author" content="浅梦风凌">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://drfengling.github.io/images/favicon.ico">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
     
-    <meta name="author" content="浅梦风凌"> 
-    <link rel="alternative" href="atom.xml" title="浅梦博客" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
     
     
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" media="all">
+  
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+  
     
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="标签: WCF - 浅梦博客"/>
-    
-    
-    
-    
-    
-    <meta property="og:site_name" content="浅梦博客"/>
-    <meta property="og:type" content="object"/>
-    <meta property="og:title" content="标签: WCF - 浅梦博客"/>
-    
-    
-<link rel="stylesheet" href="/css/diaspora.css">
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-<meta name="generator" content="Hexo 5.4.2"></head>
-
-<body class="loading">
-    <span id="config-title" style="display:none">浅梦博客</span>
-    <div id="loader"></div>
-    <div class="nav">
-    <ul id="menu-menu" class="menu">
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="//" title="首页" target="_blank" rel="noopener">首页</a>
-        </li>
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/categories/" title="分类" target="_blank" rel="noopener">分类</a>
-        </li>
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/tags/" title="标签" target="_blank" rel="noopener">标签</a>
-        </li>
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/archives/" title="归档" target="_blank" rel="noopener">归档</a>
-        </li>
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/about/" title="关于" target="_blank" rel="noopener">关于</a>
-        </li>
-        
-    </ul>
-	<span class="target"></span>
-	<center>
-	<div class="hitokoto">
-		<span class="typed" id="hitokoto" data-st="true"></span>
-	</div>
-	</center>
-	
-	<p class="footerlinks">
-		<a href="#" class="iconfont icon-null"></a>
-		
-            <a href="/" title="facebook" class="iconfont icon-facebook" target="_blank" rel="noopener"> </a>
-        
-            <a href="/" title="twitter" class="iconfont icon-twitter" target="_blank" rel="noopener"> </a>
-        
-            <a href="/" title="github" class="iconfont icon-github" target="_blank" rel="noopener"> </a>
-        
-            <a href="/img/logo.png" title="wechat" class="iconfont icon-wechat" target="_blank" rel="noopener"> </a>
-        
-            <a href="mailto:xxxx@gmail.com" title="email" class="iconfont icon-email" target="_blank" rel="noopener"> </a>
-        
-		<a href="#" class="iconfont icon-null"></a>
-	</p>
-	
-    <p id="copyright">
-        &copy; 2022 浅梦风凌.
-        <span> | </span>Powered by <a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-        <span> | </span>Theme <a href="https://github.com/Fechin/hexo-theme-diaspora" title="Diaspora" target="_blank" rel="noopener">Diaspora</a> by Fechin
-		
-		<span> | </span><a rel="nofollow" href="http://www.beian.miit.gov.cn" target="_blank">冀ICP备xxxxxxx号</a>
-		
-    </p>
+  
+  
+    <script src="https://unpkg.com/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/images/bg.webp');
+        }
+      }
+    
+  </style>
+  
+  <script src="/live2d-widget/autoload.js"></script>
+<div style="display: none;">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
 </div>
 
-<div id="container">
-    
-<div id="screen">
-    <div id="mark">
-        <div class="layer" data-depth="0.4">
-            <img src="/img/welcome-cover.jpg" id="cover" crossorigin="anonymous" width="1920" height="1080">
-        </div>
-    </div>
-    <div id="vibrant">
-        <svg viewbox="0 0 2880 1620" height="100%" preserveaspectratio="xMaxYMax slice">
-            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
-        </svg>
-        <div></div>
-    </div>
-    <div id="header">
-        <div>
-            <a class="image-logo" href="/"></a>
-			
-            <div class="iconfont icon-menu switchmenu"></div>
-        </div>
-    </div>
-    
-    <div id="post0">
-        <p>五月 06, 2022</p>
-        <h2><a href="/qm/31480aad.html" title="C#WCF方向(三)" class="posttitle">C#WCF方向(三)</a></h2>
-        <p class="summary">主题
-序列化机制
-数据契约
-消息契约
-Demo
-
-序列化 SerializationA格式 转换 B格式
-Tran...</p>
-    </div>
-    
-</div>
-
-    <div id="primary">
-        
-<div class="post">
-    <a href="/qm/4fbb2a86.html" title="C#WCF方向(二)">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>五月 04, 2022</p>
-        <h3><a href="/qm/4fbb2a86.html" title="C#WCF方向(二)" class="posttitle">C#WCF方向(二)</a></h3>
-        <p>主题1.终结点 Endpoint2.契约 Contract3.宿主 Host4.绑定 Binding5.Demo:定义契约,终结点,配置绑定
-
-必备知识1...</p>
-    </div>
-</div>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="浅梦博客" type="application/atom+xml">
+</head>
 
 
-<div class="post">
-    <a href="/qm/e08ab1e4.html" title="C#WCF方向(一)">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>五月 03, 2022</p>
-        <h3><a href="/qm/e08ab1e4.html" title="C#WCF方向(一)" class="posttitle">C#WCF方向(一)</a></h3>
-        <p>WCF开始入手WCF了,从零开始,记录一下WCF的学习笔记
-什么是WCF摘要WCF是使用托管代码建立和运行面向服务（Service Oriented）应用...</p>
-    </div>
-</div>
-
-
-    </div>
-    
-</div>
-<div id="preview"></div>
-
-
-
-</body>
-
-
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/typed.js"></script>
-<script src="/js/diaspora.js"></script>
-
-
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-
-
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
-
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-link"></i>链接</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://drfengling.github.io/">浅梦博客</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://github.com/Drfengling/Drfengling.github.io">项目链接</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-music" aria-hidden="true"></i>歌单</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/playlist/">飙升榜</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
                     </div>
                 </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">浅梦博客</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>浅梦博客</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
             </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <!-- Breadcrumb for tag & category page -->
+
+    <article class="kratos-hentry kratos-entry-border-new clearfix">
+        <div class="kratos-breadcrumb">
+            <a href="/">
+                <i class="fa fa-home"></i>
+            </a>
+            <i class="fa fa-angle-right"></i>
+            
+                <a href="/tags/">
+                    标签
+                </a>
+                <i class="fa fa-angle-right"></i>
+                <a href="/tags/WCF">
+                    WCF
+                </a>
+            
+            
+        </div>
+    </article>
+
+
+
+
+    
+    
+        <article>
+            <div class="kratos-hentry kratos-post-inner clearfix index-post">
+                <div class="kratos-entry-thumb-new">
+                    <a href="/qm/31480aad.html">
+                        
+                    </a>
+                </div>
+                <header class="kratos-entry-header">
+                    <h1 class="text-center"><a class="kratos-entry-title" href="/qm/31480aad.html">C#WCF方向(三)</a></h1>
+                    
+                    <ul class="kratos-post-meta text-center">
+                        <li>
+                            <i class="fa fa-calendar"></i>
+                            2022-05-06
+                        </li>
+                        
+                            <li>
+                                <i class="fa fa-folder"></i>
+                                分类于
+                                <a class="label-link" href="/categories/C/">C#</a>
+                            </li>
+                        
+                        
+                            <li>
+                                <i class="fa fa-tags"></i>
+                                <a class="tag-none-link" href="/tags/WCF/" rel="tag">WCF</a>
+                            </li>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </ul>
+                </header>
+                <hr />
+                <div class="kratos-post-content">
+                    <h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><ul>
+<li>序列化机制</li>
+<li>数据契约</li>
+<li>消息契约</li>
+<li>Demo</li>
+</ul>
+<h3 id="序列化-Serialization"><a href="#序列化-Serialization" class="headerlink" title="序列化 Serialization"></a>序列化 Serialization</h3><p>A格式 转换 B格式</p>
+<h3 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h3><h4 id="序列化器"><a href="#序列化器" class="headerlink" title="序列化器"></a>序列化器</h4><p>1.BinaryFormatter 二进制平台<br>2.SoapFormatter SOAP<br>3.XmlSerializer Xml强大的控制 类型有限<br>4.DataContractSerializer WCF优化<br>5.NetDataContractSerializer WCF二进制<br>6.DataContractJsonSerializer JSON</p>
+<h4 id="WCF序列化过程"><a href="#WCF序列化过程" class="headerlink" title="WCF序列化过程"></a>WCF序列化过程</h4><p>参数对象 序列化 传输 反序列化 执行操作 返回结果 序列化 传输</p>
+<h3 id="数据契约"><a href="#数据契约" class="headerlink" title="数据契约"></a>数据契约</h3><h3 id="消息契约"><a href="#消息契约" class="headerlink" title="消息契约"></a>消息契约</h3><ul>
+<li>允许完全控制消息体</li>
+<li>SOAP消息头 Header</li>
+<li>SOAP消息体 Body<h4 id="消息契约示例"><a href="#消息契约示例" class="headerlink" title="消息契约示例"></a>消息契约示例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class MyMessage&#123;</span><br><span class="line">	[MessageHeader]</span><br><span class="line">	public string Operation;</span><br><span class="line">	[MessageHeader]</span><br><span class="line">	public string Name;</span><br><span class="line">	[MessageBodyMember]</span><br><span class="line">	public int Age;</span><br><span class="line">	[MessageBodyMember]</span><br><span class="line">	public string Home;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="WCF序列化器-支持的数据类型"><a href="#WCF序列化器-支持的数据类型" class="headerlink" title="WCF序列化器 支持的数据类型"></a>WCF序列化器 支持的数据类型</h4></li>
+<li>无参构造函数的Pulbic类</li>
+<li>数据契约类</li>
+<li>集合类:Ienumerable,IDictionary,CollectionDataContract</li>
+<li>枚举类</li>
+<li>.NET基元类: Byte,Sbyte,Int16,Int32等</li>
+<li>SerializableAttribute 属性标记的类型</li>
+<li>原始XML类型和ADO.NET关系数据的类型</li>
+</ul>
+<h4 id="WCF使用XmlSerializer"><a href="#WCF使用XmlSerializer" class="headerlink" title="WCF使用XmlSerializer"></a>WCF使用XmlSerializer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[ServiceContract]</span><br><span class="line">[XmlSerializerFormat]</span><br><span class="line">public interface MyService&#123;</span><br><span class="line">	[OperationContract]</span><br><span class="line">	[XmlSerializerFormat]</span><br><span class="line">	void MyMethod();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="C-使用XmlSerializer"><a href="#C-使用XmlSerializer" class="headerlink" title="C#使用XmlSerializer"></a>C#使用XmlSerializer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">XmlSerializer serializer=new XmlSerializer(typeof(Order));</span><br><span class="line">TextWriter writer=new StreamWriter(filename);</span><br><span class="line">Order order=new Order();</span><br><span class="line">serializer.Serialize(writer,po);</span><br><span class="line">writer.Close();</span><br></pre></td></tr></table></figure>
+<h4 id="C-中使用DataContractSerializer"><a href="#C-中使用DataContractSerializer" class="headerlink" title="C#中使用DataContractSerializer"></a>C#中使用DataContractSerializer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FileStream writer=new FileStream(filename,FileMode.Create);</span><br><span class="line">DataContractSerializer ser=new DataContractSerializer(typeof(Person));</span><br><span class="line">ser.WriteObject(writer,pl);</span><br><span class="line">writer.Close();</span><br></pre></td></tr></table></figure>
+
+                </div>
+                <footer class="kratos-entry-footer clearfix">
+                    <div class="post-like-donate text-center clearfix">
+                        <a class="read-more" href="/qm/31480aad.html#more" title="C#WCF方向(三)">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </footer>
             </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
+        </article>
+    
+
+    
+    
+        <article>
+            <div class="kratos-hentry kratos-post-inner clearfix index-post">
+                <div class="kratos-entry-thumb-new">
+                    <a href="/qm/4fbb2a86.html">
+                        
+                    </a>
+                </div>
+                <header class="kratos-entry-header">
+                    <h1 class="text-center"><a class="kratos-entry-title" href="/qm/4fbb2a86.html">C#WCF方向(二)</a></h1>
+                    
+                    <ul class="kratos-post-meta text-center">
+                        <li>
+                            <i class="fa fa-calendar"></i>
+                            2022-05-04
+                        </li>
+                        
+                            <li>
+                                <i class="fa fa-folder"></i>
+                                分类于
+                                <a class="label-link" href="/categories/C/">C#</a>
+                            </li>
+                        
+                        
+                            <li>
+                                <i class="fa fa-tags"></i>
+                                <a class="tag-none-link" href="/tags/WCF/" rel="tag">WCF</a>
+                            </li>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </ul>
+                </header>
+                <hr />
+                <div class="kratos-post-content">
+                    <h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>1.终结点 Endpoint<br>2.契约 Contract<br>3.宿主 Host<br>4.绑定 Binding<br>5.Demo:定义契约,终结点,配置绑定</p>
+                </div>
+                <footer class="kratos-entry-footer clearfix">
+                    <div class="post-like-donate text-center clearfix">
+                        <a class="read-more" href="/qm/4fbb2a86.html#more" title="C#WCF方向(二)">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </footer>
             </div>
+        </article>
+    
+
+    
+    
+        <article>
+            <div class="kratos-hentry kratos-post-inner clearfix index-post">
+                <div class="kratos-entry-thumb-new">
+                    <a href="/qm/e08ab1e4.html">
+                        
+                    </a>
+                </div>
+                <header class="kratos-entry-header">
+                    <h1 class="text-center"><a class="kratos-entry-title" href="/qm/e08ab1e4.html">C#WCF方向(一)</a></h1>
+                    
+                    <ul class="kratos-post-meta text-center">
+                        <li>
+                            <i class="fa fa-calendar"></i>
+                            2022-05-03
+                        </li>
+                        
+                            <li>
+                                <i class="fa fa-folder"></i>
+                                分类于
+                                <a class="label-link" href="/categories/C/">C#</a>
+                            </li>
+                        
+                        
+                            <li>
+                                <i class="fa fa-tags"></i>
+                                <a class="tag-none-link" href="/tags/WCF/" rel="tag">WCF</a>
+                            </li>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </ul>
+                </header>
+                <hr />
+                <div class="kratos-post-content">
+                    <h2 id="WCF"><a href="#WCF" class="headerlink" title="WCF"></a>WCF</h2><p>开始入手WCF了,从零开始,记录一下WCF的学习笔记</p>
+<h3 id="什么是WCF"><a href="#什么是WCF" class="headerlink" title="什么是WCF"></a>什么是WCF</h3><p>摘要<br>WCF是使用托管代码建立和运行面向服务（Service Oriented）应用程序的统一框架。它使得开发者能够建立一个跨平台的安全、可信赖、事务性的解决方案，且能与已有系统兼容协作。WCF是微软分布式应用程序开发的集大成者，它整合了.Net平台下所有的和分布式系统有关的技术，例如.Net Remoting、ASMX、WSE和MSMQ。以通信(Communiation)范围而论，它可以跨进程、跨机器、跨子网、企业网乃至于 Internet；以宿主程序而论，可以以ASP.NET，EXE，WPF，Windows Forms，NT Service，COM+作为宿主(Host)。</p>
+                </div>
+                <footer class="kratos-entry-footer clearfix">
+                    <div class="post-like-donate text-center clearfix">
+                        <a class="read-more" href="/qm/e08ab1e4.html#more" title="C#WCF方向(一)">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </footer>
+            </div>
+        </article>
+    
+
+
+
+
+
+    <div class="hidden">
+        <!-- 加载文章阅读对应的统计功能，评论自带的那种 -->
+        
+    </div>
+
+
+
+        
+
+            </section>
+
+        
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+        <div class="sticky-area">
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                15
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                4
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                12
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web%E6%9C%8D%E5%8A%A1/">Web服务</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/">线上评论</a><span class="category-list-count">2</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/Aplayer/" style="font-size: 0.6em;">Aplayer</a> <a href="/tags/GitHub/" style="font-size: 0.8em;">GitHub</a> <a href="/tags/Gitalk/" style="font-size: 0.6em;">Gitalk</a> <a href="/tags/Hexo/" style="font-size: 0.8em;">Hexo</a> <a href="/tags/Nginx/" style="font-size: 0.6em;">Nginx</a> <a href="/tags/Nodejs/" style="font-size: 0.8em;">Nodejs</a> <a href="/tags/WCF/" style="font-size: 0.8em;">WCF</a> <a href="/tags/livere/" style="font-size: 0.6em;">livere</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 0.6em;">博客美化</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.7em;">音乐</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/qm/ec296788.html"><i class="fa  fa-book"></i> Nginx配置详解及设置代理服务器</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/31480aad.html"><i class="fa  fa-book"></i> C#WCF方向(三)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/4fbb2a86.html"><i class="fa  fa-book"></i> C#WCF方向(二)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/e08ab1e4.html"><i class="fa  fa-book"></i> C#WCF方向(一)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/212a5789.html"><i class="fa  fa-book"></i> Hexo博客添加Gitalk评论</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
         </div>
     </div>
 </div>
+<footer>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:Drfengling@163.com"><i class="fa fa-envelope"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://t.me/CandyUnion"><i class="fa fa-telegram"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="me" href="https://nya.one/@Drfengling"><i class="fa fa fa-share-alt-square"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/Drfengling"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2022 浅梦博客 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 浅梦风凌.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">豫ICP备2022011311号</a></li>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://unpkg.com/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.min.js"></script>
+    </div>
 
 
+
+<script defer src="https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
 
 </html>

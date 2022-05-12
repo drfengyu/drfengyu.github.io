@@ -196,6 +196,13 @@
   </url>
   
   <url>
+    <loc>https://drfengling.github.io/tags/livere/</loc>
+    <lastmod>2022-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://drfengling.github.io/tags/Nginx/</loc>
     <lastmod>2022-05-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -224,13 +231,6 @@
   </url>
   
   <url>
-    <loc>https://drfengling.github.io/tags/livere/</loc>
-    <lastmod>2022-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://drfengling.github.io/tags/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2022-05-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -245,7 +245,7 @@
   </url>
   
   <url>
-    <loc>https://drfengling.github.io/tags/%E9%9F%B3%E4%B9%90/</loc>
+    <loc>https://drfengling.github.io/tags/Aplayer/</loc>
     <lastmod>2022-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -259,7 +259,7 @@
   </url>
   
   <url>
-    <loc>https://drfengling.github.io/tags/Aplayer/</loc>
+    <loc>https://drfengling.github.io/tags/%E9%9F%B3%E4%B9%90/</loc>
     <lastmod>2022-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
