@@ -248,28 +248,7 @@
 <li>序列化机制</li>
 <li>数据契约</li>
 <li>消息契约</li>
-<li>Demo</li>
-</ul>
-<h3 id="序列化-Serialization"><a href="#序列化-Serialization" class="headerlink" title="序列化 Serialization"></a>序列化 Serialization</h3><p>A格式 转换 B格式</p>
-<h3 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h3><h4 id="序列化器"><a href="#序列化器" class="headerlink" title="序列化器"></a>序列化器</h4><p>1.BinaryFormatter 二进制平台<br>2.SoapFormatter SOAP<br>3.XmlSerializer Xml强大的控制 类型有限<br>4.DataContractSerializer WCF优化<br>5.NetDataContractSerializer WCF二进制<br>6.DataContractJsonSerializer JSON</p>
-<h4 id="WCF序列化过程"><a href="#WCF序列化过程" class="headerlink" title="WCF序列化过程"></a>WCF序列化过程</h4><p>参数对象 序列化 传输 反序列化 执行操作 返回结果 序列化 传输</p>
-<h3 id="数据契约"><a href="#数据契约" class="headerlink" title="数据契约"></a>数据契约</h3><h3 id="消息契约"><a href="#消息契约" class="headerlink" title="消息契约"></a>消息契约</h3><ul>
-<li>允许完全控制消息体</li>
-<li>SOAP消息头 Header</li>
-<li>SOAP消息体 Body<h4 id="消息契约示例"><a href="#消息契约示例" class="headerlink" title="消息契约示例"></a>消息契约示例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class MyMessage&#123;</span><br><span class="line">	[MessageHeader]</span><br><span class="line">	public string Operation;</span><br><span class="line">	[MessageHeader]</span><br><span class="line">	public string Name;</span><br><span class="line">	[MessageBodyMember]</span><br><span class="line">	public int Age;</span><br><span class="line">	[MessageBodyMember]</span><br><span class="line">	public string Home;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="WCF序列化器-支持的数据类型"><a href="#WCF序列化器-支持的数据类型" class="headerlink" title="WCF序列化器 支持的数据类型"></a>WCF序列化器 支持的数据类型</h4></li>
-<li>无参构造函数的Pulbic类</li>
-<li>数据契约类</li>
-<li>集合类:Ienumerable,IDictionary,CollectionDataContract</li>
-<li>枚举类</li>
-<li>.NET基元类: Byte,Sbyte,Int16,Int32等</li>
-<li>SerializableAttribute 属性标记的类型</li>
-<li>原始XML类型和ADO.NET关系数据的类型</li>
-</ul>
-<h4 id="WCF使用XmlSerializer"><a href="#WCF使用XmlSerializer" class="headerlink" title="WCF使用XmlSerializer"></a>WCF使用XmlSerializer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[ServiceContract]</span><br><span class="line">[XmlSerializerFormat]</span><br><span class="line">public interface MyService&#123;</span><br><span class="line">	[OperationContract]</span><br><span class="line">	[XmlSerializerFormat]</span><br><span class="line">	void MyMethod();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="C-使用XmlSerializer"><a href="#C-使用XmlSerializer" class="headerlink" title="C#使用XmlSerializer"></a>C#使用XmlSerializer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">XmlSerializer serializer=new XmlSerializer(typeof(Order));</span><br><span class="line">TextWriter writer=new StreamWriter(filename);</span><br><span class="line">Order order=new Order();</span><br><span class="line">serializer.Serialize(writer,po);</span><br><span class="line">writer.Close();</span><br></pre></td></tr></table></figure>
-<h4 id="C-中使用DataContractSerializer"><a href="#C-中使用DataContractSerializer" class="headerlink" title="C#中使用DataContractSerializer"></a>C#中使用DataContractSerializer</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FileStream writer=new FileStream(filename,FileMode.Create);</span><br><span class="line">DataContractSerializer ser=new DataContractSerializer(typeof(Person));</span><br><span class="line">ser.WriteObject(writer,pl);</span><br><span class="line">writer.Close();</span><br></pre></td></tr></table></figure>
-
+<li>Demo
                 </div>
                 <footer class="kratos-entry-footer clearfix">
                     <div class="post-like-donate text-center clearfix">
