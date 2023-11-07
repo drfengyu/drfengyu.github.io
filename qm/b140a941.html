@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="/images/favicon.ico">
-  <title>搭建个人博客(一) | 浅梦博客</title>
+  <title>WPF-属性与依赖 | 浅梦博客</title>
   <meta name="author" content="浅梦风凌" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,22 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="GitHub, Hexo, Nodejs" />
+    <meta name="keywords" content="WPF" />
   
-  <meta name="description" content="一.初识Hexo;快速、简洁且高效的博客框架，官网：https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。 但是要知道它是个博客框架，有很多好看的主题https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。">
+  <meta name="description" content="属性与依赖依赖属性是一种类型为DependencyProperty的属性,其依赖属性标识则是依赖属性的实例.1.DependencyObject:继承该类后才可以注册和拥有依赖属性2.WPF属性系统:WPF通过提供一系列服务扩展普通的.Net属性.这些服务总称为WPF属性系统.3..Net属性包装器:指属性的get和set的实现.在这个实现中均调用DependencyObject的GetValue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建个人博客(一)">
-<meta property="og:url" content="https://drfengling.github.io/qm/387162d6.html">
+<meta property="og:title" content="WPF-属性与依赖">
+<meta property="og:url" content="https://drfengling.github.io/qm/b140a941.html">
 <meta property="og:site_name" content="浅梦博客">
-<meta property="og:description" content="一.初识Hexo;快速、简洁且高效的博客框架，官网：https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。 但是要知道它是个博客框架，有很多好看的主题https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。">
+<meta property="og:description" content="属性与依赖依赖属性是一种类型为DependencyProperty的属性,其依赖属性标识则是依赖属性的实例.1.DependencyObject:继承该类后才可以注册和拥有依赖属性2.WPF属性系统:WPF通过提供一系列服务扩展普通的.Net属性.这些服务总称为WPF属性系统.3..Net属性包装器:指属性的get和set的实现.在这个实现中均调用DependencyObject的GetValue">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://drfengling.github.io/images/favicon.ico">
-<meta property="article:published_time" content="2022-04-13T00:48:09.000Z">
-<meta property="article:modified_time" content="2022-04-19T06:39:53.617Z">
+<meta property="article:published_time" content="2022-11-23T05:03:12.000Z">
+<meta property="article:modified_time" content="2022-11-23T07:33:48.157Z">
 <meta property="article:author" content="浅梦风凌">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="Nodejs">
+<meta property="article:tag" content="WPF">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://drfengling.github.io/images/favicon.ico">
 <meta name="twitter:site" content="@null">
@@ -190,17 +188,17 @@
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center">搭建个人博客(一)</h1>
+                <h1 class="kratos-entry-title text-center">WPF-属性与依赖</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><i class="fa fa-calendar"></i> 2022-04-13</li>
+                <li><i class="fa fa-calendar"></i> 2022-11-23</li>
                 <li><i class="fa fa-user"></i> 作者 浅梦风凌</li>
                 <li>
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~4.18K
+                        ~4.14K
                     
                     字
                 </li>
@@ -210,65 +208,26 @@
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1650350393617"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1669188828157"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
+                <div class="kratos-post-inner-toc">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E4%B8%8E%E4%BE%9D%E8%B5%96"><span class="toc-number">1.</span> <span class="toc-text">属性与依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BE%9D%E8%B5%96%E5%B1%9E%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">自定义依赖属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BE%9D%E8%B5%96%E5%B1%9E%E6%80%A7%E5%A2%9E%E5%8A%A0%E5%B1%9E%E6%80%A7%E5%80%BC%E7%BB%A7%E6%89%BF%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">为依赖属性增加属性值继承的特性.</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%80%E6%9C%89%E8%A7%84%E5%88%99%E5%A4%A7%E6%8E%92%E9%98%9F"><span class="toc-number">3.</span> <span class="toc-text">所有规则大排队</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%85%88%E7%BA%A7%E5%88%97%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">依赖属性设置优先级列表.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E5%B1%9E%E6%80%A7%E5%92%8C%E2%80%9D%E7%AD%89%E9%A4%90%E5%8F%B7%E2%80%9D"><span class="toc-number">5.</span> <span class="toc-text">附加属性和”等餐号”</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E5%B1%9E%E6%80%A7%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">5.1.</span> <span class="toc-text">附加属性的本质</span></a></li></ol></li></ol>
+                </div>
+            
             <hr />
-            <h3 id="一-初识Hexo"><a href="#一-初识Hexo" class="headerlink" title="一.初识Hexo;"></a>一.初识Hexo;</h3><p>快速、简洁且高效的博客框架，官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a>是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。</p>
-<p>但是要知道它是个博客框架，有很多好看的主题<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a>可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。</p>
-<span id="more"></span>
-<h3 id="二-安装前提"><a href="#二-安装前提" class="headerlink" title="二.安装前提;"></a>二.安装前提;</h3><p>安装 Hexo 相当简单，只需要先安装下列应用程序即可：</p>
-<p><a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a> (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)<br><a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a><br>如果您的电脑中已经安装上述必备程序，那么恭喜您！你可以直接前往 安装 Hexo 步骤。</p>
-<h3 id="三-安装Hexo"><a href="#三-安装Hexo" class="headerlink" title="三.安装Hexo;"></a>三.安装Hexo;</h3><p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>进阶安装和使用<br>对于熟悉 npm 的进阶用户，可以仅局部安装 hexo 包。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo</span><br></pre></td></tr></table></figure>
-<h3 id="四-搭建博客"><a href="#四-搭建博客" class="headerlink" title="四.搭建博客;"></a>四.搭建博客;</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p>这里我在J:\WEIXIN\Blog下新建了文件夹博客日记作为演示<br>1.打开cmd命令行或Windows Power Shell</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Windows PowerShell</span><br><span class="line">版权所有 (C) Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">尝试新的跨平台 PowerShell https://aka.ms/pscore6</span><br><span class="line"></span><br><span class="line">PS C:\Users\Administrator&gt; J:</span><br></pre></td></tr></table></figure>
-<p>2.切换到J盘文件夹目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\&gt; <span class="built_in">cd</span> J:\WEIXIN\Blog\博客日记</span><br></pre></td></tr></table></figure>
-<p>3.初始化hexo博客文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo init</span><br><span class="line">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span><br><span class="line">[32mINFO [39m Install dependencies</span><br><span class="line">INFO  Start blogging with Hexo!</span><br></pre></td></tr></table></figure>
-<p>新建完成后，指定文件夹的目录如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br><span class="line">_config.yml</span><br></pre></td></tr></table></figure>
-<p>网站的 配置 信息，您可以在此配置大部分的参数。</p>
-<p>package.json<br>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;hexo-site&quot;</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span>: <span class="string">&quot;0.0.0&quot;</span>,</span><br><span class="line">  <span class="string">&quot;private&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">&quot;hexo&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;hexo&quot;</span>: <span class="string">&quot;^3.8.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-generator-archive&quot;</span>: <span class="string">&quot;^0.1.5&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-generator-category&quot;</span>: <span class="string">&quot;^0.1.3&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-generator-index&quot;</span>: <span class="string">&quot;^0.2.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-generator-tag&quot;</span>: <span class="string">&quot;^0.2.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-renderer-ejs&quot;</span>: <span class="string">&quot;^0.3.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-renderer-stylus&quot;</span>: <span class="string">&quot;^0.3.3&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-renderer-marked&quot;</span>: <span class="string">&quot;^0.3.2&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-server&quot;</span>: <span class="string">&quot;^0.3.3&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>scaffolds<br>模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
-<p>Hexo的模板是指在新建的文章文件中默认填充的内容。例如，如果您修改scaffold/post.md中的Front-matter内容，那么每次新建一篇文章时都会包含这个修改。</p>
-<p>source<br>资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
-<p>themes<br>主题 文件夹。Hexo 会根据主题来生成静态页面。<br>4.启动Hexo $ hexo s</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo s</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-<p>5.浏览器输入：<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>，可查看到默认生成了一篇博文：<br><img src="/qm/387162d6/HexoIndex.jpg"></p>
-<p>6.新建一篇博文<br>ctrl+c断开刚刚的链接，新建一篇博文：hexo n “发布第二篇个人博客”</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo n <span class="string">&quot;发布第二篇个人博客&quot;</span></span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Created: J:\WEIXIN\Blog\博客1\<span class="built_in">source</span>\_posts\发布第二篇个人博客.md</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt;</span><br></pre></td></tr></table></figure>
-<p>5、接下来就是更改博文内容，可以选择用命令行，也可用开发工具，我直接使用记事本打开该文件了，找到相应的位置，做修改即可<br><img src="/qm/387162d6/HexobowenCreate.jpg"><br>6、同样在博客日记文件下： 清理：hexo clean 生成：hexo g 启动：hexo s</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo cl</span><br><span class="line">..</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo g</span><br><span class="line">..</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo s</span><br></pre></td></tr></table></figure>
-<p><img src="/qm/387162d6/hexobowen2.jpg"><br>完成!</p>
-<h3 id="五-部署到Github上"><a href="#五-部署到Github上" class="headerlink" title="五.部署到Github上;"></a>五.部署到Github上;</h3><p>1、登录github：<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a>，没账号的新建一个，新创建一个仓库New repository，仓库名必须为：昵称.github.io:，输入描述，创建：<br><img src="/qm/387162d6/1.jpg"><br><img src="/qm/387162d6/2.jpg"><br>2、命令行下，ctrl+c，退出命令，仍然在博客日记目录下，安装git部署插件：npm install hexo-deployer-git –save</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>3、更改博客日记文件夹下，_config.yml的配置，我直接用记事本了，用命令行修改也可以：</p>
-<p>repo为第一步创建的git仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/Drfengling/Drfengling.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-<p>4.回到命令行部署到远端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo d</span><br></pre></td></tr></table></figure>
-<p>中间会让输入github密码，输入即可，后续部署完成，即可访问你的远端地址：<br><a href="https://drfengling.github.io/">https://Drfengling.github.io</a><br>###五.Hexo主题的使用；<br>1、选主题：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a>，有很多主题可供选择，也可使用网友推荐的自己喜欢的主题，有相应的预览、github地址：</p>
-<p>我这里使用的是： diaspora： <a target="_blank" rel="noopener" href="https://github.com/Fechin/hexo-theme-diaspora">https://github.com/Fechin/hexo-theme-diaspora</a></p>
-<p>有相应的安装方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; git <span class="built_in">clone</span> https://github.com/Fechin/hexo-theme-diaspora.git themes/diaspora</span><br></pre></td></tr></table></figure>
-<p>修改Hexo配置文件 _config.yml 主题项设置为diaspora</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">theme: diaspora</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>3、清理、启动：</p>
-<p>清理：hexo clean 生成：hexo g 启动：hexo s</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo cl</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo g</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo s</span><br></pre></td></tr></table></figure>
-<p>在本地刷新预览<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>之后，看到主题效果，可根据自己需要做相应修改即可。</p>
-<p>4、推至远端：</p>
-<p>ctrl+c退出上一步命令，然后推至远端：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo d</span><br></pre></td></tr></table></figure>
-<p>刷新查看：<a href="https://drfengling.github.io/">https://Drfengling.github.io</a><br>以上就是搭建个人博客的全过程了，也可以购买自己的域名，放置自己的域名下</p>
+            <h3 id="属性与依赖"><a href="#属性与依赖" class="headerlink" title="属性与依赖"></a>属性与依赖</h3><p>依赖属性是一种类型为DependencyProperty的属性,其依赖属性标识则是依赖属性的实例.<br>1.DependencyObject:继承该类后才可以注册和拥有依赖属性<br>2.WPF属性系统:WPF通过提供一系列服务扩展普通的.Net属性.这些服务总称为WPF属性系统.<br>3..Net属性包装器:指属性的get和set的实现.在这个实现中均调用DependencyObject的GetValue和SetValue方法.<br>1.依赖属性对资源引用的支持<br>2.依赖属性对样式的支持<br>3.依赖属性对动画的支持<br>4.依赖属性对数据绑定的支持<br>5.依赖属性对属性值继承的支持<br>6.依赖属性对元数据重载的支持<br>依赖属性和普通.Net属性区别之一是有一个元数据对象.通过设置元数据对象,可以改变依赖属性的状态和行为.一般用到的元数据类是PropertyMetaData和FrameworkPropertyMetaData,前者是后者的基类.<br>PropertyMetaData—&gt;UIPropertyMetaData—&gt;FrameworkPropertyMetaData.<br>一般依赖属性的元数据类型为PropertyMetaData,而大部分控件的依赖属性,如按钮的WIdth及Background这样的依赖属性就会用到FrameworkPropertyMetaData元数据对象.<br>一般元数据对象包括如下类型的信息:<br>1.默认值<br>2.引用回调函数 其中PropertyChangedCallback,在属性值发生改变时调用;CoerceValueCallback用于限制属性值.<br>3.如果是框架级别的一些属性,则会有一些标识告知WPF该属性的某些状态信息.</p>
+<p>7.依赖属性对WPF设计器的集成支持<br>###依赖属性的组成部分</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static DependencyProperty Register(string name,Type propertyType,Type ownerType,PropertyMetadata typeMetadata,ValidateValueCallback validateValue validateValueCallback)</span><br></pre></td></tr></table></figure>
+<p>第一个参数是指的属性名,这个名字和依赖属性相关的.Net属性名相同,第二个参数是指该.Net属性的类型.第三个属性是指该依赖属性属于什么类型.第四个参数是依赖属性的元数据.第五个参数是值验证的回调函数.该回调函数是负责检验值的最后一道关卡.</p>
+<h3 id="自定义依赖属性"><a href="#自定义依赖属性" class="headerlink" title="自定义依赖属性"></a>自定义依赖属性</h3><p>实现依赖属性必须满足以下条件:<br>1.该类必须继承自DependencyObject类.只有DependencyObject类才可以注册和拥有依赖属性.<br>2.该类中必须定义一个public static readonly成员变量,类型为DependencyProperty.<br>3.该依赖属性必须以属性名+Property命名<br>4.必须调用DependencyProperty的注册方法,在WPF属性系统中注册该依赖属性或者使用依赖属性的AddOwner方法.两种方法均返回一个DependencyProperty类型的标识并将其保存在定义的DependencyProperty成员变量中.<br>5.为依赖属性实现一个.Net属性包装器.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//依赖属性</span><br><span class="line">public static <span class="built_in">readonly</span> DependencyProperty SpaceProperty;</span><br><span class="line">//.Net属性包装器</span><br><span class="line">public int Space&#123;<span class="built_in">set</span>&#123;setValue(SpaceProperty,value);&#125; get&#123;<span class="built_in">return</span> (int)GetValue(SpaceProperty);&#125;&#125;</span><br><span class="line">//静态的构造函数</span><br><span class="line">//定义元数据</span><br><span class="line">static SpaceButton&#123;</span><br><span class="line">FrameworkPropertyMetadata metadata=new FrameworkPropertyMetadata();</span><br><span class="line">metadata.DefaultValue=0;</span><br><span class="line">metadata.PropertyChangedCallback+=OnSpacePropertyChanged;</span><br><span class="line">//注册依赖属性</span><br><span class="line">SpaceProperty=DependencyProperty.Register(<span class="string">&quot;Space&quot;</span>,typeof(int),typeof(SpaceButton),metadata,ValidataSpaceValue);</span><br><span class="line">&#125;</span><br><span class="line">//值验证的回调函数</span><br><span class="line">static bool ValidateSpaceValue(object obj)&#123;</span><br><span class="line">	int i=(int)obj;</span><br><span class="line">	<span class="built_in">return</span> i&gt;=0;</span><br><span class="line">&#125;</span><br><span class="line">//属性值改变的回调函数</span><br><span class="line">static void OnSpacePropertyChanged(DependencyObject obj,DependencyPropertyChangedEventArgs args)&#123;</span><br><span class="line">	SpaceButton btn=obj as SpaceButton;</span><br><span class="line">string txt=btn.Content as string;</span><br><span class="line"><span class="keyword">if</span>(txt==null)<span class="built_in">return</span>;</span><br><span class="line">btn.Content=btn.SpaceOutText(txt);</span><br><span class="line">&#125;</span><br><span class="line">//该方法为字符间距添加空格</span><br><span class="line">string SpaceOutText(string str)&#123;</span><br><span class="line">	<span class="keyword">if</span>(str==null)<span class="built_in">return</span> null;</span><br><span class="line">	StringBuilder build=new StringBuilder();</span><br><span class="line">	//在其中添加Space个空格</span><br><span class="line">foreach(char ch <span class="keyword">in</span> str)&#123;</span><br><span class="line">	build.Append(ch+new string(<span class="string">&#x27;  &#x27;</span>,Space));</span><br><span class="line">	<span class="built_in">return</span> build.Tostring();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="为依赖属性增加属性值继承的特性"><a href="#为依赖属性增加属性值继承的特性" class="headerlink" title="为依赖属性增加属性值继承的特性."></a>为依赖属性增加属性值继承的特性.</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">static <span class="function"><span class="title">SpaceWindow</span></span>()&#123;</span><br><span class="line">	FrameworkPropertyMetadata metadata=new FrameworkPropertyMetadata();</span><br><span class="line">	metadata.Inherits=<span class="literal">true</span>;</span><br><span class="line">	SpaceProperty=SpaceButton.SpaceProperty.AddOwner(typeof(SpaceWindow));</span><br><span class="line">	SpaceProperty.OverriderMetadata(typeof(Window),metadata);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static <span class="built_in">readonly</span> DependencyProperty SpaceProperty;</span><br><span class="line">public int Space&#123;</span><br><span class="line">	<span class="built_in">set</span>&#123;</span><br><span class="line">	SetValue(SpaceProperty,value);</span><br><span class="line">	&#125;</span><br><span class="line">	get&#123;</span><br><span class="line">	<span class="built_in">return</span> (int)GetValue(SpaceProperty);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注册依赖属性Space不是通过注册而来,而是从SpaceButton的Space属性的AddOwner方法得来的.<br>即依赖属性可以选择把自身添加给其他属性,这是普通属性不可实现的.需要特别注意元数据不能再使用,必须新建一个,为了实现属性值继承,将Inherit标识为true.</p>
+<h3 id="所有规则大排队"><a href="#所有规则大排队" class="headerlink" title="所有规则大排队"></a>所有规则大排队</h3><p>1.直接设置的值&gt;样式中触发器设置的值&gt;样式中Setter设置的值.</p>
+<h3 id="依赖属性设置优先级列表"><a href="#依赖属性设置优先级列表" class="headerlink" title="依赖属性设置优先级列表."></a>依赖属性设置优先级列表.</h3><p>优先级列表.<br>1.限制 Coerce 2.动画 3. 本地值 包括再代码和Xaml中直接设置的值,以及动态资源引用和数据绑定.<br>4.模板的父类 TemplateParent Triggers Setters 在模板的父类中Triggers设置依赖属性值的优先级高于在Setter中设置依赖属性值.5.样式触发器 主要指在Application或者Page中的样式,不包括主题样式.<br>6.模板触发器 7.样式设置 8.主题样式 9.属性值继承 10.元数据的默认值</p>
+<h3 id="附加属性和”等餐号”"><a href="#附加属性和”等餐号”" class="headerlink" title="附加属性和”等餐号”"></a>附加属性和”等餐号”</h3><h4 id="附加属性的本质"><a href="#附加属性的本质" class="headerlink" title="附加属性的本质"></a>附加属性的本质</h4><p>附加属性实质上是一个依赖属性,与普通的依赖属性相比有以下不同<br>1.注册不再是通过Register方法注册,而是通过RegisterAttached方法注册.<br>2.没有普通的.Net属性包装器,而是通过Get和Set属性名来实现属性包装.<br>3.没有普通的.Net属性.<br>一个附加属性IsBubbleSource</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static <span class="built_in">readonly</span> DependencyProperty IsBubbleSourceProperty=DependencyProperty.RegisterAttached(<span class="string">&quot;IsBubbleSource&quot;</span>,typeof(Boolean),typeof(AquariumObject),new FrameworkPropertyMetadata(<span class="literal">false</span>,FrameworkPropertyMetadataOptions.AffectsRender));</span><br><span class="line">public static void SetIsBubbleSource(UIElement element,Boolean value)&#123;</span><br><span class="line">	element.SetValue(IsBubbleSourceProperty,value);</span><br><span class="line">&#125;</span><br><span class="line">public static Boolean GetIsBubbleSource(UIElement element)&#123;</span><br><span class="line">	<span class="built_in">return</span> (Boolean)element.GetValue(IsBubbleSourceProperty);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -322,7 +281,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://drfengling.github.io/qm/387162d6.html",
+                text: "https://drfengling.github.io/qm/b140a941.html",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -334,10 +293,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://drfengling.github.io/qm/387162d6.html";
-            const title         = "「搭建个人博客(一)」";
-            const excerpt       = `一.初识Hexo;快速、简洁且高效的博客框架，官网：https://hexo.io/zh-cn/是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。
-但是要知道它是个博客框架，有很多好看的主题https://hexo.io/themes/可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。`;
+            const hostUrl       = "https://drfengling.github.io/qm/b140a941.html";
+            const title         = "「WPF-属性与依赖」";
+            const excerpt       = `属性与依赖依赖属性是一种类型为DependencyProperty的属性,其依赖属性标识则是依赖属性的实例.1.DependencyObject:继承该类后才可以注册和拥有依赖属性2.WPF属性系统:WPF通过提供一系列服务扩展普通的...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -356,10 +314,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/GitHub/" rel="tag">GitHub</a>, <a class="tag-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>, <a class="tag-none-link" href="/tags/Nodejs/" rel="tag">Nodejs</a>
+                    <a class="tag-none-link" href="/tags/WPF/" rel="tag">WPF</a>
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2022-04-19</span>
+                <span>最后编辑：2022-11-23</span>
                 </div>
             </div>
         </footer>
@@ -368,12 +326,12 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Hello World" href="/qm/4a17b156.html">&lt; 上一篇</a>
+                <a title=" WPF-Xaml" href="/qm/2abf7006.html">&lt; 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" 搭建个人博客(二)" href="/qm/4b6f21d9.html">下一篇 &gt;</a>
+                <a title=" WPF-路由事件" href="/qm/6f6c3460.html">下一篇 &gt;</a>
             </div>
             
         </nav>
@@ -386,8 +344,8 @@
         const init = () => {
             console.log('Gitalk loading...');
             const gitalk = new Gitalk(Object.assign({
-                id: '/qm/387162d6.html',
-                path: '/qm/387162d6.html'
+                id: '/qm/b140a941.html',
+                path: '/qm/b140a941.html'
             }, JSON.parse('{"clientID":"67075d9ed7922a3c9791","clientSecret":"50ce067bd2bb3d9e9e48d56804da1a6d25e7bf16","repo":"dryunment","owner":"Drfengling","admin":["Drfengling"],"distractionFreeMode":false}')));
 
             gitalk.render('gitalk-container');
@@ -456,6 +414,18 @@ load_comm();
 </aside>
             
                     <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E4%B8%8E%E4%BE%9D%E8%B5%96"><span class="toc-text">属性与依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BE%9D%E8%B5%96%E5%B1%9E%E6%80%A7"><span class="toc-text">自定义依赖属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BE%9D%E8%B5%96%E5%B1%9E%E6%80%A7%E5%A2%9E%E5%8A%A0%E5%B1%9E%E6%80%A7%E5%80%BC%E7%BB%A7%E6%89%BF%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">为依赖属性增加属性值继承的特性.</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%80%E6%9C%89%E8%A7%84%E5%88%99%E5%A4%A7%E6%8E%92%E9%98%9F"><span class="toc-text">所有规则大排队</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%85%88%E7%BA%A7%E5%88%97%E8%A1%A8"><span class="toc-text">依赖属性设置优先级列表.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E5%B1%9E%E6%80%A7%E5%92%8C%E2%80%9D%E7%AD%89%E9%A4%90%E5%8F%B7%E2%80%9D"><span class="toc-text">附加属性和”等餐号”</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E5%B1%9E%E6%80%A7%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-text">附加属性的本质</span></a></li></ol></li></ol>
+    </div>
+</aside>
                 
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">

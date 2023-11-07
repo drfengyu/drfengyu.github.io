@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="/images/favicon.ico">
-  <title>搭建个人博客(一) | 浅梦博客</title>
+  <title>WPF-Command命令 | 浅梦博客</title>
   <meta name="author" content="浅梦风凌" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,22 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="GitHub, Hexo, Nodejs" />
+    <meta name="keywords" content="WPF" />
   
-  <meta name="description" content="一.初识Hexo;快速、简洁且高效的博客框架，官网：https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。 但是要知道它是个博客框架，有很多好看的主题https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。">
+  <meta name="description" content="Command123&lt;Window.CommandBindings&gt;	&lt;CommandBinding Command&#x3D;&quot;Save&quot; Executed&#x3D;&quot;SaveExecuted&quot; CanExecute&#x3D;&quot;SaveCanExecute&quot;&#x2F;&gt;&lt;&#x2F;Window.CommandBindings&gt; Command">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建个人博客(一)">
-<meta property="og:url" content="https://drfengling.github.io/qm/387162d6.html">
+<meta property="og:title" content="WPF-Command命令">
+<meta property="og:url" content="https://drfengling.github.io/qm/d0627144.html">
 <meta property="og:site_name" content="浅梦博客">
-<meta property="og:description" content="一.初识Hexo;快速、简洁且高效的博客框架，官网：https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。 但是要知道它是个博客框架，有很多好看的主题https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。">
+<meta property="og:description" content="Command123&lt;Window.CommandBindings&gt;	&lt;CommandBinding Command&#x3D;&quot;Save&quot; Executed&#x3D;&quot;SaveExecuted&quot; CanExecute&#x3D;&quot;SaveCanExecute&quot;&#x2F;&gt;&lt;&#x2F;Window.CommandBindings&gt; Command">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://drfengling.github.io/images/favicon.ico">
-<meta property="article:published_time" content="2022-04-13T00:48:09.000Z">
-<meta property="article:modified_time" content="2022-04-19T06:39:53.617Z">
+<meta property="article:published_time" content="2022-11-24T03:18:21.000Z">
+<meta property="article:modified_time" content="2022-11-24T06:00:44.075Z">
 <meta property="article:author" content="浅梦风凌">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="Nodejs">
+<meta property="article:tag" content="WPF">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://drfengling.github.io/images/favicon.ico">
 <meta name="twitter:site" content="@null">
@@ -190,17 +188,17 @@
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center">搭建个人博客(一)</h1>
+                <h1 class="kratos-entry-title text-center">WPF-Command命令</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><i class="fa fa-calendar"></i> 2022-04-13</li>
+                <li><i class="fa fa-calendar"></i> 2022-11-24</li>
                 <li><i class="fa fa-user"></i> 作者 浅梦风凌</li>
                 <li>
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~4.18K
+                        ~6.53K
                     
                     字
                 </li>
@@ -210,65 +208,23 @@
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1650350393617"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1669269644075"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
+                <div class="kratos-post-inner-toc">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Command"><span class="toc-number">1.</span> <span class="toc-text">Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">Command模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command-1"><span class="toc-number">3.</span> <span class="toc-text">Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command-Sources"><span class="toc-number">4.</span> <span class="toc-text">Command Sources</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commanding"><span class="toc-number">5.</span> <span class="toc-text">Commanding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command-Target"><span class="toc-number">6.</span> <span class="toc-text">Command Target</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E8%A7%84%E5%88%99%E7%AA%97%E5%8F%A3"><span class="toc-number"></span> <span class="toc-text">非规则窗口</span></a>
+                </div>
+            
             <hr />
-            <h3 id="一-初识Hexo"><a href="#一-初识Hexo" class="headerlink" title="一.初识Hexo;"></a>一.初识Hexo;</h3><p>快速、简洁且高效的博客框架，官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a>是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。</p>
-<p>但是要知道它是个博客框架，有很多好看的主题<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a>可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。</p>
-<span id="more"></span>
-<h3 id="二-安装前提"><a href="#二-安装前提" class="headerlink" title="二.安装前提;"></a>二.安装前提;</h3><p>安装 Hexo 相当简单，只需要先安装下列应用程序即可：</p>
-<p><a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a> (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)<br><a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a><br>如果您的电脑中已经安装上述必备程序，那么恭喜您！你可以直接前往 安装 Hexo 步骤。</p>
-<h3 id="三-安装Hexo"><a href="#三-安装Hexo" class="headerlink" title="三.安装Hexo;"></a>三.安装Hexo;</h3><p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>进阶安装和使用<br>对于熟悉 npm 的进阶用户，可以仅局部安装 hexo 包。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo</span><br></pre></td></tr></table></figure>
-<h3 id="四-搭建博客"><a href="#四-搭建博客" class="headerlink" title="四.搭建博客;"></a>四.搭建博客;</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p>这里我在J:\WEIXIN\Blog下新建了文件夹博客日记作为演示<br>1.打开cmd命令行或Windows Power Shell</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Windows PowerShell</span><br><span class="line">版权所有 (C) Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">尝试新的跨平台 PowerShell https://aka.ms/pscore6</span><br><span class="line"></span><br><span class="line">PS C:\Users\Administrator&gt; J:</span><br></pre></td></tr></table></figure>
-<p>2.切换到J盘文件夹目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\&gt; <span class="built_in">cd</span> J:\WEIXIN\Blog\博客日记</span><br></pre></td></tr></table></figure>
-<p>3.初始化hexo博客文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo init</span><br><span class="line">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span><br><span class="line">[32mINFO [39m Install dependencies</span><br><span class="line">INFO  Start blogging with Hexo!</span><br></pre></td></tr></table></figure>
-<p>新建完成后，指定文件夹的目录如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br><span class="line">_config.yml</span><br></pre></td></tr></table></figure>
-<p>网站的 配置 信息，您可以在此配置大部分的参数。</p>
-<p>package.json<br>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;hexo-site&quot;</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span>: <span class="string">&quot;0.0.0&quot;</span>,</span><br><span class="line">  <span class="string">&quot;private&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">&quot;hexo&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;hexo&quot;</span>: <span class="string">&quot;^3.8.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-generator-archive&quot;</span>: <span class="string">&quot;^0.1.5&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-generator-category&quot;</span>: <span class="string">&quot;^0.1.3&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-generator-index&quot;</span>: <span class="string">&quot;^0.2.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-generator-tag&quot;</span>: <span class="string">&quot;^0.2.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-renderer-ejs&quot;</span>: <span class="string">&quot;^0.3.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-renderer-stylus&quot;</span>: <span class="string">&quot;^0.3.3&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-renderer-marked&quot;</span>: <span class="string">&quot;^0.3.2&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-server&quot;</span>: <span class="string">&quot;^0.3.3&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>scaffolds<br>模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
-<p>Hexo的模板是指在新建的文章文件中默认填充的内容。例如，如果您修改scaffold/post.md中的Front-matter内容，那么每次新建一篇文章时都会包含这个修改。</p>
-<p>source<br>资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
-<p>themes<br>主题 文件夹。Hexo 会根据主题来生成静态页面。<br>4.启动Hexo $ hexo s</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo s</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-<p>5.浏览器输入：<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>，可查看到默认生成了一篇博文：<br><img src="/qm/387162d6/HexoIndex.jpg"></p>
-<p>6.新建一篇博文<br>ctrl+c断开刚刚的链接，新建一篇博文：hexo n “发布第二篇个人博客”</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo n <span class="string">&quot;发布第二篇个人博客&quot;</span></span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Created: J:\WEIXIN\Blog\博客1\<span class="built_in">source</span>\_posts\发布第二篇个人博客.md</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt;</span><br></pre></td></tr></table></figure>
-<p>5、接下来就是更改博文内容，可以选择用命令行，也可用开发工具，我直接使用记事本打开该文件了，找到相应的位置，做修改即可<br><img src="/qm/387162d6/HexobowenCreate.jpg"><br>6、同样在博客日记文件下： 清理：hexo clean 生成：hexo g 启动：hexo s</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo cl</span><br><span class="line">..</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo g</span><br><span class="line">..</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo s</span><br></pre></td></tr></table></figure>
-<p><img src="/qm/387162d6/hexobowen2.jpg"><br>完成!</p>
-<h3 id="五-部署到Github上"><a href="#五-部署到Github上" class="headerlink" title="五.部署到Github上;"></a>五.部署到Github上;</h3><p>1、登录github：<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a>，没账号的新建一个，新创建一个仓库New repository，仓库名必须为：昵称.github.io:，输入描述，创建：<br><img src="/qm/387162d6/1.jpg"><br><img src="/qm/387162d6/2.jpg"><br>2、命令行下，ctrl+c，退出命令，仍然在博客日记目录下，安装git部署插件：npm install hexo-deployer-git –save</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>3、更改博客日记文件夹下，_config.yml的配置，我直接用记事本了，用命令行修改也可以：</p>
-<p>repo为第一步创建的git仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/Drfengling/Drfengling.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-<p>4.回到命令行部署到远端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo d</span><br></pre></td></tr></table></figure>
-<p>中间会让输入github密码，输入即可，后续部署完成，即可访问你的远端地址：<br><a href="https://drfengling.github.io/">https://Drfengling.github.io</a><br>###五.Hexo主题的使用；<br>1、选主题：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a>，有很多主题可供选择，也可使用网友推荐的自己喜欢的主题，有相应的预览、github地址：</p>
-<p>我这里使用的是： diaspora： <a target="_blank" rel="noopener" href="https://github.com/Fechin/hexo-theme-diaspora">https://github.com/Fechin/hexo-theme-diaspora</a></p>
-<p>有相应的安装方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; git <span class="built_in">clone</span> https://github.com/Fechin/hexo-theme-diaspora.git themes/diaspora</span><br></pre></td></tr></table></figure>
-<p>修改Hexo配置文件 _config.yml 主题项设置为diaspora</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">theme: diaspora</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>3、清理、启动：</p>
-<p>清理：hexo clean 生成：hexo g 启动：hexo s</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo cl</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo g</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo s</span><br></pre></td></tr></table></figure>
-<p>在本地刷新预览<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>之后，看到主题效果，可根据自己需要做相应修改即可。</p>
-<p>4、推至远端：</p>
-<p>ctrl+c退出上一步命令，然后推至远端：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo d</span><br></pre></td></tr></table></figure>
-<p>刷新查看：<a href="https://drfengling.github.io/">https://Drfengling.github.io</a><br>以上就是搭建个人博客的全过程了，也可以购买自己的域名，放置自己的域名下</p>
+            <h3 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Window.CommandBindings&gt;</span><br><span class="line">	&lt;CommandBinding Command=<span class="string">&quot;Save&quot;</span> Executed=<span class="string">&quot;SaveExecuted&quot;</span> CanExecute=<span class="string">&quot;SaveCanExecute&quot;</span>/&gt;</span><br><span class="line">&lt;/Window.CommandBindings&gt;</span><br></pre></td></tr></table></figure>
+<p>CommandBinding有两个重要事件,执行关联的Command时,会触发该Executed事件的处理函数,触发CanExecute事件时,相应的事件处理函数需要将传递来的参数e的CanExecute属性设为true或false.告知WPF命令系统该命令是否可用.</p>
+<h3 id="Command模型"><a href="#Command模型" class="headerlink" title="Command模型"></a>Command模型</h3><p>WPFCommand模型包含如下4部分:<br>1.Command:应用程序需要执行的任务.<br>2.CommandBinding:连接Comamnd和特定应用程序逻辑,如前面CommandBinding连接Save命令及其处理函数.<br>3.Command Source:触发Command的对象,如前述的菜单栏和工具栏,单击可以触发绑定的Command.<br>4.Command target:Command应用再上面的对象.如前述的TextBox.</p>
+<h3 id="Command-1"><a href="#Command-1" class="headerlink" title="Command"></a>Command</h3><p>1.ICommand接口<br>一个Command代表应用程序的任务.在WPF中所有Command都要实现ICommand接口,该接口有两个方法(Executed CanExecute)和一个事件(CanExecuteChanged)<br>1.Execute方法:当Command被触发时调用该方法,执行与命令相对应的操作.<br>2.CanExecute方法:用来判断该命令是否可应用到当前Command target上,如果该方法返回true可以<br>3.CanExecutedChanged事件:Command有执行或者不执行两种状态,状态改变时触发该事件.一般监听该事件的是CommandSource,它监听到该事件后会调用绑定的Command的CanExecute方法检查当前Command的状态,然后决定然后决定CommandSource是启用还是禁用.<br>Recommand的InputGuestures属性用来指定鼠标和键盘动作,从而可以关联命令和相应的鼠标键盘动作.<br>WPF内置的Command库<br>ApplicationCommands NavigationCommands EditingCommands ComponentCommands MeidaCommands</p>
+<h3 id="Command-Sources"><a href="#Command-Sources" class="headerlink" title="Command Sources"></a>Command Sources</h3><p>CommandSource是能触发Command的对象按钮和菜单,包括键盘和鼠标操作都可以是Command Source.<br>CommandSource必须实现ICommandSource接口,该接口定义了3个属性<br>1.Command:Command Source触发的Command.<br>2.CommandParameter:Command执行时需要的参数.大多数情况下命令的执行不需要参数.<br>3.CommandTarget:Command应用对象.<br>WPF中实现ICommandSource接口的有ButtonBase,MenuItem,Hyperlink和InputBinding.</p>
+<h3 id="Commanding"><a href="#Commanding" class="headerlink" title="Commanding"></a>Commanding</h3><p>CommandBinding关联Command和实现Command的事件处理函数<br>CommandBinding类包括Command属性,以及PreviewExecuted,Executed,PreviewCanExecute和CanExecute事件.如果一个元素派生自UIElement,ContentElement和UIElement3D之一,那么CommandBinding对象可以添加到该元素中.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Window.CommandBindings&gt;</span><br><span class="line">&lt;CommandBinding Command=<span class="string">&quot;Close&quot;</span> Executed=<span class="string">&quot;CloseCommand&quot;</span>/&gt;</span><br><span class="line">&lt;ComandBinding Command=<span class="string">&quot;Save&quot;</span> Executed=<span class="string">&quot;SaveCommand&quot;</span>/&gt;</span><br><span class="line">&lt;/Window.CommandBindings&gt;</span><br><span class="line"></span><br><span class="line">CommandBinding SaveCommandBinding=new CommandBinding(ApplicationCommands.Save,SaveExecuted,SaveCanExecute);</span><br><span class="line">this.CommandBindings.Add(SaveCommandBinding);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Command-Target"><a href="#Command-Target" class="headerlink" title="Command Target"></a>Command Target</h3><p>Command Target是Command会应用在上面的对象.ComandSource 需要实现ICommandSource接口,其中就有一个属性是CommandTarget.当CommandSource不明确指定Command Target属性时,会把当前获得的焦点的元素认为是Comand Target.</p>
+<h2 id="非规则窗口"><a href="#非规则窗口" class="headerlink" title="非规则窗口"></a>非规则窗口</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">&lt;Window x:Class=<span class="string">&quot;WpfApp1.BiaoZhuWindow&quot;</span></span><br><span class="line">        xmlns=<span class="string">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span></span><br><span class="line">        xmlns:x=<span class="string">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span></span><br><span class="line">       xmlns:<span class="built_in">local</span>=<span class="string">&quot;clr-namespace:WpfApp1.Pages&quot;</span></span><br><span class="line">        Title=<span class="string">&quot;BiaoZhuWindow&quot;</span></span><br><span class="line">        Background=<span class="string">&quot;Transparent&quot;</span> AllowsTransparency=<span class="string">&quot;True&quot;</span> WindowStyle=<span class="string">&quot;None&quot;</span></span><br><span class="line">        SizeToContent=<span class="string">&quot;WidthAndHeight&quot;</span> MouseLeftButtonDown=<span class="string">&quot;Window_MouseLeftButtonDown&quot;</span>&gt;</span><br><span class="line">    &lt;Window.CommandBindings&gt;</span><br><span class="line">        &lt;CommandBinding Command=<span class="string">&quot;Close&quot;</span> Executed=<span class="string">&quot;Close&quot;</span>/&gt;</span><br><span class="line">    &lt;/Window.CommandBindings&gt;</span><br><span class="line">    &lt;!--窗口的形状都绘制在Canvas面板中面--&gt;</span><br><span class="line">        &lt;Canvas Width=<span class="string">&quot;200&quot;</span> Height=<span class="string">&quot;200&quot;</span>&gt;</span><br><span class="line">            &lt;!--窗口的轮廓--&gt;</span><br><span class="line">        &lt;Path Stroke=<span class="string">&quot;DarkGray&quot;</span> StrokeThickness=<span class="string">&quot;2&quot;</span>&gt;</span><br><span class="line">            &lt;Path.Fill&gt;</span><br><span class="line">                &lt;LinearGradientBrush StartPoint=<span class="string">&quot;0.2,0&quot;</span> EndPoint=<span class="string">&quot;0.8,1&quot;</span>&gt;</span><br><span class="line">                    &lt;GradientStop Color=<span class="string">&quot;White&quot;</span> Offset=<span class="string">&quot;0&quot;</span>/&gt;</span><br><span class="line">                    &lt;GradientStop Color=<span class="string">&quot;White&quot;</span> Offset=<span class="string">&quot;0.45&quot;</span>/&gt;</span><br><span class="line">                    &lt;GradientStop Color=<span class="string">&quot;LightBlue&quot;</span> Offset=<span class="string">&quot;0.9&quot;</span>/&gt;</span><br><span class="line">                    &lt;GradientStop Color=<span class="string">&quot;Gray&quot;</span> Offset=<span class="string">&quot;1&quot;</span>/&gt;</span><br><span class="line">                &lt;/LinearGradientBrush&gt;</span><br><span class="line">            &lt;/Path.Fill&gt;</span><br><span class="line">            &lt;Path.Data&gt;</span><br><span class="line">                &lt;PathGeometry&gt;</span><br><span class="line">                    &lt;PathFigure StartPoint=<span class="string">&quot; 40,20&quot;</span> IsClosed=<span class="string">&quot;True&quot;</span>&gt;</span><br><span class="line">                        &lt;LineSegment Point=<span class="string">&quot;160,20&quot;</span>/&gt;</span><br><span class="line">                        &lt;ArcSegment Point=<span class="string">&quot;180,40&quot;</span> Size=<span class="string">&quot;20,20&quot;</span> SweepDirection=<span class="string">&quot;Clockwise&quot;</span>/&gt;</span><br><span class="line">                        &lt;LineSegment Point=<span class="string">&quot;180,80&quot;</span>/&gt;</span><br><span class="line">                        &lt;ArcSegment Point=<span class="string">&quot;160,100&quot;</span> Size=<span class="string">&quot;20,20&quot;</span> SweepDirection=<span class="string">&quot;Clockwise&quot;</span>/&gt;</span><br><span class="line">                        &lt;LineSegment Point=<span class="string">&quot;90,100&quot;</span>/&gt;</span><br><span class="line">                        &lt;LineSegment Point=<span class="string">&quot;60,150&quot;</span>/&gt;</span><br><span class="line">                        &lt;LineSegment Point=<span class="string">&quot;60,100&quot;</span>/&gt;</span><br><span class="line">                        &lt;LineSegment Point=<span class="string">&quot;40,100&quot;</span>/&gt;</span><br><span class="line">                        &lt;ArcSegment Point=<span class="string">&quot;20,80&quot;</span> Size=<span class="string">&quot;20,20&quot;</span> SweepDirection=<span class="string">&quot;Clockwise&quot;</span>/&gt;</span><br><span class="line">                        &lt;LineSegment Point=<span class="string">&quot;20,40&quot;</span>/&gt;</span><br><span class="line">                        &lt;ArcSegment Point=<span class="string">&quot;40,20&quot;</span> Size=<span class="string">&quot;20,20&quot;</span> SweepDirection=<span class="string">&quot;Clockwise&quot;</span>/&gt;</span><br><span class="line">                        </span><br><span class="line">                    &lt;/PathFigure&gt;</span><br><span class="line">                &lt;/PathGeometry&gt;</span><br><span class="line">            &lt;/Path.Data&gt;</span><br><span class="line">        &lt;/Path&gt;</span><br><span class="line">            &lt;!--拖拽我的标签--&gt;</span><br><span class="line">        &lt;Label  FontSize=<span class="string">&quot;15&quot;</span> HorizontalContentAlignment=<span class="string">&quot;Center&quot;</span></span><br><span class="line">               VerticalContentAlignment=<span class="string">&quot;Center&quot;</span> Width=<span class="string">&quot;200&quot;</span> Height=<span class="string">&quot;120&quot;</span> x:Name=<span class="string">&quot;mes&quot;</span> Content=<span class="string">&quot;早上好!&quot;</span>/&gt;</span><br><span class="line">        &lt;!--关闭按钮--&gt;</span><br><span class="line">        &lt;Button Command=<span class="string">&quot;Close&quot;</span> Canvas.Left=<span class="string">&quot;155&quot;</span> Canvas.Top=<span class="string">&quot;30&quot;</span>&gt;</span><br><span class="line">            &lt;Button.Template&gt;</span><br><span class="line">                &lt;ControlTemplate&gt;</span><br><span class="line">                    &lt;Canvas&gt;</span><br><span class="line">                        &lt;Rectangle Width=<span class="string">&quot;15&quot;</span> Height=<span class="string">&quot;15&quot;</span> Stroke=<span class="string">&quot;Black&quot;</span></span><br><span class="line">                                   RadiusX=<span class="string">&quot;3&quot;</span> RadiusY=<span class="string">&quot;3&quot;</span>&gt;</span><br><span class="line">                            &lt;Rectangle.Fill&gt;</span><br><span class="line">                                &lt;SolidColorBrush x:Name=<span class="string">&quot;myAnimateBrush&quot;</span> Color=<span class="string">&quot;Red&quot;</span>/&gt;</span><br><span class="line">                            &lt;/Rectangle.Fill&gt;</span><br><span class="line">                            </span><br><span class="line">                            </span><br><span class="line">                        &lt;/Rectangle&gt;</span><br><span class="line">                        &lt;Line X1=<span class="string">&quot;3&quot;</span> Y1=<span class="string">&quot;3&quot;</span> X2=<span class="string">&quot;12&quot;</span> Y2=<span class="string">&quot;12&quot;</span> Stroke=<span class="string">&quot;White&quot;</span> StrokeThickness=<span class="string">&quot;2&quot;</span>/&gt;</span><br><span class="line">                        &lt;Line X1=<span class="string">&quot;12&quot;</span> Y1=<span class="string">&quot;3&quot;</span> X2=<span class="string">&quot;3&quot;</span> Y2=<span class="string">&quot;12&quot;</span> Stroke=<span class="string">&quot;White&quot;</span> StrokeThickness=<span class="string">&quot;2&quot;</span>/&gt;</span><br><span class="line">                    &lt;/Canvas&gt;</span><br><span class="line">                &lt;/ControlTemplate&gt;</span><br><span class="line">            &lt;/Button.Template&gt;</span><br><span class="line">        &lt;/Button&gt;</span><br><span class="line">    &lt;/Canvas&gt;</span><br><span class="line">&lt;/Window&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -322,7 +278,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://drfengling.github.io/qm/387162d6.html",
+                text: "https://drfengling.github.io/qm/d0627144.html",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -334,10 +290,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://drfengling.github.io/qm/387162d6.html";
-            const title         = "「搭建个人博客(一)」";
-            const excerpt       = `一.初识Hexo;快速、简洁且高效的博客框架，官网：https://hexo.io/zh-cn/是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。
-但是要知道它是个博客框架，有很多好看的主题https://hexo.io/themes/可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。`;
+            const hostUrl       = "https://drfengling.github.io/qm/d0627144.html";
+            const title         = "「WPF-Command命令」";
+            const excerpt       = `Command123&lt;Window.CommandBindings&gt;	&lt;CommandBinding Command=&quot;Save&quot; Executed=&quot;SaveExecuted&quot...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -356,10 +311,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/GitHub/" rel="tag">GitHub</a>, <a class="tag-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>, <a class="tag-none-link" href="/tags/Nodejs/" rel="tag">Nodejs</a>
+                    <a class="tag-none-link" href="/tags/WPF/" rel="tag">WPF</a>
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2022-04-19</span>
+                <span>最后编辑：2022-11-24</span>
                 </div>
             </div>
         </footer>
@@ -368,12 +323,12 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Hello World" href="/qm/4a17b156.html">&lt; 上一篇</a>
+                <a title=" WPF-路由事件" href="/qm/6f6c3460.html">&lt; 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" 搭建个人博客(二)" href="/qm/4b6f21d9.html">下一篇 &gt;</a>
+                <a title=" WPF-页面和导航" href="/qm/14e8ff67.html">下一篇 &gt;</a>
             </div>
             
         </nav>
@@ -386,8 +341,8 @@
         const init = () => {
             console.log('Gitalk loading...');
             const gitalk = new Gitalk(Object.assign({
-                id: '/qm/387162d6.html',
-                path: '/qm/387162d6.html'
+                id: '/qm/d0627144.html',
+                path: '/qm/d0627144.html'
             }, JSON.parse('{"clientID":"67075d9ed7922a3c9791","clientSecret":"50ce067bd2bb3d9e9e48d56804da1a6d25e7bf16","repo":"dryunment","owner":"Drfengling","admin":["Drfengling"],"distractionFreeMode":false}')));
 
             gitalk.render('gitalk-container');
@@ -456,6 +411,18 @@ load_comm();
 </aside>
             
                     <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Command"><span class="toc-text">Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command%E6%A8%A1%E5%9E%8B"><span class="toc-text">Command模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command-1"><span class="toc-text">Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command-Sources"><span class="toc-text">Command Sources</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commanding"><span class="toc-text">Commanding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command-Target"><span class="toc-text">Command Target</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E8%A7%84%E5%88%99%E7%AA%97%E5%8F%A3"><span class="toc-text">非规则窗口</span></a>
+    </div>
+</aside>
                 
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
