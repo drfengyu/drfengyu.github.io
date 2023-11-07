@@ -17,13 +17,13 @@
   
   <meta property="og:type" content="website">
 <meta property="og:title" content="浅梦博客">
-<meta property="og:url" content="https://drfengling.github.io/page/3/index.html">
+<meta property="og:url" content="https://drfengyu.github.io/page/3/index.html">
 <meta property="og:site_name" content="浅梦博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://drfengling.github.io/images/favicon.ico">
+<meta property="og:image" content="https://drfengyu.github.io/images/favicon.ico">
 <meta property="article:author" content="浅梦风凌">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://drfengling.github.io/images/favicon.ico">
+<meta name="twitter:image" content="https://drfengyu.github.io/images/favicon.ico">
 <meta name="twitter:site" content="@null">
   
   <!-- 站点验证相关 -->
@@ -113,7 +113,7 @@
                                                     
                                                 
                                                     
-                                                        <li><a href="https://drfengling.github.io/">浅梦博客</a></li>
+                                                        <li><a target="_blank" rel="noopener" href="https://drfengling.github.io/">浅梦博客</a></li>
                                                     
                                                 
                                                     
@@ -182,6 +182,63 @@
 
 
 
+
+    
+    
+        <article>
+            <div class="kratos-hentry kratos-post-inner clearfix index-post">
+                <div class="kratos-entry-thumb-new">
+                    <a href="/qm/5f88ef60.html">
+                        
+                    </a>
+                </div>
+                <header class="kratos-entry-header">
+                    <h1 class="text-center"><a class="kratos-entry-title" href="/qm/5f88ef60.html">博客美化(一)</a></h1>
+                    
+                    <ul class="kratos-post-meta text-center">
+                        <li>
+                            <i class="fa fa-calendar"></i>
+                            2022-04-16
+                        </li>
+                        
+                            <li>
+                                <i class="fa fa-folder"></i>
+                                分类于
+                                <a class="label-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a>
+                            </li>
+                        
+                        
+                            <li>
+                                <i class="fa fa-tags"></i>
+                                <a class="tag-none-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" rel="tag">博客美化</a>
+                            </li>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </ul>
+                </header>
+                <hr />
+                <div class="kratos-post-content">
+                    <h2 id="博客美化"><a href="#博客美化" class="headerlink" title="博客美化"></a>博客美化</h2><h5 id="1-添加鼠标点击爱心效果"><a href="#1-添加鼠标点击爱心效果" class="headerlink" title="1.添加鼠标点击爱心效果"></a>1.添加鼠标点击爱心效果</h5><p>在\themes\kratos-rebirth\source\js下新建文件love.js,输入以下内容:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!<span class="keyword">function</span>(e,t,a)&#123;<span class="keyword">function</span> <span class="function"><span class="title">n</span></span>()&#123;c(<span class="string">&quot;.heart&#123;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);&#125;.heart:after,.heart:before&#123;content: &#x27;&#x27;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 500%;-moz-border-radius: 50%;position: fixed;&#125;.heart:after&#123;top: -5px;&#125;.heart:before&#123;left: -5px;&#125;&quot;</span>),o(),r()&#125;<span class="keyword">function</span> <span class="function"><span class="title">r</span></span>()&#123;<span class="keyword">for</span>(var e=0;e&lt;d.length;e++)d[e].alpha&lt;=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText=<span class="string">&quot;left:&quot;</span>+d[e].x+<span class="string">&quot;px;top:&quot;</span>+d[e].y+<span class="string">&quot;px;opacity:&quot;</span>+d[e].alpha+<span class="string">&quot;;transform:scale(&quot;</span>+d[e].scale+<span class="string">&quot;,&quot;</span>+d[e].scale+<span class="string">&quot;) rotate(45deg);background:&quot;</span>+d[e].color+<span class="string">&quot;;z-index:99999&quot;</span>);requestAnimationFrame(r)&#125;<span class="keyword">function</span> <span class="function"><span class="title">o</span></span>()&#123;var t=<span class="string">&quot;function&quot;</span>==typeof e.onclick&amp;&amp;e.onclick;e.onclick=<span class="keyword">function</span>(e)&#123;t&amp;&amp;t(),i(e)&#125;&#125;<span class="keyword">function</span> i(e)&#123;var a=t.createElement(<span class="string">&quot;div&quot;</span>);a.className=<span class="string">&quot;heart&quot;</span>,d.push(&#123;el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()&#125;),t.body.appendChild(a)&#125;<span class="keyword">function</span> c(e)&#123;var a=t.createElement(<span class="string">&quot;style&quot;</span>);a.type=<span class="string">&quot;text/css&quot;</span>;try&#123;a.appendChild(t.createTextNode(e))&#125;catch(t)&#123;a.styleSheet.cssText=e&#125;t.getElementsByTagName(<span class="string">&quot;head&quot;</span>)[0].appendChild(a)&#125;<span class="keyword">function</span> <span class="function"><span class="title">s</span></span>()&#123;<span class="built_in">return</span><span class="string">&quot;rgb(&quot;</span>+~~(255*Math.random())+<span class="string">&quot;,&quot;</span>+~~(255*Math.random())+<span class="string">&quot;,&quot;</span>+~~(255*Math.random())+<span class="string">&quot;)&quot;</span>&#125;var d=[];e.requestAnimationFrame=<span class="function"><span class="title">function</span></span>()&#123;<span class="built_in">return</span> e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||<span class="keyword">function</span>(e)&#123;setTimeout(e,1e3/60)&#125;&#125;(),n()&#125;(window,document);</span><br></pre></td></tr></table></figure>
+<p>在\themes\kratos-rebirth\layout\layout.ejs文章末尾加入:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面点击小红心 --&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;/js/love.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>完成!鼠标点击就可以看到小红心效果了</p>
+                </div>
+                <footer class="kratos-entry-footer clearfix">
+                    <div class="post-like-donate text-center clearfix">
+                        <a class="read-more" href="/qm/5f88ef60.html#more" title="博客美化(一)">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </footer>
+            </div>
+        </article>
+    
 
     
     
@@ -510,59 +567,6 @@
         <article>
             <div class="kratos-hentry kratos-post-inner clearfix index-post">
                 <div class="kratos-entry-thumb-new">
-                    <a href="/qm/4a17b156.html">
-                        
-                    </a>
-                </div>
-                <header class="kratos-entry-header">
-                    <h1 class="text-center"><a class="kratos-entry-title" href="/qm/4a17b156.html">Hello World</a></h1>
-                    
-                    <ul class="kratos-post-meta text-center">
-                        <li>
-                            <i class="fa fa-calendar"></i>
-                            2022-04-12
-                        </li>
-                        
-                            <li>
-                                <i class="fa fa-folder"></i>
-                                分类于
-                                <a class="label-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a>
-                            </li>
-                        
-                        
-                            <li>
-                                <i class="fa fa-tags"></i>
-                                <a class="tag-none-link" href="/tags/GitHub/" rel="tag">GitHub</a>, <a class="tag-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>, <a class="tag-none-link" href="/tags/Nodejs/" rel="tag">Nodejs</a>
-                            </li>
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </ul>
-                </header>
-                <hr />
-                <div class="kratos-post-content">
-                    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-                </div>
-                <footer class="kratos-entry-footer clearfix">
-                    <div class="post-like-donate text-center clearfix">
-                        <a class="read-more" href="/qm/4a17b156.html#more" title="Hello World">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
-                    </div>
-                </footer>
-            </div>
-        </article>
-    
-
-    
-    
-        <article>
-            <div class="kratos-hentry kratos-post-inner clearfix index-post">
-                <div class="kratos-entry-thumb-new">
                     <a href="/qm/d2b740ea.html">
                         
                     </a>
@@ -706,6 +710,12 @@
         
           
           
+            <a class="list-group-item" href="/qm/4a17b156.html"><i class="fa  fa-book"></i> Hello World</a>
+            
+          
+        
+          
+          
             <a class="list-group-item" href="/qm/c33edf33.html"><i class="fa  fa-book"></i> AspNet开发1</a>
             
           
@@ -725,12 +735,6 @@
           
           
             <a class="list-group-item" href="/qm/5bdeb856.html"><i class="fa  fa-book"></i> 深入浅出Windows应用程序开发(二)</a>
-            
-          
-        
-          
-          
-            <a class="list-group-item" href="/qm/7b676f35.html"><i class="fa  fa-book"></i> 深入浅出Windows通用应用程序开发(一)</a>
             
           
         

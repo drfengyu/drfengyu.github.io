@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://drfengling.github.io/
+url: https://drfengyu.github.io/
 permalink: qm/:abbrlink.html
 abbrlink:
     alg: crc32
@@ -114,5 +114,5 @@ aplayer:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/Drfengling/Drfengling.github.io.git
-  branch: gh-pages
+  repo: https://github.com/drfengyu/drfengyu.github.io.git
+  branch: main

@@ -18,17 +18,17 @@
   <meta name="description" content="Hexo博客添加LiveRe评论系统好久不见,又是长长的探索实践之旅了,最近在新加评论系统出现了各种问题,也有所得.评论系统可以说五花八门啦，用得多的比如：Gitment、Gitalk、LiveRe、Disqus、disqusjs，twikoo, waline、Valine 等">
 <meta property="og:type" content="article">
 <meta property="og:title" content="livere评论系统">
-<meta property="og:url" content="https://drfengling.github.io/qm/d318877c.html">
+<meta property="og:url" content="https://drfengyu.github.io/qm/d318877c.html">
 <meta property="og:site_name" content="浅梦博客">
 <meta property="og:description" content="Hexo博客添加LiveRe评论系统好久不见,又是长长的探索实践之旅了,最近在新加评论系统出现了各种问题,也有所得.评论系统可以说五花八门啦，用得多的比如：Gitment、Gitalk、LiveRe、Disqus、disqusjs，twikoo, waline、Valine 等">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://drfengling.github.io/images/favicon.ico">
+<meta property="og:image" content="https://drfengyu.github.io/images/favicon.ico">
 <meta property="article:published_time" content="2022-04-27T01:21:11.000Z">
-<meta property="article:modified_time" content="2022-04-27T02:54:19.927Z">
+<meta property="article:modified_time" content="2023-11-07T03:10:58.861Z">
 <meta property="article:author" content="浅梦风凌">
 <meta property="article:tag" content="livere">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://drfengling.github.io/images/favicon.ico">
+<meta name="twitter:image" content="https://drfengyu.github.io/images/favicon.ico">
 <meta name="twitter:site" content="@null">
   
   <!-- 站点验证相关 -->
@@ -118,7 +118,7 @@
                                                     
                                                 
                                                     
-                                                        <li><a href="https://drfengling.github.io/">浅梦博客</a></li>
+                                                        <li><a target="_blank" rel="noopener" href="https://drfengling.github.io/">浅梦博客</a></li>
                                                     
                                                 
                                                     
@@ -208,7 +208,7 @@
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1651028059927"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1699326658861"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
                 <div class="kratos-post-inner-toc">
@@ -223,7 +223,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="built_in">id</span>=<span class="string">&quot;lv-container&quot;</span> class=<span class="string">&quot;post-comments lazy-load &lt;% if (theme.posts.comments?.enableBGImage) &#123; %&gt; bg-image&lt;% &#125; %&gt;&quot;</span> data-id=<span class="string">&quot;&lt;%- theme.livere.id || &#x27;city&#x27; %&gt;&quot;</span> data-uid=<span class="string">&quot;&lt;%- theme.livere.uid %&gt;&quot;</span>&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">   (<span class="keyword">function</span>(d, s) &#123;</span><br><span class="line">       var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (typeof LivereTower === <span class="string">&#x27;function&#x27;</span>) &#123; <span class="built_in">return</span>; &#125;</span><br><span class="line"></span><br><span class="line">       j = d.createElement(s);</span><br><span class="line">       j.src = <span class="string">&#x27;https://cdn-city.livere.com/js/embed.dist.js&#x27;</span>;</span><br><span class="line">       j.async = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">       e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, <span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;noscript&gt;为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure>
 <p>老样子,先来三杯小鸟伏特加 powershell或命令行打开博客根目录<br>键入命令:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>本地部署完成后可以打开博客文章访问就可以看到文章下方加载除评论区了,选择账号登录就可以进行评论了.<br>确认无误hexo d部署到服务器上<br><a href="https://drfengling.github.io/">https://drfengling.github.io</a><br>由于研究了多种博客评论系统 所以你看到的评论系统不一定是livere.有问题评论区欢迎评论交流.<br>到此,livere评论系统就完成啦，快来动手试试吧.</p>
+<p>本地部署完成后可以打开博客文章访问就可以看到文章下方加载除评论区了,选择账号登录就可以进行评论了.<br>确认无误hexo d部署到服务器上<br><a target="_blank" rel="noopener" href="https://drfengling.github.io/">https://drfengling.github.io</a><br>由于研究了多种博客评论系统 所以你看到的评论系统不一定是livere.有问题评论区欢迎评论交流.<br>到此,livere评论系统就完成啦，快来动手试试吧.</p>
 
         </div>
         
@@ -277,7 +277,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://drfengling.github.io/qm/d318877c.html",
+                text: "https://drfengyu.github.io/qm/d318877c.html",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -289,7 +289,7 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://drfengling.github.io/qm/d318877c.html";
+            const hostUrl       = "https://drfengyu.github.io/qm/d318877c.html";
             const title         = "「livere评论系统」";
             const excerpt       = `Hexo博客添加LiveRe评论系统好久不见,又是长长的探索实践之旅了,最近在新加评论系统出现了各种问题,也有所得.评论系统可以说五花八门啦，用得多的比如：Gitment、Gitalk、LiveRe、Disqus、disqusjs，twikoo, waline、Valine 等`;
             let _URL;
@@ -313,7 +313,7 @@
                     <a class="tag-none-link" href="/tags/livere/" rel="tag">livere</a>
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2022-04-27</span>
+                <span>最后编辑：2023-11-07</span>
                 </div>
             </div>
         </footer>
@@ -449,6 +449,12 @@ load_comm();
         
           
           
+            <a class="list-group-item" href="/qm/4a17b156.html"><i class="fa  fa-book"></i> Hello World</a>
+            
+          
+        
+          
+          
             <a class="list-group-item" href="/qm/c33edf33.html"><i class="fa  fa-book"></i> AspNet开发1</a>
             
           
@@ -468,12 +474,6 @@ load_comm();
           
           
             <a class="list-group-item" href="/qm/5bdeb856.html"><i class="fa  fa-book"></i> 深入浅出Windows应用程序开发(二)</a>
-            
-          
-        
-          
-          
-            <a class="list-group-item" href="/qm/7b676f35.html"><i class="fa  fa-book"></i> 深入浅出Windows通用应用程序开发(一)</a>
             
           
         

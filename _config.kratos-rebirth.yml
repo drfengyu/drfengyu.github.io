@@ -204,5 +204,5 @@ friends:
   - name: "猫猫①号"
     bio: "喵~"
     avatar: "../images/avatar.webp"
-    link: "https://www.baidu.com"
+    link: "https://drfengling.csdn.net"
   verify: true # 验证每个友链的可访问性，炸了会有提示
