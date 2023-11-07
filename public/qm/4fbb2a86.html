@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="/images/favicon.ico">
+  <title>C#WCF方向(二) | 浅梦博客</title>
+  <meta name="author" content="浅梦风凌" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="WCF" />
+  
+  <meta name="description" content="主题1.终结点 Endpoint2.契约 Contract3.宿主 Host4.绑定 Binding5.Demo:定义契约,终结点,配置绑定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#WCF方向(二)">
+<meta property="og:url" content="https://drfengling.github.io/qm/4fbb2a86.html">
+<meta property="og:site_name" content="浅梦博客">
+<meta property="og:description" content="主题1.终结点 Endpoint2.契约 Contract3.宿主 Host4.绑定 Binding5.Demo:定义契约,终结点,配置绑定">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://drfengling.github.io/images/favicon.ico">
+<meta property="article:published_time" content="2022-05-04T01:24:05.000Z">
+<meta property="article:modified_time" content="2022-05-06T02:08:58.851Z">
+<meta property="article:author" content="浅梦风凌">
+<meta property="article:tag" content="WCF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://drfengling.github.io/images/favicon.ico">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" media="all">
+  
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    <script src="https://unpkg.com/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/images/bg.webp');
+        }
+      }
+    
+  </style>
+  
+  <script src="/live2d-widget/autoload.js"></script>
+<div style="display: none;">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+</div>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="浅梦博客" type="application/atom+xml">
+</head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-link"></i>链接</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://drfengling.github.io/">浅梦博客</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://github.com/Drfengling/Drfengling.github.io">项目链接</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-music" aria-hidden="true"></i>歌单</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/playlist/">飙升榜</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">浅梦博客</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>浅梦博客</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article>
+    
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center">C#WCF方向(二)</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><i class="fa fa-calendar"></i> 2022-05-04</li>
+                <li><i class="fa fa-user"></i> 作者 浅梦风凌</li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        ~7.02K
+                    
+                    字
+                </li>
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1651802938851"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+                <div class="kratos-post-inner-toc">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-number">2.</span> <span class="toc-text">必备知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%80%89%E7%9F%A5%E8%AF%86"><span class="toc-number">3.</span> <span class="toc-text">可选知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%88%E7%BB%93%E7%82%B9-EndPoint"><span class="toc-number">4.</span> <span class="toc-text">终结点 EndPoint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80-Address"><span class="toc-number">5.</span> <span class="toc-text">地址 Address</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A-Binding"><span class="toc-number">6.</span> <span class="toc-text">绑定 Binding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E5%88%97%E8%A1%A8"><span class="toc-number">6.1.</span> <span class="toc-text">绑定列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows-Azure-AppFabric%E7%BB%91%E5%AE%9A"><span class="toc-number">6.2.</span> <span class="toc-text">Windows Azure AppFabric绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WCF%E7%BB%91%E5%AE%9A%E5%92%8C%E9%80%9A%E9%81%93%E5%A0%86%E6%A0%88"><span class="toc-number">6.3.</span> <span class="toc-text">WCF绑定和通道堆栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">6.4.</span> <span class="toc-text">绑定的结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E7%BB%93%E6%9E%84%E4%BE%8B%E5%AD%90"><span class="toc-number">6.5.</span> <span class="toc-text">绑定结构例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%91%E7%BA%A6-Contract"><span class="toc-number">7.</span> <span class="toc-text">契约 Contract</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A5%91%E7%BA%A6"><span class="toc-number">7.1.</span> <span class="toc-text">数据契约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">7.2.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%A5%91%E7%BA%A6"><span class="toc-number">7.3.</span> <span class="toc-text">服务契约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%A5%91%E7%BA%A6"><span class="toc-number">7.4.</span> <span class="toc-text">操作契约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E5%A5%91%E7%BA%A6-MessageContract"><span class="toc-number">7.5.</span> <span class="toc-text">消息契约 MessageContract</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%A5%91%E7%BA%A6-FaultContract"><span class="toc-number">7.6.</span> <span class="toc-text">错误契约 FaultContract</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%BF%E4%B8%BBHost"><span class="toc-number">8.</span> <span class="toc-text">宿主Host</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%98%E7%AE%A1%E8%BF%9B%E7%A8%8B"><span class="toc-number">8.1.</span> <span class="toc-text">托管进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E6%89%98%E7%AE%A1WCF%E6%9C%8D%E5%8A%A1"><span class="toc-number">8.2.</span> <span class="toc-text">怎么托管WCF服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Window-Server-AppFabric"><span class="toc-number">8.3.</span> <span class="toc-text">Window Server AppFabric</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WCF%E7%BB%91%E5%AE%9A%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90"><span class="toc-number">9.</span> <span class="toc-text">WCF绑定学习资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WCF%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-number">10.</span> <span class="toc-text">WCF服务配置管理工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo"><span class="toc-number">11.</span> <span class="toc-text">Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%A5%91%E7%BA%A6"><span class="toc-number">11.1.</span> <span class="toc-text">定义契约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BB%88%E7%BB%93%E7%82%B9"><span class="toc-number">11.2.</span> <span class="toc-text">配置终结点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%91%E5%AE%9A"><span class="toc-number">11.3.</span> <span class="toc-text">使用绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9tcp%E7%BB%88%E7%BB%93%E7%82%B9%E7%9A%84%E8%B0%83%E7%94%A8%E5%A6%82%E4%B8%8B"><span class="toc-number">11.4.</span> <span class="toc-text">对tcp终结点的调用如下</span></a></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>1.终结点 Endpoint<br>2.契约 Contract<br>3.宿主 Host<br>4.绑定 Binding<br>5.Demo:定义契约,终结点,配置绑定</p>
+<span id="more"></span>
+<h3 id="必备知识"><a href="#必备知识" class="headerlink" title="必备知识"></a>必备知识</h3><p>1.了解.Net Framework<br>2.了解Asp.net应用程序开发<br>3.熟悉Visual Studio</p>
+<h3 id="可选知识"><a href="#可选知识" class="headerlink" title="可选知识"></a>可选知识</h3><p>1.Enterprise Services(COM+)<br>2..Net Remoting<br>3.Asp.Net web Service(ASMX)</p>
+<h3 id="终结点-EndPoint"><a href="#终结点-EndPoint" class="headerlink" title="终结点 EndPoint"></a>终结点 EndPoint</h3><p>1.2种类型 终结点</p>
+<ul>
+<li>元数据终结点 </li>
+<li>普通终结点</li>
+</ul>
+<h3 id="地址-Address"><a href="#地址-Address" class="headerlink" title="地址 Address"></a>地址 Address</h3><ul>
+<li>相对地址</li>
+<li>绝对地址</li>
+<li>基地址 BaseAddress 基础地址 (下面<a target="_blank" rel="noopener" href="http://localhost:6054/">http://localhost:6054</a>就是基地址)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;endpoint address=<span class="string">&quot;http://localhost:6054/ServiceDemo.svc&quot;</span></span><br><span class="line"> binding=<span class="string">&quot;basicHttpBinding&quot;</span> bindingConfiguration=<span class="string">&quot;BasicHttpBinding_IServiceDemo&quot;</span></span><br><span class="line"> contract=<span class="string">&quot;ServiceReferenceDemo.IServiceDemo&quot;</span> name=<span class="string">&quot;BasicHttpBinding_IServiceDemo&quot;</span>/&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="绑定-Binding"><a href="#绑定-Binding" class="headerlink" title="绑定 Binding"></a>绑定 Binding</h3><ul>
+<li>绑定是特殊配置元素(称作“绑定元素”)的集合,服务运行库在每次构造客户端或服务终结点时都对这些元素进行评估</li>
+<li>WCF里的传输协议,安全,事务,消息编码,超时等等都是由绑定来控制</li>
+<li>控制WCF的一个接口<h4 id="绑定列表"><a href="#绑定列表" class="headerlink" title="绑定列表"></a>绑定列表</h4><img src="/qm/4fbb2a86/1.jpg"></li>
+</ul>
+<h4 id="Windows-Azure-AppFabric绑定"><a href="#Windows-Azure-AppFabric绑定" class="headerlink" title="Windows Azure AppFabric绑定"></a>Windows Azure AppFabric绑定</h4><ul>
+<li>NetTcpRelayBinding 消息中途转发机制</li>
+<li>NetOneWayRelayBinding 消息单向转发</li>
+<li>NetEventRelayBinding 基于事件的</li>
+<li>webHttpRelayBinding </li>
+<li>WS2007HttpRelayBinding</li>
+</ul>
+<h4 id="WCF绑定和通道堆栈"><a href="#WCF绑定和通道堆栈" class="headerlink" title="WCF绑定和通道堆栈"></a>WCF绑定和通道堆栈</h4><p><img src="/qm/4fbb2a86/5.png"></p>
+<h4 id="绑定的结构"><a href="#绑定的结构" class="headerlink" title="绑定的结构"></a>绑定的结构</h4><p><img src="/qm/4fbb2a86/6.png"></p>
+<h4 id="绑定结构例子"><a href="#绑定结构例子" class="headerlink" title="绑定结构例子"></a>绑定结构例子</h4><p><img src="/qm/4fbb2a86/7.png"></p>
+<h3 id="契约-Contract"><a href="#契约-Contract" class="headerlink" title="契约 Contract"></a>契约 Contract</h3><p>契约是通信参与方之间的约定</p>
+<ul>
+<li>数据契约 DataContract 实体类</li>
+<li>操作契约 Operation Contract 服务方法</li>
+<li>服务契约 Service Contract 服务</li>
+<li>消息契约 Message Contract 对消息体的完整控制</li>
+<li>错误契约 Fault Contract 把错误信息包装起来返回给客户端</li>
+</ul>
+<h4 id="数据契约"><a href="#数据契约" class="headerlink" title="数据契约"></a>数据契约</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[DataContract]//数据契约属性声明</span><br><span class="line">    public class UserData</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        [DataMember]//数据成员标记</span><br><span class="line">        public string Name&#123;<span class="built_in">set</span>;get;&#125;;</span><br><span class="line"></span><br><span class="line">        [DataMember(Name=<span class="string">&quot;UserEmail&quot;</span>)]//支持别名定义</span><br><span class="line">        public string Email&#123;<span class="built_in">set</span>;get;&#125;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h4><p>1.XmlSerialzer<br>2.DataContractSerializer<br>3.NetDataContractSerializer NetTcp使用的<br>4.DataContractJsonSerializer json数据序列化</p>
+<h4 id="服务契约"><a href="#服务契约" class="headerlink" title="服务契约"></a>服务契约</h4><p>ServiceContract<br>定义约定的服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[ServiceContract]//服务契约</span><br><span class="line">    public interface IServiceDemo</span><br><span class="line">    &#123;</span><br><span class="line">        [OperationContract]//操作契约</span><br><span class="line">        string GetData(int value);</span><br><span class="line"></span><br><span class="line">        [OperationContract]</span><br><span class="line">        UserData GetDataUsingDataContract(UserData user);</span><br><span class="line"></span><br><span class="line">        // TODO: Add your service operations here</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="操作契约"><a href="#操作契约" class="headerlink" title="操作契约"></a>操作契约</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[OperationContract]//操作契约</span><br><span class="line">        string GetData(int value);</span><br></pre></td></tr></table></figure>
+<h4 id="消息契约-MessageContract"><a href="#消息契约-MessageContract" class="headerlink" title="消息契约 MessageContract"></a>消息契约 MessageContract</h4><p>1.允许完全控制消息体<br>2.SOAP消息头 header<br>3.SOAP 消息体 Body</p>
+<h4 id="错误契约-FaultContract"><a href="#错误契约-FaultContract" class="headerlink" title="错误契约 FaultContract"></a>错误契约 FaultContract</h4><p>1.为了在客户端和服务端共享错误信息<br>2.错误处理</p>
+<h3 id="宿主Host"><a href="#宿主Host" class="headerlink" title="宿主Host"></a>宿主Host</h3><p>IIS.EXE.WinForm.Wpf.WindowService.NT Service.COM+</p>
+<h4 id="托管进程"><a href="#托管进程" class="headerlink" title="托管进程"></a>托管进程</h4><p><img src="/qm/4fbb2a86/2.png"></p>
+<h4 id="怎么托管WCF服务"><a href="#怎么托管WCF服务" class="headerlink" title="怎么托管WCF服务"></a>怎么托管WCF服务</h4><p><img src="/qm/4fbb2a86/3.png"></p>
+<h4 id="Window-Server-AppFabric"><a href="#Window-Server-AppFabric" class="headerlink" title="Window Server AppFabric"></a>Window Server AppFabric</h4><p><img src="/qm/4fbb2a86/4.png"></p>
+<h3 id="WCF绑定学习资源"><a href="#WCF绑定学习资源" class="headerlink" title="WCF绑定学习资源"></a>WCF绑定学习资源</h3><ul>
+<li>书籍<ul>
+<li>Inside WCF,(Justin Smith) 《WCF技术内幕》</li>
+<li>第8章 绑定</li>
+</ul>
+</li>
+<li>文章<ul>
+<li>Aaron Skonnard 深入学习WCF绑定</li>
+</ul>
+</li>
+</ul>
+<h3 id="WCF服务配置管理工具"><a href="#WCF服务配置管理工具" class="headerlink" title="WCF服务配置管理工具"></a>WCF服务配置管理工具</h3><p>点击Visual Studio导航栏 工具 WCF配置编辑器<br>打开配置文件app.config<br><img src="/qm/4fbb2a86/9.png"></p>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><ul>
+<li>定义契约</li>
+<li>配置终结点</li>
+<li>使用绑定<h4 id="定义契约"><a href="#定义契约" class="headerlink" title="定义契约"></a>定义契约</h4></li>
+</ul>
+<p>1.打开Visual Studio,创建新项目,我们搜索wcf,选择wcf服务库,<br><img src="/qm/4fbb2a86/10.png"><br>2.自定义项目名称路径创建即可(后面不再图文赘述)<br><img src="/qm/4fbb2a86/11.png"><br>3.这里做简单更改</p>
+<ul>
+<li>IService1<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 注意: 使用“重构”菜单上的“重命名”命令，可以同时更改代码和配置文件中的接口名“IService1”。</span><br><span class="line">   [ServiceContract]</span><br><span class="line">   public interface IService1</span><br><span class="line">   &#123;</span><br><span class="line">       [OperationContract]</span><br><span class="line">       string SayHello(string Name);</span><br><span class="line">       [OperationContract]</span><br><span class="line">       string SayHellotoUser(User user);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   // 使用下面示例中说明的数据约定将复合类型添加到服务操作。</span><br><span class="line">   // 可以将 XSD 文件添加到项目中。在生成项目后，可以通过命名空间“WcfService.ContractType”直接使用其中定义的数据类型。</span><br><span class="line">   [DataContract]</span><br><span class="line">   public class User</span><br><span class="line">   &#123;</span><br><span class="line">       [DataMember]</span><br><span class="line">       public string FirstName &#123; get; <span class="built_in">set</span>; &#125;</span><br><span class="line">       [DataMember]</span><br><span class="line">       public string SecondName &#123; <span class="built_in">set</span>; get; &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li>Service1<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Service1 : IService1</span><br><span class="line">    &#123;</span><br><span class="line">        public string SayHello(string Name)</span><br><span class="line">        &#123;</span><br><span class="line">            string result = $<span class="string">&quot;Hello,&#123;Name&#125;&quot;</span>;</span><br><span class="line">            Console.WriteLine(result);</span><br><span class="line">            <span class="built_in">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public string SayHellotoUser(User user)</span><br><span class="line">        &#123;</span><br><span class="line">            string result = $<span class="string">&quot;Hello,&#123;user.FirstName&#125;&#123;user.SecondName&#125;&quot;</span>;</span><br><span class="line">            Console.WriteLine(result);</span><br><span class="line">            <span class="built_in">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="配置终结点"><a href="#配置终结点" class="headerlink" title="配置终结点"></a>配置终结点</h4></li>
+</ul>
+<p>1.右键解决方案添加<br>2.新建项目 搜索控制台 选择控制台应用程序创建WcfHost<br><img src="/qm/4fbb2a86/13.png"><br>3.添加对定义契约的Wcf服务类库的引用,我们打开Program.cs文件创建打开服务.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">using (ServiceHost host=new ServiceHost(typeof(WcfService.Service1)))</span><br><span class="line">            &#123;</span><br><span class="line">                host.Open();</span><br><span class="line">                Console.WriteLine($<span class="string">&quot;Host is Running,and State is &#123;host.State&#125;&quot;</span>);</span><br><span class="line">                Console.ReadLine();</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<p>4.打开app.config 配置终结点 这里配置了4个终结点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;system.web&gt;</span><br><span class="line">    &lt;compilation debug=<span class="string">&quot;true&quot;</span> /&gt;</span><br><span class="line">  &lt;/system.web&gt;</span><br><span class="line">  &lt;!-- 部署服务库项目时，必须将配置文件的内容添加到</span><br><span class="line"> 主机的 app.config 文件中。System.Configuration 不支持库的配置文件。 --&gt;</span><br><span class="line">  &lt;system.serviceModel&gt;</span><br><span class="line">    &lt;services&gt;</span><br><span class="line">      &lt;service name=<span class="string">&quot;WcfService.Service1&quot;</span>&gt;</span><br><span class="line">        &lt;host&gt;</span><br><span class="line">          &lt;baseAddresses&gt;</span><br><span class="line">			  &lt;add baseAddress=<span class="string">&quot;http://localhost:8001&quot;</span>/&gt;</span><br><span class="line">			  &lt;add baseAddress=<span class="string">&quot;net.tcp://localhost:8002&quot;</span>/&gt;</span><br><span class="line">            &lt;!--&lt;add baseAddress = <span class="string">&quot;http://localhost:8733/Design_Time_Addresses/WcfService/Service1/&quot;</span> /&gt;--&gt;</span><br><span class="line">          &lt;/baseAddresses&gt;</span><br><span class="line">        &lt;/host&gt;</span><br><span class="line">        &lt;!-- Service Endpoints --&gt;</span><br><span class="line">        &lt;!-- 除非完全限定，否则地址相对于上面提供的基址--&gt;</span><br><span class="line">		  &lt;endpoint address=<span class="string">&quot;http://localhost:8001/WcfService&quot;</span> binding=<span class="string">&quot;wsHttpBinding&quot;</span> name=<span class="string">&quot;httpEndpoint&quot;</span> contract=<span class="string">&quot;WcfService.IService1&quot;</span>&gt;</span><br><span class="line">		  &lt;/endpoint&gt;</span><br><span class="line">		  &lt;endpoint address=<span class="string">&quot;net.tcp://localhost:8002/WcfService&quot;</span> binding=<span class="string">&quot;netTcpBinding&quot;</span> name=<span class="string">&quot;tcpEndpoint&quot;</span> contract=<span class="string">&quot;WcfService.IService1&quot;</span>&gt;</span><br><span class="line">		  &lt;/endpoint&gt;		 </span><br><span class="line">        &lt;!-- Metadata Endpoints --&gt;</span><br><span class="line">        &lt;!-- 元数据交换终结点供相应的服务用于向客户端做自我介绍。 --&gt; </span><br><span class="line">        &lt;!-- 此终结点不使用安全绑定，应在部署前确保其安全或将其删除--&gt;</span><br><span class="line">		  &lt;endpoint address=<span class="string">&quot;mex&quot;</span> binding=<span class="string">&quot;mexHttpBinding&quot;</span> contract=<span class="string">&quot;IMetadataExchange&quot;</span> name=<span class="string">&quot;httpMex&quot;</span>/&gt;</span><br><span class="line">		  &lt;endpoint address=<span class="string">&quot;mex&quot;</span> binding=<span class="string">&quot;mexTcpBinding&quot;</span> contract=<span class="string">&quot;IMetadataExchange&quot;</span> name=<span class="string">&quot;tcpMex&quot;</span>/&gt;</span><br><span class="line">      &lt;/service&gt;</span><br><span class="line">    &lt;/services&gt;</span><br><span class="line">    &lt;behaviors&gt;</span><br><span class="line">      &lt;serviceBehaviors&gt;</span><br><span class="line">        &lt;behavior&gt;</span><br><span class="line">          &lt;!-- 为避免泄漏元数据信息，</span><br><span class="line">          请在部署前将以下值设置为 <span class="literal">false</span> --&gt;</span><br><span class="line">          &lt;serviceMetadata httpGetEnabled=<span class="string">&quot;True&quot;</span> httpsGetEnabled=<span class="string">&quot;True&quot;</span>/&gt;</span><br><span class="line">          &lt;!-- 要接收故障异常详细信息以进行调试，</span><br><span class="line">          请将以下值设置为 <span class="literal">true</span>。在部署前设置为 <span class="literal">false</span> </span><br><span class="line">          以避免泄漏异常信息 --&gt;</span><br><span class="line">          &lt;serviceDebug includeExceptionDetailInFaults=<span class="string">&quot;False&quot;</span> /&gt;</span><br><span class="line">        &lt;/behavior&gt;</span><br><span class="line">      &lt;/serviceBehaviors&gt;</span><br><span class="line">    &lt;/behaviors&gt;</span><br><span class="line">  &lt;/system.serviceModel&gt;</span><br></pre></td></tr></table></figure>
+<p>5.点击导航栏生成重新生成解决方案,设置WcfHost为启动项目<br>启动项目<br><img src="/qm/4fbb2a86/14.png"><br>6.我们关闭Visual Studio,找到Visual Studio右键以管理员权限运行,重新打开项目并启动.完成!<br><img src="/qm/4fbb2a86/15.png"><br>基于控制台的Wcf服务搭建完成,我们新建一个客户端来测试服务.</p>
+<h4 id="使用绑定"><a href="#使用绑定" class="headerlink" title="使用绑定"></a>使用绑定</h4><p>1.右键解决方案,添加 新建项目 新建控制台应用程序WcfClient<br>2.点击引用, 点击发现或手动输入添加服务引用<br><img src="/qm/4fbb2a86/16.png"><br>3.打开Program.cs测试服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Service1Client client1 = new Service1Client(<span class="string">&quot;httpEndpoint&quot;</span>);</span><br><span class="line">            Console.WriteLine(client1.SayHello(<span class="string">&quot;浅梦风凌&quot;</span>));</span><br><span class="line">            User user1 = new User();</span><br><span class="line">            user1.FirstName = <span class="string">&quot;浅梦&quot;</span>;</span><br><span class="line">            user1.SecondName = <span class="string">&quot;风凌&quot;</span>;</span><br><span class="line">            Console.WriteLine(client1.SayHellotoUser(user1));</span><br><span class="line">            Console.Read();</span><br></pre></td></tr></table></figure>
+<p>4.导航栏生成重新生成解决方案,启动<br>1.启动前右键解决方案,点击属性,配置多个启动项目<br><img src="/qm/4fbb2a86/17.png"><br>2.启动<br><img src="/qm/4fbb2a86/18.png"><br>好了,可以看到服务调用结果了.完成!我们的Wcf从创建服务到配置绑定到测试已经全部完成了。</p>
+<h4 id="对tcp终结点的调用如下"><a href="#对tcp终结点的调用如下" class="headerlink" title="对tcp终结点的调用如下"></a>对tcp终结点的调用如下</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Service1Client client2 = new Service1Client(<span class="string">&quot;tcpEndpoint&quot;</span>);</span><br><span class="line">            Console.WriteLine(client2.SayHello(<span class="string">&quot;小猫&quot;</span>));</span><br><span class="line">            User user2 = new User();</span><br><span class="line">            user2.FirstName = <span class="string">&quot;海边的&quot;</span>;</span><br><span class="line">            user2.SecondName = <span class="string">&quot;海边&quot;</span>;</span><br><span class="line">            Console.WriteLine(client1.SayHellotoUser(user2));</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://drfengling.github.io/qm/4fbb2a86.html",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://drfengling.github.io/qm/4fbb2a86.html";
+            const title         = "「C#WCF方向(二)」";
+            const excerpt       = `主题1.终结点 Endpoint2.契约 Contract3.宿主 Host4.绑定 Binding5.Demo:定义契约,终结点,配置绑定`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/WCF/" rel="tag">WCF</a>
+                </div>
+                <div class="pull-date">
+                <span>最后编辑：2022-05-06</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" C#WCF方向(一)" href="/qm/e08ab1e4.html">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" C#WCF方向(三)" href="/qm/31480aad.html">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <link rel="stylesheet" href="https://unpkg.com/gitalk@1/dist/gitalk.css">
+<div id="gitalk-container" class="post-comments lazy-load" style="padding-left:2rem; padding-right:2rem;"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            console.log('Gitalk loading...');
+            const gitalk = new Gitalk(Object.assign({
+                id: '/qm/4fbb2a86.html',
+                path: '/qm/4fbb2a86.html'
+            }, JSON.parse('{"clientID":"67075d9ed7922a3c9791","clientSecret":"50ce067bd2bb3d9e9e48d56804da1a6d25e7bf16","repo":"dryunment","owner":"Drfengling","admin":["Drfengling"],"distractionFreeMode":false}')));
+
+            gitalk.render('gitalk-container');
+        }
+        if (typeof Gitalk === 'undefined') {
+            const src = 'https://unpkg.com/gitalk@1/dist/gitalk.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+load_comm();
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">comments powered by Gitalk.</a></noscript>
+    
+</article>
+
+        
+
+            </section>
+
+        
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                28
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                8
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                15
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98"><span class="toc-text">主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-text">必备知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%80%89%E7%9F%A5%E8%AF%86"><span class="toc-text">可选知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%88%E7%BB%93%E7%82%B9-EndPoint"><span class="toc-text">终结点 EndPoint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80-Address"><span class="toc-text">地址 Address</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A-Binding"><span class="toc-text">绑定 Binding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E5%88%97%E8%A1%A8"><span class="toc-text">绑定列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows-Azure-AppFabric%E7%BB%91%E5%AE%9A"><span class="toc-text">Windows Azure AppFabric绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WCF%E7%BB%91%E5%AE%9A%E5%92%8C%E9%80%9A%E9%81%93%E5%A0%86%E6%A0%88"><span class="toc-text">WCF绑定和通道堆栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">绑定的结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E7%BB%93%E6%9E%84%E4%BE%8B%E5%AD%90"><span class="toc-text">绑定结构例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%91%E7%BA%A6-Contract"><span class="toc-text">契约 Contract</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A5%91%E7%BA%A6"><span class="toc-text">数据契约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%A5%91%E7%BA%A6"><span class="toc-text">服务契约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%A5%91%E7%BA%A6"><span class="toc-text">操作契约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E5%A5%91%E7%BA%A6-MessageContract"><span class="toc-text">消息契约 MessageContract</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%A5%91%E7%BA%A6-FaultContract"><span class="toc-text">错误契约 FaultContract</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%BF%E4%B8%BBHost"><span class="toc-text">宿主Host</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%98%E7%AE%A1%E8%BF%9B%E7%A8%8B"><span class="toc-text">托管进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E6%89%98%E7%AE%A1WCF%E6%9C%8D%E5%8A%A1"><span class="toc-text">怎么托管WCF服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Window-Server-AppFabric"><span class="toc-text">Window Server AppFabric</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WCF%E7%BB%91%E5%AE%9A%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90"><span class="toc-text">WCF绑定学习资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WCF%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-text">WCF服务配置管理工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo"><span class="toc-text">Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%A5%91%E7%BA%A6"><span class="toc-text">定义契约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BB%88%E7%BB%93%E7%82%B9"><span class="toc-text">配置终结点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%91%E5%AE%9A"><span class="toc-text">使用绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9tcp%E7%BB%88%E7%BB%93%E7%82%B9%E7%9A%84%E8%B0%83%E7%94%A8%E5%A6%82%E4%B8%8B"><span class="toc-text">对tcp终结点的调用如下</span></a></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Asp-Net/">Asp.Net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/WPF/">WPF</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web%E6%9C%8D%E5%8A%A1/">Web服务</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">Windows应用开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">Windows应用程序开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/">线上评论</a><span class="category-list-count">2</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/Aplayer/" style="font-size: 0.6em;">Aplayer</a> <a href="/tags/C/" style="font-size: 0.6em;">C#</a> <a href="/tags/GitHub/" style="font-size: 0.7em;">GitHub</a> <a href="/tags/Gitalk/" style="font-size: 0.6em;">Gitalk</a> <a href="/tags/Hexo/" style="font-size: 0.7em;">Hexo</a> <a href="/tags/Nginx/" style="font-size: 0.6em;">Nginx</a> <a href="/tags/Nodejs/" style="font-size: 0.7em;">Nodejs</a> <a href="/tags/UWP/" style="font-size: 0.75em;">UWP</a> <a href="/tags/WCF/" style="font-size: 0.7em;">WCF</a> <a href="/tags/WPF/" style="font-size: 0.8em;">WPF</a> <a href="/tags/livere/" style="font-size: 0.6em;">livere</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 0.6em;">博客美化</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.65em;">音乐</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/qm/c33edf33.html"><i class="fa  fa-book"></i> AspNet开发1</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/8cfe4bab.html"><i class="fa  fa-book"></i> 深入浅出Windows应用开发(四)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/50fedeca.html"><i class="fa  fa-book"></i> Windows通用应用程序开发(三)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/5bdeb856.html"><i class="fa  fa-book"></i> 深入浅出Windows应用程序开发(二)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/7b676f35.html"><i class="fa  fa-book"></i> 深入浅出Windows通用应用程序开发(一)</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:Drfengling@163.com"><i class="fa fa-envelope"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://t.me/CandyUnion"><i class="fa fa-telegram"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="me" href="https://nya.one/@Drfengling"><i class="fa fa fa-share-alt-square"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/Drfengling"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2023 浅梦博客 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 浅梦风凌.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">豫ICP备2022011311号</a></li>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://unpkg.com/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.min.js"></script>
+    </div>
+
+
+
+<script defer src="https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+
+</html>

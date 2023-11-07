@@ -1,0 +1,18 @@
+<script defer src="<%- url_cdn('js/pjax.min.js') %>"></script>
+
+head 
+
+  <% if (theme.aplayer.enabled) { %>
+    <link rel="stylesheet" href="<%- url_npm_cdn('aplayer@1.10.1/dist/APlayer.min.css') %>">
+  <% }%>
+
+footer
+
+<% if (theme.aplayer.enabled) { %> class="ap-lrc" <% } %>
+
+after-footer
+
+<% if (theme.aplayer.enabled) { %>
+    <script defer src="<%- url_npm_cdn('aplayer@1.10.1/dist/APlayer.min.js') %>"></script>
+    <%- partial('../_tools/player') %>
+<% }%>

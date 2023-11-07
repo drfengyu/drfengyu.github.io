@@ -1,0 +1,23 @@
+comments: 
+    provider: 
+    enableBGImage: false
+# APlayer 左下角音乐播放器
+aplayer:
+  enabled: true
+  playlist: 
+  meting:
+    server: netease
+    type: playlist
+    id: 3204190542
+  order: random
+
+  <% if (theme.aplayer.enabled) { %>
+    <link rel="stylesheet" href="<%- url_npm_cdn('aplayer@1.10.1/dist/APlayer.min.css') %>">
+  <% }%>
+
+<% if (theme.aplayer.enabled) { %> class="ap-lrc" <% } %> 
+
+<% if (theme.aplayer.enabled) { %>
+    <script defer src="<%- url_npm_cdn('aplayer@1.10.1/dist/APlayer.min.js') %>"></script>
+    <%- partial('../_tools/player') %>
+<% }%>

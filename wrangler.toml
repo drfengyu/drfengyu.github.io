@@ -1,0 +1,13 @@
+name = "www"
+type = "webpack"
+account_id="7ff35bb1fb6a2291039f8b3de42b5c09"
+route = ''
+zone_id = ''
+usage_model = ''
+compatibility_flags = []
+workers_dev = true
+compatibility_date = "2022-04-20"
+
+[site]
+bucket = "./public"             # 生成的 dist 路径，对于 Hexo 来说就是 public
+entry-point = "workers-site"    # Cloudflare Workers 相关代码存放处，默认就是 workers-site 目录

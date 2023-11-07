@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="/images/favicon.ico">
+  <title>搭建个人博客(一) | 浅梦博客</title>
+  <meta name="author" content="浅梦风凌" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="GitHub, Hexo, Nodejs" />
+  
+  <meta name="description" content="一.初识Hexo;快速、简洁且高效的博客框架，官网：https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。 但是要知道它是个博客框架，有很多好看的主题https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建个人博客(一)">
+<meta property="og:url" content="https://drfengling.github.io/qm/387162d6.html">
+<meta property="og:site_name" content="浅梦博客">
+<meta property="og:description" content="一.初识Hexo;快速、简洁且高效的博客框架，官网：https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。 但是要知道它是个博客框架，有很多好看的主题https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://drfengling.github.io/images/favicon.ico">
+<meta property="article:published_time" content="2022-04-13T00:48:09.000Z">
+<meta property="article:modified_time" content="2022-04-19T06:39:53.617Z">
+<meta property="article:author" content="浅梦风凌">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Nodejs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://drfengling.github.io/images/favicon.ico">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" media="all">
+  
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    <script src="https://unpkg.com/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/images/bg.webp');
+        }
+      }
+    
+  </style>
+  
+  <script src="/live2d-widget/autoload.js"></script>
+<div style="display: none;">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+</div>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="浅梦博客" type="application/atom+xml">
+</head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-link"></i>链接</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://drfengling.github.io/">浅梦博客</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://github.com/Drfengling/Drfengling.github.io">项目链接</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-music" aria-hidden="true"></i>歌单</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/playlist/">飙升榜</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">浅梦博客</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>浅梦博客</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article>
+    
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center">搭建个人博客(一)</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><i class="fa fa-calendar"></i> 2022-04-13</li>
+                <li><i class="fa fa-user"></i> 作者 浅梦风凌</li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        ~4.18K
+                    
+                    字
+                </li>
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1650350393617"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            <hr />
+            <h3 id="一-初识Hexo"><a href="#一-初识Hexo" class="headerlink" title="一.初识Hexo;"></a>一.初识Hexo;</h3><p>快速、简洁且高效的博客框架，官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a>是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。</p>
+<p>但是要知道它是个博客框架，有很多好看的主题<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a>可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。</p>
+<span id="more"></span>
+<h3 id="二-安装前提"><a href="#二-安装前提" class="headerlink" title="二.安装前提;"></a>二.安装前提;</h3><p>安装 Hexo 相当简单，只需要先安装下列应用程序即可：</p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a> (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)<br><a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a><br>如果您的电脑中已经安装上述必备程序，那么恭喜您！你可以直接前往 安装 Hexo 步骤。</p>
+<h3 id="三-安装Hexo"><a href="#三-安装Hexo" class="headerlink" title="三.安装Hexo;"></a>三.安装Hexo;</h3><p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>进阶安装和使用<br>对于熟悉 npm 的进阶用户，可以仅局部安装 hexo 包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo</span><br></pre></td></tr></table></figure>
+<h3 id="四-搭建博客"><a href="#四-搭建博客" class="headerlink" title="四.搭建博客;"></a>四.搭建博客;</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>这里我在J:\WEIXIN\Blog下新建了文件夹博客日记作为演示<br>1.打开cmd命令行或Windows Power Shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Windows PowerShell</span><br><span class="line">版权所有 (C) Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">尝试新的跨平台 PowerShell https://aka.ms/pscore6</span><br><span class="line"></span><br><span class="line">PS C:\Users\Administrator&gt; J:</span><br></pre></td></tr></table></figure>
+<p>2.切换到J盘文件夹目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\&gt; <span class="built_in">cd</span> J:\WEIXIN\Blog\博客日记</span><br></pre></td></tr></table></figure>
+<p>3.初始化hexo博客文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo init</span><br><span class="line">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span><br><span class="line">[32mINFO [39m Install dependencies</span><br><span class="line">INFO  Start blogging with Hexo!</span><br></pre></td></tr></table></figure>
+<p>新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br><span class="line">_config.yml</span><br></pre></td></tr></table></figure>
+<p>网站的 配置 信息，您可以在此配置大部分的参数。</p>
+<p>package.json<br>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;hexo-site&quot;</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span>: <span class="string">&quot;0.0.0&quot;</span>,</span><br><span class="line">  <span class="string">&quot;private&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">&quot;hexo&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;hexo&quot;</span>: <span class="string">&quot;^3.8.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-generator-archive&quot;</span>: <span class="string">&quot;^0.1.5&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-generator-category&quot;</span>: <span class="string">&quot;^0.1.3&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-generator-index&quot;</span>: <span class="string">&quot;^0.2.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-generator-tag&quot;</span>: <span class="string">&quot;^0.2.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-renderer-ejs&quot;</span>: <span class="string">&quot;^0.3.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-renderer-stylus&quot;</span>: <span class="string">&quot;^0.3.3&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-renderer-marked&quot;</span>: <span class="string">&quot;^0.3.2&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hexo-server&quot;</span>: <span class="string">&quot;^0.3.3&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>scaffolds<br>模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
+<p>Hexo的模板是指在新建的文章文件中默认填充的内容。例如，如果您修改scaffold/post.md中的Front-matter内容，那么每次新建一篇文章时都会包含这个修改。</p>
+<p>source<br>资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
+<p>themes<br>主题 文件夹。Hexo 会根据主题来生成静态页面。<br>4.启动Hexo $ hexo s</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo s</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<p>5.浏览器输入：<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>，可查看到默认生成了一篇博文：<br><img src="/qm/387162d6/HexoIndex.jpg"></p>
+<p>6.新建一篇博文<br>ctrl+c断开刚刚的链接，新建一篇博文：hexo n “发布第二篇个人博客”</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo n <span class="string">&quot;发布第二篇个人博客&quot;</span></span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Created: J:\WEIXIN\Blog\博客1\<span class="built_in">source</span>\_posts\发布第二篇个人博客.md</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt;</span><br></pre></td></tr></table></figure>
+<p>5、接下来就是更改博文内容，可以选择用命令行，也可用开发工具，我直接使用记事本打开该文件了，找到相应的位置，做修改即可<br><img src="/qm/387162d6/HexobowenCreate.jpg"><br>6、同样在博客日记文件下： 清理：hexo clean 生成：hexo g 启动：hexo s</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo cl</span><br><span class="line">..</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo g</span><br><span class="line">..</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo s</span><br></pre></td></tr></table></figure>
+<p><img src="/qm/387162d6/hexobowen2.jpg"><br>完成!</p>
+<h3 id="五-部署到Github上"><a href="#五-部署到Github上" class="headerlink" title="五.部署到Github上;"></a>五.部署到Github上;</h3><p>1、登录github：<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a>，没账号的新建一个，新创建一个仓库New repository，仓库名必须为：昵称.github.io:，输入描述，创建：<br><img src="/qm/387162d6/1.jpg"><br><img src="/qm/387162d6/2.jpg"><br>2、命令行下，ctrl+c，退出命令，仍然在博客日记目录下，安装git部署插件：npm install hexo-deployer-git –save</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>3、更改博客日记文件夹下，_config.yml的配置，我直接用记事本了，用命令行修改也可以：</p>
+<p>repo为第一步创建的git仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/Drfengling/Drfengling.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+<p>4.回到命令行部署到远端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo d</span><br></pre></td></tr></table></figure>
+<p>中间会让输入github密码，输入即可，后续部署完成，即可访问你的远端地址：<br><a href="https://drfengling.github.io/">https://Drfengling.github.io</a><br>###五.Hexo主题的使用；<br>1、选主题：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a>，有很多主题可供选择，也可使用网友推荐的自己喜欢的主题，有相应的预览、github地址：</p>
+<p>我这里使用的是： diaspora： <a target="_blank" rel="noopener" href="https://github.com/Fechin/hexo-theme-diaspora">https://github.com/Fechin/hexo-theme-diaspora</a></p>
+<p>有相应的安装方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; git <span class="built_in">clone</span> https://github.com/Fechin/hexo-theme-diaspora.git themes/diaspora</span><br></pre></td></tr></table></figure>
+<p>修改Hexo配置文件 _config.yml 主题项设置为diaspora</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">theme: diaspora</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>3、清理、启动：</p>
+<p>清理：hexo clean 生成：hexo g 启动：hexo s</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo cl</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo g</span><br><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo s</span><br></pre></td></tr></table></figure>
+<p>在本地刷新预览<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>之后，看到主题效果，可根据自己需要做相应修改即可。</p>
+<p>4、推至远端：</p>
+<p>ctrl+c退出上一步命令，然后推至远端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS J:\WEIXIN\Blog\博客日记&gt; hexo d</span><br></pre></td></tr></table></figure>
+<p>刷新查看：<a href="https://drfengling.github.io/">https://Drfengling.github.io</a><br>以上就是搭建个人博客的全过程了，也可以购买自己的域名，放置自己的域名下</p>
+
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://drfengling.github.io/qm/387162d6.html",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://drfengling.github.io/qm/387162d6.html";
+            const title         = "「搭建个人博客(一)」";
+            const excerpt       = `一.初识Hexo;快速、简洁且高效的博客框架，官网：https://hexo.io/zh-cn/是这么介绍的，嗯，有道理，那么我就不赘述了，想要更透彻了解的可自行查阅。
+但是要知道它是个博客框架，有很多好看的主题https://hexo.io/themes/可以应用在自己的博客上，这篇文章要讲述如何用hexo写博客并部署到github上就好了。`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/GitHub/" rel="tag">GitHub</a>, <a class="tag-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>, <a class="tag-none-link" href="/tags/Nodejs/" rel="tag">Nodejs</a>
+                </div>
+                <div class="pull-date">
+                <span>最后编辑：2022-04-19</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" Hello World" href="/qm/4a17b156.html">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" 搭建个人博客(二)" href="/qm/4b6f21d9.html">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <link rel="stylesheet" href="https://unpkg.com/gitalk@1/dist/gitalk.css">
+<div id="gitalk-container" class="post-comments lazy-load" style="padding-left:2rem; padding-right:2rem;"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            console.log('Gitalk loading...');
+            const gitalk = new Gitalk(Object.assign({
+                id: '/qm/387162d6.html',
+                path: '/qm/387162d6.html'
+            }, JSON.parse('{"clientID":"67075d9ed7922a3c9791","clientSecret":"50ce067bd2bb3d9e9e48d56804da1a6d25e7bf16","repo":"dryunment","owner":"Drfengling","admin":["Drfengling"],"distractionFreeMode":false}')));
+
+            gitalk.render('gitalk-container');
+        }
+        if (typeof Gitalk === 'undefined') {
+            const src = 'https://unpkg.com/gitalk@1/dist/gitalk.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+load_comm();
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">comments powered by Gitalk.</a></noscript>
+    
+</article>
+
+        
+
+            </section>
+
+        
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                28
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                8
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                15
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Asp-Net/">Asp.Net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/WPF/">WPF</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web%E6%9C%8D%E5%8A%A1/">Web服务</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">Windows应用开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">Windows应用程序开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/">线上评论</a><span class="category-list-count">2</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/Aplayer/" style="font-size: 0.6em;">Aplayer</a> <a href="/tags/C/" style="font-size: 0.6em;">C#</a> <a href="/tags/GitHub/" style="font-size: 0.7em;">GitHub</a> <a href="/tags/Gitalk/" style="font-size: 0.6em;">Gitalk</a> <a href="/tags/Hexo/" style="font-size: 0.7em;">Hexo</a> <a href="/tags/Nginx/" style="font-size: 0.6em;">Nginx</a> <a href="/tags/Nodejs/" style="font-size: 0.7em;">Nodejs</a> <a href="/tags/UWP/" style="font-size: 0.75em;">UWP</a> <a href="/tags/WCF/" style="font-size: 0.7em;">WCF</a> <a href="/tags/WPF/" style="font-size: 0.8em;">WPF</a> <a href="/tags/livere/" style="font-size: 0.6em;">livere</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 0.6em;">博客美化</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.65em;">音乐</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/qm/c33edf33.html"><i class="fa  fa-book"></i> AspNet开发1</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/8cfe4bab.html"><i class="fa  fa-book"></i> 深入浅出Windows应用开发(四)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/50fedeca.html"><i class="fa  fa-book"></i> Windows通用应用程序开发(三)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/5bdeb856.html"><i class="fa  fa-book"></i> 深入浅出Windows应用程序开发(二)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/7b676f35.html"><i class="fa  fa-book"></i> 深入浅出Windows通用应用程序开发(一)</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:Drfengling@163.com"><i class="fa fa-envelope"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://t.me/CandyUnion"><i class="fa fa-telegram"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="me" href="https://nya.one/@Drfengling"><i class="fa fa fa-share-alt-square"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/Drfengling"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2023 浅梦博客 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 浅梦风凌.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">豫ICP备2022011311号</a></li>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://unpkg.com/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.min.js"></script>
+    </div>
+
+
+
+<script defer src="https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+
+</html>

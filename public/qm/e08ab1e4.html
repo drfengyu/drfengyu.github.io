@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="/images/favicon.ico">
+  <title>C#WCF方向(一) | 浅梦博客</title>
+  <meta name="author" content="浅梦风凌" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="WCF" />
+  
+  <meta name="description" content="WCF开始入手WCF了,从零开始,记录一下WCF的学习笔记 什么是WCF摘要WCF是使用托管代码建立和运行面向服务（Service Oriented）应用程序的统一框架。它使得开发者能够建立一个跨平台的安全、可信赖、事务性的解决方案，且能与已有系统兼容协作。WCF是微软分布式应用程序开发的集大成者，它整合了.Net平台下所有的和分布式系统有关的技术，例如.Net Remoting、ASMX、WSE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#WCF方向(一)">
+<meta property="og:url" content="https://drfengling.github.io/qm/e08ab1e4.html">
+<meta property="og:site_name" content="浅梦博客">
+<meta property="og:description" content="WCF开始入手WCF了,从零开始,记录一下WCF的学习笔记 什么是WCF摘要WCF是使用托管代码建立和运行面向服务（Service Oriented）应用程序的统一框架。它使得开发者能够建立一个跨平台的安全、可信赖、事务性的解决方案，且能与已有系统兼容协作。WCF是微软分布式应用程序开发的集大成者，它整合了.Net平台下所有的和分布式系统有关的技术，例如.Net Remoting、ASMX、WSE">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://drfengling.github.io/images/favicon.ico">
+<meta property="article:published_time" content="2022-05-03T05:55:35.000Z">
+<meta property="article:modified_time" content="2022-05-04T01:40:47.529Z">
+<meta property="article:author" content="浅梦风凌">
+<meta property="article:tag" content="WCF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://drfengling.github.io/images/favicon.ico">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" media="all">
+  
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    <script src="https://unpkg.com/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/images/bg.webp');
+        }
+      }
+    
+  </style>
+  
+  <script src="/live2d-widget/autoload.js"></script>
+<div style="display: none;">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+</div>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="浅梦博客" type="application/atom+xml">
+</head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-link"></i>链接</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://drfengling.github.io/">浅梦博客</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://github.com/Drfengling/Drfengling.github.io">项目链接</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-music" aria-hidden="true"></i>歌单</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/playlist/">飙升榜</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">浅梦博客</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>浅梦博客</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article>
+    
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center">C#WCF方向(一)</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><i class="fa fa-calendar"></i> 2022-05-03</li>
+                <li><i class="fa fa-user"></i> 作者 浅梦风凌</li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        ~5.28K
+                    
+                    字
+                </li>
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1651628447529"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+                <div class="kratos-post-inner-toc">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#WCF"><span class="toc-number">1.</span> <span class="toc-text">WCF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFWCF"><span class="toc-number">1.1.</span> <span class="toc-text">什么是WCF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%BE%AE%E8%BD%AF%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF"><span class="toc-number">1.2.</span> <span class="toc-text">集成微软分布式技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%98%E7%AE%A1%E6%96%B9%E5%BC%8F%E5%A4%9A%E6%A0%B7%E5%8C%96"><span class="toc-number">1.3.</span> <span class="toc-text">托管方式多样化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.4.</span> <span class="toc-text">统一编程模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WCF%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.5.</span> <span class="toc-text">WCF知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="toc-number">1.6.</span> <span class="toc-text">软件工程的发展历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SOA%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-number">1.7.</span> <span class="toc-text">SOA的特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E6%9C%8D%E5%8A%A1%E7%B1%BB%E5%88%AB"><span class="toc-number">1.8.</span> <span class="toc-text">Web服务类别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E6%9C%8D%E5%8A%A1%E4%BD%BF%E7%94%A8%E7%9A%84%E9%A2%86%E5%9F%9F"><span class="toc-number">1.9.</span> <span class="toc-text">Web服务使用的领域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84Web%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.10.</span> <span class="toc-text">应用系统中的Web服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90%E4%B8%AD%E7%9A%84Web%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.11.</span> <span class="toc-text">系统集成中的Web服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo"><span class="toc-number">1.12.</span> <span class="toc-text">Demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WCF%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">1.13.</span> <span class="toc-text">WCF的新特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WCF%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90"><span class="toc-number">1.14.</span> <span class="toc-text">WCF学习资源</span></a></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <h2 id="WCF"><a href="#WCF" class="headerlink" title="WCF"></a>WCF</h2><p>开始入手WCF了,从零开始,记录一下WCF的学习笔记</p>
+<h3 id="什么是WCF"><a href="#什么是WCF" class="headerlink" title="什么是WCF"></a>什么是WCF</h3><p>摘要<br>WCF是使用托管代码建立和运行面向服务（Service Oriented）应用程序的统一框架。它使得开发者能够建立一个跨平台的安全、可信赖、事务性的解决方案，且能与已有系统兼容协作。WCF是微软分布式应用程序开发的集大成者，它整合了.Net平台下所有的和分布式系统有关的技术，例如.Net Remoting、ASMX、WSE和MSMQ。以通信(Communiation)范围而论，它可以跨进程、跨机器、跨子网、企业网乃至于 Internet；以宿主程序而论，可以以ASP.NET，EXE，WPF，Windows Forms，NT Service，COM+作为宿主(Host)。</p>
+<span id="more"></span>
+<p>简述<br>1.WCF全称Windows Communication Foundation<br>2.是Miscrosoft为构建面向服务的应用提供的分布式通信编程框架<br>3.是.Net Framework的重要组成部分.<br>4.WCF4.0<br>历史<br>ASMX WSE WCF3.0 WCF3.5 WCF4.0 WCFN.0</p>
+<h3 id="集成微软分布式技术"><a href="#集成微软分布式技术" class="headerlink" title="集成微软分布式技术"></a>集成微软分布式技术</h3><p>WCF:WSE. MSMQ.  Enterprise Service COM+ .NET Remoting ASP.NET Web Service</p>
+<h3 id="托管方式多样化"><a href="#托管方式多样化" class="headerlink" title="托管方式多样化"></a>托管方式多样化</h3><p>托管(Host)<br>IIS EXE Winform wpf Window Service  NT Service COM+</p>
+<h3 id="统一编程模型"><a href="#统一编程模型" class="headerlink" title="统一编程模型"></a>统一编程模型</h3><p>Client Talk to  (Binding,Address,Contract)<br>1.Address: 每一个WCF的Service都有一个唯一的地址。这个地址给出了Service的地址和传输协议(Transport Protocol)。<br>2.Binding:绑定制定了服务通过什么形式访问。只要类比传输协议, encoding (text, binary, etc) 以及 WS-* 协议，像transactional支持以及可信任的消息队列。<br>3.Contract:Contract描述了Service能提供的各种服务。Contract有四种，包括Service Contract, Data Contract, Fault Contract和Message Contract。</p>
+<h3 id="WCF知识点"><a href="#WCF知识点" class="headerlink" title="WCF知识点"></a>WCF知识点</h3><p>1.契约 Contract<br>2.宿主 Host<br>3.绑定 Binding<br>4.事务 Transaction<br>5.消息队列 MSMQ<br>6.并发控制 Concurrency Control<br>7.错误处理 Error Handling<br>8.安全 Security<br>9.诊断与调试</p>
+<h3 id="软件工程的发展历史"><a href="#软件工程的发展历史" class="headerlink" title="软件工程的发展历史"></a>软件工程的发展历史</h3><p>面向过程PO 面向对象OO 面向组件CO 面向服务SO</p>
+<h3 id="SOA的特征"><a href="#SOA的特征" class="headerlink" title="SOA的特征"></a>SOA的特征</h3><p>1.Service Oriented Architecture<br>2.面向服务的架构<br>互操作 重用 松耦合</p>
+<h3 id="Web服务类别"><a href="#Web服务类别" class="headerlink" title="Web服务类别"></a>Web服务类别</h3><p>SOAP REST<br>soap:简单对象访问协议<br>rest：轻量级WebApi服务</p>
+<h3 id="Web服务使用的领域"><a href="#Web服务使用的领域" class="headerlink" title="Web服务使用的领域"></a>Web服务使用的领域</h3><p>开发中间产品 暴露接口服务 集成第三方系统</p>
+<h3 id="应用系统中的Web服务"><a href="#应用系统中的Web服务" class="headerlink" title="应用系统中的Web服务"></a>应用系统中的Web服务</h3><p>表现层<br>服务层<br>业务逻辑层——&gt;  ESB企业服务总线   ——&gt;服务<br>数据访问层<br>数据 数据</p>
+<h3 id="系统集成中的Web服务"><a href="#系统集成中的Web服务" class="headerlink" title="系统集成中的Web服务"></a>系统集成中的Web服务</h3><p>   电子商务网站订单系统<br>    |              |                |<br>银行服务 库存系统服务 短信服务</p>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><p>1.创建一个WCF服务程序 程序并调用<br>打开Visual Studio开发工具 我这里用的2022<br>左上角菜单 文件 点击新建 选择项目 打开了创建新项目的对话框 我们在搜索栏搜素wcf<br>搜索结果如下所示:<br><img src="/qm/e08ab1e4/1.jpg"><br>这里选择WCF服务应用程序<br><img src="/qm/e08ab1e4/2.jpg"><br>自定义下项目名 位置 这里选用.Net4.5.2框架 创建即可<br><img src="/qm/e08ab1e4/3.jpg"><br>创建完成后 默认会添加IService1.cs,Service1.svc文件,.svc扩展文件,它会做一些消息的路由工作,激活服务,会通过文件做一些处理.<br>IService1.cs<br>ServiceContract:服务契约<br>包含两个操作契约OperationContract：GetData,GetDataUsingDataContract 使用数据契约获取数据<br>DataContract:数据契约:<br>包含两个值 bool  StringValue<br>做下自定义更改<br>1.增加数据契约对象<br>我们在IService1.cs中创建一个类自定义命名我的如下新增一个用户数据对象,增加以下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[DataContract]//数据契约对象</span><br><span class="line">    public class UserData &#123; </span><br><span class="line">        [DataMember]</span><br><span class="line">        public string UserName &#123; get; <span class="built_in">set</span>; &#125;</span><br><span class="line">        [DataMember]</span><br><span class="line">        public string Email &#123; get; <span class="built_in">set</span>; &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>2.增加服务契约接口<br>我们在IService1.cs中interface IService1中新增接口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// TODO: 在此添加您的服务操作</span><br><span class="line">        /// &lt;summary&gt;</span><br><span class="line">        /// 自定义服务契约</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=<span class="string">&quot;user&quot;</span>&gt;&lt;/param&gt;</span><br><span class="line">        /// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">        [OperationContract]///注意:增加操作契约标记</span><br><span class="line">        UserData GetUserData(UserData user);</span><br></pre></td></tr></table></figure>
+<p>3.在Service1.svc中新增实现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">///新增实现</span><br><span class="line">       public UserData GetUserData(UserData user) &#123;</span><br><span class="line">           <span class="built_in">return</span> user;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<p>到此，我们已完成了简单的数据服务实现契约,点击导航栏生成——&gt;重新生成解决方案,确认无报错后执行下一步<br>4.在浏览器中查看<br>点击Service1.svc右键选择在浏览器中查看<br>visual Studio打开浏览器,跳转服务界面.<br><img src="/qm/e08ab1e4/4.jpg"><br>出现这个界面,说明你的服务是正常的.可以发布了.我们看到</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svcutil.exe http://localhost:60217/Service1.svc?wsdl</span><br></pre></td></tr></table></figure>
+<p>wsdl:服务描述语言,对外公布的服务语言,你想让别人引用你的服务的话,就可以引用这个.<br>我们可以看到下方有客户端调用示例.后面客户端调用服务可以仿照使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">C<span class="comment">#</span></span><br><span class="line"></span><br><span class="line">class Test</span><br><span class="line">&#123;</span><br><span class="line">    static void <span class="function"><span class="title">Main</span></span>()</span><br><span class="line">    &#123;</span><br><span class="line">        Service1Client client = new Service1Client();</span><br><span class="line"></span><br><span class="line">        // 使用 <span class="string">&quot;client&quot;</span> 变量在服务上调用操作。</span><br><span class="line"></span><br><span class="line">        // 始终关闭客户端。</span><br><span class="line">        client.Close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Visual Basic</span><br><span class="line"></span><br><span class="line">Class Test</span><br><span class="line">    Shared Sub Main()</span><br><span class="line">        Dim client As Service1Client = New Service1Client()</span><br><span class="line">        <span class="string">&#x27; 使用 &quot;client&quot; 变量在服务上调用操作。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        &#x27;</span> 始终关闭客户端。</span><br><span class="line">        client.Close()</span><br><span class="line">    End Sub</span><br><span class="line">End Class</span><br></pre></td></tr></table></figure>
+<p>5.新增WPF项目<br>我们在解决方案下新增一个WPF项目<br>(也可以新增一个网站项目,Winform项目等)<br><img src="/qm/e08ab1e4/5.jpg"><br>自定义名字WCFClient创建.<br>6.引用服务<br>在创建好的wpf项目中选择引用,右键选择添加服务引用,打开如下:<br><img src="/qm/e08ab1e4/6.jpg"><br>我们输入步骤4在浏览器打开后生成的公共服务语言</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:60217/Service1.svc?wsdl</span><br></pre></td></tr></table></figure>
+<p>自定义命名空间名称ServiceReference确定.<br>提示:我们也可以点击发现.发现解决方案中的服务.<br>服务栏会为我们找到对应服务.<br><img src="/qm/e08ab1e4/7.jpg"><br>点击Service1.svc打开到IService1,即可查看右侧列表显示的三个服务接口,两个默认的服务接口契约,<br>和一个我们新增的GetUserData服务契约.(如果没有显示新增的接口,请返回WCF项目检查是否遗漏契约标记)<br>点击添加后的服务引用可以查看<br><img src="/qm/e08ab1e4/8.jpg"><br>7.使用Wpf调用服务</p>
+<ul>
+<li>打开MainWindow新增Button按钮,可以打开工具栏拖动Button到界面上,或编写Xaml文本增加,完成后调整布局.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;Grid HorizontalAlignment=<span class="string">&quot;Center&quot;</span> VerticalAlignment=<span class="string">&quot;Center&quot;</span>&gt;</span><br><span class="line">        &lt;Button</span><br><span class="line">            Width=<span class="string">&quot;100&quot;</span></span><br><span class="line">            Height=<span class="string">&quot;30&quot;</span></span><br><span class="line">            Content=<span class="string">&quot;调用服务&quot;</span> Click=<span class="string">&quot;Button_Click&quot;</span>/&gt;</span><br><span class="line">    &lt;/Grid&gt;</span><br></pre></td></tr></table></figure></li>
+<li>点击Click事件F12进入后置代码,这里不做复杂框架处理,后置编写点击实现Wcf服务调用<br>具体实现如下:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">        /// 调用WCF服务.</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=<span class="string">&quot;sender&quot;</span>&gt;&lt;/param&gt;</span><br><span class="line">        /// &lt;param name=<span class="string">&quot;e&quot;</span>&gt;&lt;/param&gt;</span><br><span class="line">        private void Button_Click(object sender, RoutedEventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            Service1Client client = new Service1Client();</span><br><span class="line">            string result1 = client.GetData(1);</span><br><span class="line">            UserData userData = client.GetUserData(new <span class="function"><span class="title">UserData</span></span>() &#123; Email=<span class="string">&quot;Drfengling@163.com&quot;</span>,UserName=<span class="string">&quot;浅梦风凌&quot;</span>&#125;);</span><br><span class="line">            client.Close();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>8.生成调试服务</p>
+<ul>
+<li>点击导航栏生成 重新生成解决方案 确认无误后在点击事件处打断点调试</li>
+<li>选择WCFClient为启动项目,点击导航栏调试开始调试,点击按钮调用服务,观察服务调用结果<br><img src="/qm/e08ab1e4/9.jpg"><br>可以看到我们在客户端完成了对服务端的调用,调用获取到了WCF服务结果.<br>快来动手试试搭建简单的服务调用吧.</li>
+</ul>
+<h3 id="WCF的新特性"><a href="#WCF的新特性" class="headerlink" title="WCF的新特性"></a>WCF的新特性</h3><p>WCF4.5新特性<br>1.支持契约优先(Contract First)的开发<br>2.Building发现配置错误<br>3.支持新异步流<br>4.?singleWSDL<br>5.Websockets支持在端口80和443<br>6.XML编辑器工具展示<br>7.ChannelFactory缓存支持<br>8.二进制编码器压缩支持<br>9.不管Fire and foget的UDP消息发交换模式<br>10.支持单个WCF终结点支持多个身份验证模式<br>11.支持WCF服务使用国际化域名（IDNs）</p>
+<h3 id="WCF学习资源"><a href="#WCF学习资源" class="headerlink" title="WCF学习资源"></a>WCF学习资源</h3><p>1.最权威WCF书籍</p>
+<ul>
+<li>Programing WCF Service,(Juval Lowy)</li>
+<li>《WCF服务编程》第三版</li>
+<li>Inside WCF,(Justin Smith)</li>
+<li>《WCF技术内幕》</li>
+</ul>
+<p>2.论坛</p>
+<ul>
+<li>微软WCF中文技术论坛<br><a target="_blank" rel="noopener" href="http://social.msdn.microsoft.com/Forums/zh-CN/wcfzhchs/threads">http://social.msdn.microsoft.com/Forums/zh-CN/wcfzhchs/threads</a></li>
+<li>微软WCF英文技术论坛</li>
+<li>跟我一起从零开始学WCF系列课程(由于官网视频已经失效了,有兴趣可以看看这篇博客)<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dqj1024/archive/2012/07/21/2602342.html">https://www.cnblogs.com/dqj1024/archive/2012/07/21/2602342.html</a></li>
+</ul>
+
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://drfengling.github.io/qm/e08ab1e4.html",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://drfengling.github.io/qm/e08ab1e4.html";
+            const title         = "「C#WCF方向(一)」";
+            const excerpt       = `WCF开始入手WCF了,从零开始,记录一下WCF的学习笔记
+什么是WCF摘要WCF是使用托管代码建立和运行面向服务（Service Oriented）应用程序的统一框架。它使得开发者能够建立一个跨平台的安全、可信赖、事务性的解决方案，且能与已有系统兼容协作。WCF是微软分布式应用程序开发的集大成者，它整合了.Net平台下所有的和分布式系统有关的技术，例如.Net Remoting、ASMX、WSE和MSMQ。以通信(Communiation)范围而论，它可以跨进程、跨机器、跨子网、企业网乃至于 Internet；以宿主程序而论，可以以ASP.NET，EXE，WPF，Windows Forms，NT Service，COM+作为宿主(Host)。`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/WCF/" rel="tag">WCF</a>
+                </div>
+                <div class="pull-date">
+                <span>最后编辑：2022-05-04</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" Hexo博客添加Gitalk评论" href="/qm/212a5789.html">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" C#WCF方向(二)" href="/qm/4fbb2a86.html">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <link rel="stylesheet" href="https://unpkg.com/gitalk@1/dist/gitalk.css">
+<div id="gitalk-container" class="post-comments lazy-load" style="padding-left:2rem; padding-right:2rem;"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            console.log('Gitalk loading...');
+            const gitalk = new Gitalk(Object.assign({
+                id: '/qm/e08ab1e4.html',
+                path: '/qm/e08ab1e4.html'
+            }, JSON.parse('{"clientID":"67075d9ed7922a3c9791","clientSecret":"50ce067bd2bb3d9e9e48d56804da1a6d25e7bf16","repo":"dryunment","owner":"Drfengling","admin":["Drfengling"],"distractionFreeMode":false}')));
+
+            gitalk.render('gitalk-container');
+        }
+        if (typeof Gitalk === 'undefined') {
+            const src = 'https://unpkg.com/gitalk@1/dist/gitalk.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+load_comm();
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">comments powered by Gitalk.</a></noscript>
+    
+</article>
+
+        
+
+            </section>
+
+        
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                28
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                8
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                15
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#WCF"><span class="toc-text">WCF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFWCF"><span class="toc-text">什么是WCF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%BE%AE%E8%BD%AF%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF"><span class="toc-text">集成微软分布式技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%98%E7%AE%A1%E6%96%B9%E5%BC%8F%E5%A4%9A%E6%A0%B7%E5%8C%96"><span class="toc-text">托管方式多样化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">统一编程模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WCF%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">WCF知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="toc-text">软件工程的发展历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SOA%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-text">SOA的特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E6%9C%8D%E5%8A%A1%E7%B1%BB%E5%88%AB"><span class="toc-text">Web服务类别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E6%9C%8D%E5%8A%A1%E4%BD%BF%E7%94%A8%E7%9A%84%E9%A2%86%E5%9F%9F"><span class="toc-text">Web服务使用的领域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84Web%E6%9C%8D%E5%8A%A1"><span class="toc-text">应用系统中的Web服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90%E4%B8%AD%E7%9A%84Web%E6%9C%8D%E5%8A%A1"><span class="toc-text">系统集成中的Web服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo"><span class="toc-text">Demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WCF%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-text">WCF的新特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WCF%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90"><span class="toc-text">WCF学习资源</span></a></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Asp-Net/">Asp.Net</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/WPF/">WPF</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web%E6%9C%8D%E5%8A%A1/">Web服务</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">Windows应用开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">Windows应用程序开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/">博客日记</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E4%B8%8A%E8%AF%84%E8%AE%BA/">线上评论</a><span class="category-list-count">2</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/Aplayer/" style="font-size: 0.6em;">Aplayer</a> <a href="/tags/C/" style="font-size: 0.6em;">C#</a> <a href="/tags/GitHub/" style="font-size: 0.7em;">GitHub</a> <a href="/tags/Gitalk/" style="font-size: 0.6em;">Gitalk</a> <a href="/tags/Hexo/" style="font-size: 0.7em;">Hexo</a> <a href="/tags/Nginx/" style="font-size: 0.6em;">Nginx</a> <a href="/tags/Nodejs/" style="font-size: 0.7em;">Nodejs</a> <a href="/tags/UWP/" style="font-size: 0.75em;">UWP</a> <a href="/tags/WCF/" style="font-size: 0.7em;">WCF</a> <a href="/tags/WPF/" style="font-size: 0.8em;">WPF</a> <a href="/tags/livere/" style="font-size: 0.6em;">livere</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 0.6em;">博客美化</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.6em;">日记</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 0.6em;">视频</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.65em;">音乐</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/qm/c33edf33.html"><i class="fa  fa-book"></i> AspNet开发1</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/8cfe4bab.html"><i class="fa  fa-book"></i> 深入浅出Windows应用开发(四)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/50fedeca.html"><i class="fa  fa-book"></i> Windows通用应用程序开发(三)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/5bdeb856.html"><i class="fa  fa-book"></i> 深入浅出Windows应用程序开发(二)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/qm/7b676f35.html"><i class="fa  fa-book"></i> 深入浅出Windows通用应用程序开发(一)</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:Drfengling@163.com"><i class="fa fa-envelope"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://t.me/CandyUnion"><i class="fa fa-telegram"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="me" href="https://nya.one/@Drfengling"><i class="fa fa fa-share-alt-square"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/Drfengling"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2023 浅梦博客 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 浅梦风凌.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">豫ICP备2022011311号</a></li>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://unpkg.com/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.min.js"></script>
+    </div>
+
+
+
+<script defer src="https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+
+</html>
